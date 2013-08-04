@@ -1,0 +1,22 @@
+group = 'com.cleware.driver'
+
+sourceSets {
+    main {
+        resources {
+            srcDir 'src/main/java'
+        }
+    }
+    test {
+        resources {
+            srcDir 'src/test/java'
+        }
+    }
+}
+
+dependencies {
+    compile commonDeps
+
+    compile "com.codeminders:hidapi:1.1"
+
+    testCompile testDeps
+}

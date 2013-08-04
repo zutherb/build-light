@@ -1,0 +1,70 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+test.onlyIf { !Boolean.getBoolean('skip.tests') }
+
+tasks.withType(Compile) {
+    options.compilerArgs << "-Xlint:unchecked -Xlint:deprecation"
+}
+
+group = 'com.build.light'
+
+sourceCompatibility = 1.6
+targetCompatibility = 1.6
+
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+
+//load version from the root folder
+def props = new Properties();
+file("gradle.properties").withInputStream { props.load(it) }
+props.each({ project.ext[it.key] = it.value })
+
+ext.slf4jVersion = "1.7.5"
+ext.logbackVersion = "1.0.13"
+ext.groovyVersion = "2.1.6"
+ext.junitVersion = "4.11"
+ext.mockitoVersion = "1.9.5"
+ext.jettyVersion = "9.0.4.v20130625"
+ext.springVersion = "3.2.3.RELEASE"
+
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+    apply plugin: 'idea'
+
+    repositories {
+        mavenCentral()
+        mavenRepo(url: 'http://maven.springsource.org/release')
+        mavenRepo(url: 'http://nexus.ailis.de/content/groups/public/')
+    }
+
+    ext.commonDeps = [
+            "org.slf4j:slf4j-api:$slf4jVersion",
+            "ch.qos.logback:logback-classic:$logbackVersion",
+            "org.codehaus.groovy:groovy-all:$groovyVersion"
+    ]
+
+    ext.springDeps = [
+            "org.springframework:spring-core:$springVersion"
+    ]
+
+    ext.jettyDeps = [
+            "org.eclipse.jetty.aggregate:jetty-all-server:$jettyVersion",
+            "org.eclipse.jetty.orbit:javax.servlet:3.0.0.v201112011016@jar",
+            "org.eclipse.jetty:jetty-continuation:$jettyVersion",
+            "org.eclipse.jetty:jetty-http:$jettyVersion"
+    ]
+
+    ext.testDeps = [
+            "org.springframework:spring-test:$springVersion",
+            "junit:junit:$junitVersion",
+            "org.mockito:mockito-all:$mockitoVersion"
+    ]
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.6'
+}
