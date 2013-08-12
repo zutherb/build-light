@@ -38,8 +38,11 @@ public final class CommandLineRunner {
                 }
                 buffer.next();
             }
-        } catch (Exception e) { /* NOOP */}
-        TRAFFIC_LIGHT.close();
+        } catch (Exception e) { /* NOOP */
+        } finally {
+            TRAFFIC_LIGHT.close();
+            System.exit(0);
+        }
     }
 
 }
