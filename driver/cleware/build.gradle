@@ -17,8 +17,20 @@ sourceSets {
 
 dependencies {
     compile commonDeps
-
     compile "com.codeminders:hidapi:1.1"
+    compile "de.ailis.usb4java:usb4java:1.0.0"
 
     testCompile testDeps
+}
+
+jar {
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    manifest {
+        attributes(
+                "Implementation-Title": "Cleware Traffic Light Driver",
+                "Implementation-Version": version,
+                "Author": "Bernd Zuther <bernd.zuther@me.com>",
+                "Main-Class": "com.cleware.driver.CommandLineRunner"
+        )
+    }
 }

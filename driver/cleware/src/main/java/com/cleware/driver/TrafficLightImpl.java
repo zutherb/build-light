@@ -2,15 +2,19 @@ package com.cleware.driver;
 
 import com.codeminders.hidapi.HIDDevice;
 import com.codeminders.hidapi.HIDManager;
+import org.apache.commons.lang.Validate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
+import static java.lang.String.format;
+
 /**
  * @author zutherb
  */
 public class TrafficLightImpl implements TrafficLight {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(TrafficLightImpl.class);
 
     private static final String SWITCH_ON_ERROR = "Led {} could not be switched on";
@@ -27,7 +31,10 @@ public class TrafficLightImpl implements TrafficLight {
     @Override
     public void switchOn(Led led) {
         try {
-            hidDevice.write(createSwitchOnBuffer(led));
+            byte[] writeBuffer = createSwitchOnBuffer(led);
+            int writtenBytes = hidDevice.sendFeatureReport(writeBuffer);
+            Validate.isTrue(writtenBytes == writeBuffer.length, "Not all bytes from the was written to usb");
+            LOGGER.info(format("Switch on '%s' Led", led.name()));
         } catch (IOException e) {
             LOGGER.debug(SWITCH_ON_ERROR, led.name());
             throw new TrafficLightException(e);
@@ -37,9 +44,12 @@ public class TrafficLightImpl implements TrafficLight {
     @Override
     public void switchOff(Led led) {
         try {
-            hidDevice.write(createSwitchOffBuffer(led));
-            LOGGER.debug(SWITCH_OFF_ERROR, led.name());
+            byte[] writeBuffer = createSwitchOffBuffer(led);
+            int writtenBytes = hidDevice.write(writeBuffer);
+            Validate.isTrue(writtenBytes == writeBuffer.length, "Not all bytes from the was written to usb");
+            LOGGER.info(format("Switch off '%s' Led", led.name()));
         } catch (IOException e) {
+            LOGGER.debug(SWITCH_OFF_ERROR, led.name());
             throw new TrafficLightException(e);
         }
     }
@@ -59,11 +69,11 @@ public class TrafficLightImpl implements TrafficLight {
     }
 
     private byte[] createSwitchOnBuffer(Led led) {
-        return new byte[]{0, led.getAddress(), 15};
+        return new byte[]{(byte) 0x0, led.getAddress(), (byte) 0x1};
     }
 
     private byte[] createSwitchOffBuffer(Led led) {
-        return new byte[]{0, led.getAddress(), 15};
+        return new byte[]{(byte) 0x0, led.getAddress(), (byte) 0x0};
     }
 
     @Override

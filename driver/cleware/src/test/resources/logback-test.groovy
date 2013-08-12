@@ -11,5 +11,5 @@ appender("stdout", ConsoleAppender) {
     }
 }
 
-root(DEBUG, ["stdout", "rest"])
+root(DEBUG, ["stdout"])
 

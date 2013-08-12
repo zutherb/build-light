@@ -11,7 +11,10 @@ import java.io.IOException;
 /**
  * @author zutherb
  */
-public class TrafficLightFactory {
+public final class TrafficLightFactory {
+
+    private TrafficLightFactory() { /*NOOP*/ }
+
     private static final Logger LOGGER = LoggerFactory.getLogger(TrafficLightFactory.class);
 
     private static final int VENDOR_ID = 0xD50;     //Cleware Vendor Id
