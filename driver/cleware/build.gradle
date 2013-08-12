@@ -28,7 +28,6 @@ dependencies {
 }
 
 jar {
-    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     manifest {
         attributes(
                 "Implementation-Title": "Cleware Traffic Light Driver",
@@ -37,4 +36,8 @@ jar {
                 "Main-Class": mainClassName
         )
     }
+}
+
+task buildWithDependencies(type: Jar) {
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
 }
