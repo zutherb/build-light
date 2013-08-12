@@ -1,6 +1,6 @@
 apply plugin:'application'
 
-mainClassName = "com.cleware.driver.CommandLineRunner"
+mainClassName = "com.cleware.commandline.CommandLineRunner"
 
 group = 'com.cleware.driver'
 

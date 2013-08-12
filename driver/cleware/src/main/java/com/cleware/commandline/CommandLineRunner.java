@@ -1,5 +1,8 @@
-package com.cleware.driver;
+package com.cleware.commandline;
 
+import com.cleware.driver.Led;
+import com.cleware.driver.TrafficLight;
+import com.cleware.driver.TrafficLightFactory;
 import org.apache.commons.lang.Validate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

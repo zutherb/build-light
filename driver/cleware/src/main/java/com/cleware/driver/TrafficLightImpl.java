@@ -32,7 +32,7 @@ public class TrafficLightImpl implements TrafficLight {
     public void switchOn(Led led) {
         try {
             byte[] writeBuffer = createSwitchOnBuffer(led);
-            int writtenBytes = hidDevice.sendFeatureReport(writeBuffer);
+            int writtenBytes = hidDevice.write(writeBuffer);
             Validate.isTrue(writtenBytes == writeBuffer.length, "Not all bytes from the was written to usb");
             LOGGER.info(format("Switch on '%s' Led", led.name()));
         } catch (IOException e) {
@@ -69,11 +69,11 @@ public class TrafficLightImpl implements TrafficLight {
     }
 
     private byte[] createSwitchOnBuffer(Led led) {
-        return new byte[]{(byte) 0x0, led.getAddress(), (byte) 0x1};
+        return new byte[]{(byte) 0x0, (byte) 0x0, led.getAddress(), (byte) 0x1};
     }
 
     private byte[] createSwitchOffBuffer(Led led) {
-        return new byte[]{(byte) 0x0, led.getAddress(), (byte) 0x0};
+        return new byte[]{(byte) 0x0, (byte) 0x0, led.getAddress(), (byte) 0x0};
     }
 
     @Override
