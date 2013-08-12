@@ -1,3 +1,7 @@
+apply plugin:'application'
+
+mainClassName = "com.cleware.driver.CommandLineRunner"
+
 group = 'com.cleware.driver'
 
 sourceSets {
@@ -30,7 +34,7 @@ jar {
                 "Implementation-Title": "Cleware Traffic Light Driver",
                 "Implementation-Version": version,
                 "Author": "Bernd Zuther <bernd.zuther@me.com>",
-                "Main-Class": "com.cleware.driver.CommandLineRunner"
+                "Main-Class": mainClassName
         )
     }
 }
