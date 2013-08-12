@@ -22,7 +22,6 @@ sourceSets {
 dependencies {
     compile commonDeps
     compile "com.codeminders:hidapi:1.1"
-    compile "de.ailis.usb4java:usb4java:1.0.0"
 
     testCompile testDeps
 }

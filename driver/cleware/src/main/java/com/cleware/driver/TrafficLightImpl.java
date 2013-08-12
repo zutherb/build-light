@@ -34,9 +34,9 @@ public class TrafficLightImpl implements TrafficLight {
             byte[] writeBuffer = createSwitchOnBuffer(led);
             int writtenBytes = hidDevice.write(writeBuffer);
             Validate.isTrue(writtenBytes == writeBuffer.length, "Not all bytes from the was written to usb");
-            LOGGER.info(format("Switch on '%s' Led", led.name()));
+            LOGGER.debug(format("Switch on '%s' Led", led.name()));
         } catch (IOException e) {
-            LOGGER.debug(SWITCH_ON_ERROR, led.name());
+            LOGGER.error(SWITCH_ON_ERROR, led.name());
             throw new TrafficLightException(e);
         }
     }
@@ -47,9 +47,9 @@ public class TrafficLightImpl implements TrafficLight {
             byte[] writeBuffer = createSwitchOffBuffer(led);
             int writtenBytes = hidDevice.write(writeBuffer);
             Validate.isTrue(writtenBytes == writeBuffer.length, "Not all bytes from the was written to usb");
-            LOGGER.info(format("Switch off '%s' Led", led.name()));
+            LOGGER.debug(format("Switch off '%s' Led", led.name()));
         } catch (IOException e) {
-            LOGGER.debug(SWITCH_OFF_ERROR, led.name());
+            LOGGER.error(SWITCH_OFF_ERROR, led.name());
             throw new TrafficLightException(e);
         }
     }

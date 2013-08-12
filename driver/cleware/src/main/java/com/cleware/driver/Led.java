@@ -18,12 +18,12 @@ public enum Led {
         return address;
     }
 
-    public static Led valueOfIgnoreCase(String name) {
+    public static Led valueOfIgnoreCaseOrNull(String name) {
         for (Led led : Led.values()) {
             if (led.name().equalsIgnoreCase(name)) {
                 return led;
             }
         }
-        throw new IllegalArgumentException("Not led was found for arg: " + name);
+        return null;
     }
 }
