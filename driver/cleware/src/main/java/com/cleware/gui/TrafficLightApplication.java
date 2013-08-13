@@ -2,7 +2,6 @@ package com.cleware.gui;
 
 import com.cleware.driver.Led;
 import com.cleware.driver.TrafficLight;
-import com.cleware.driver.TrafficLightFactory;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -20,7 +19,7 @@ import java.util.Map;
  */
 public class TrafficLightApplication extends Application {
 
-    private static final TrafficLight TRAFFIC_LIGHT = TrafficLightFactory.instance();
+    private static final TrafficLight TRAFFIC_LIGHT = TrafficLight.INSTANCE;
 
     private static Map<Led, Boolean> LED_STATES;
 

@@ -2,7 +2,6 @@ package com.cleware.commandline;
 
 import com.cleware.commandline.command.*;
 import com.cleware.driver.TrafficLight;
-import com.cleware.driver.TrafficLightFactory;
 
 import java.util.Arrays;
 import java.util.List;
@@ -15,7 +14,7 @@ public final class CommandLineRunner {
 
     private CommandLineRunner() { /*NOOP*/ }
 
-    private static final TrafficLight TRAFFIC_LIGHT = TrafficLightFactory.instance();
+    private static final TrafficLight TRAFFIC_LIGHT = TrafficLight.INSTANCE;
     private static final List<Command> COMMAND_CHAIN = Arrays.asList(new GuiCommand(), new LedCommand(), new WaitCommand(), new KnightRiderCommand());
 
     public static void main(String[] args) {

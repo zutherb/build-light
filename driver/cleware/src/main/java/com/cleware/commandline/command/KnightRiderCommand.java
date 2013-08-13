@@ -3,21 +3,25 @@ package com.cleware.commandline.command;
 import com.cleware.commandline.ArgumentBuffer;
 import com.cleware.driver.Led;
 import com.cleware.driver.TrafficLight;
-import com.cleware.driver.TrafficLightFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author zutherb
  */
 public class KnightRiderCommand implements Command {
-    private static final TrafficLight TRAFFIC_LIGHT = TrafficLightFactory.instance();
+    private static final TrafficLight TRAFFIC_LIGHT = TrafficLight.INSTANCE;
+    private static final Logger LOGGER = LoggerFactory.getLogger(KnightRiderCommand.class);
+    private static final String KNIGHTRIDER = "--knightrider";
 
     @Override
     public boolean isResponsible(ArgumentBuffer buffer) {
-        return "--knightrider".equalsIgnoreCase(buffer.peek());
+        return KNIGHTRIDER.equalsIgnoreCase(buffer.peek());
     }
 
     @Override
     public void execute(ArgumentBuffer buffer) {
+        LOGGER.info("Exit Knight Rider sequence by pressing Ctrl+C");
         try {
             Led[] leds = Led.values();
             int moveCounter = 0;
@@ -40,7 +44,7 @@ public class KnightRiderCommand implements Command {
                 Thread.sleep(1000);
             }
         } catch (InterruptedException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            LOGGER.error("Knight Rider sequence could not be executed", e);
         }
     }
 }

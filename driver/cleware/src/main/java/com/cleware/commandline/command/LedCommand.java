@@ -3,7 +3,6 @@ package com.cleware.commandline.command;
 import com.cleware.commandline.ArgumentBuffer;
 import com.cleware.driver.Led;
 import com.cleware.driver.TrafficLight;
-import com.cleware.driver.TrafficLightFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,7 +10,7 @@ import org.slf4j.LoggerFactory;
  * @author zutherb
  */
 public class LedCommand implements Command {
-    private static final TrafficLight TRAFFIC_LIGHT = TrafficLightFactory.instance();
+    private static final TrafficLight TRAFFIC_LIGHT = TrafficLight.INSTANCE;
     private static final Logger LOGGER = LoggerFactory.getLogger(LedCommand.class);
 
     @Override
