@@ -12,12 +12,24 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author zutherb
  */
 public class TrafficLightApplication extends Application {
 
     private static final TrafficLight TRAFFIC_LIGHT = TrafficLightFactory.instance();
+
+    private static Map<Led, Boolean> LED_STATES;
+
+    static {
+        LED_STATES = new HashMap<>();
+        for (Led led : Led.values()) {
+            LED_STATES.put(led, Boolean.FALSE);
+        }
+    }
 
     public static void main(String[] args) {
         launch(args);
@@ -49,17 +61,14 @@ public class TrafficLightApplication extends Application {
         redButton.setPrefSize(270, 70);
         redButton.setOnAction(new EventHandler<ActionEvent>() {
 
-            private boolean on = false;
-
             @Override
             public void handle(ActionEvent event) {
-                TRAFFIC_LIGHT.switchOffAllLeds();
-                if (!on) {
+                if (!LED_STATES.get(led)) {
                     TRAFFIC_LIGHT.switchOn(led);
-                    on = true;
+                    LED_STATES.put(led, Boolean.TRUE);
                 } else {
                     TRAFFIC_LIGHT.switchOff(led);
-                    on = false;
+                    LED_STATES.put(led, Boolean.FALSE);
                 }
             }
         });

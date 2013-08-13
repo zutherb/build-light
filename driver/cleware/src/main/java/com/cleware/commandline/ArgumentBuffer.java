@@ -34,7 +34,7 @@ public class ArgumentBuffer {
     }
 
     public boolean isFinished() {
-        return position == arguments.length - 1;
+        return position > arguments.length;
     }
 
     public String[] arguments() {
