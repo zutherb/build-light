@@ -38,6 +38,12 @@ jar {
     }
 }
 
+run {
+    if (project.hasProperty('args')) {
+        args project.args.split('\\s+')
+    }
+}
+
 task buildWithDependencies(type: Jar) {
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
 }

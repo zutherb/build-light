@@ -21,7 +21,7 @@ public class KnightRiderCommand implements Command {
 
     @Override
     public void execute(ArgumentBuffer buffer) {
-        LOGGER.info("Exit Knight Rider sequence by pressing Ctrl+C");
+        LOGGER.info("Knight Rider sequence can be exit by pressing Ctrl+C");
         try {
             Led[] leds = Led.values();
             int moveCounter = 0;
