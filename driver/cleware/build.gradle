@@ -4,12 +4,17 @@ mainClassName = "com.cleware.commandline.CommandLineRunner"
 
 group = 'com.cleware.driver'
 
+configurations {
+    javafx
+}
+
 sourceSets {
     main {
         resources {
             srcDir 'src/main/java'
             srcDir 'src/main/resources'
         }
+        compileClasspath += configurations.javafx
     }
     test {
         resources {
@@ -22,7 +27,14 @@ sourceSets {
 dependencies {
     compile commonDeps
     compile "com.codeminders:hidapi:1.1"
-    compile files("${System.properties['java.home']}/lib/jfxrt.jar")
+
+    if (System.properties['os.name'].count("mac") >= 0) {
+        logger.error("find mac")
+        javafx files("${System.properties['java.home']}/lib/jfxrt.jar")
+    } else {
+        logger.error("find other")
+        javafx files("${System.properties['java.home']}/jre/lib/jfxrt.jar")
+    }
 
     testCompile testDeps
 }
@@ -42,8 +54,4 @@ run {
     if (project.hasProperty('args')) {
         args project.args.split('\\s+')
     }
-}
-
-task buildWithDependencies(type: Jar) {
-    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
 }

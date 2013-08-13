@@ -2,6 +2,8 @@ package com.cleware.commandline;
 
 import com.cleware.commandline.command.*;
 import com.cleware.driver.TrafficLight;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
 import java.util.List;
@@ -11,6 +13,8 @@ import java.util.List;
  * @author zutherb
  */
 public final class CommandLineRunner {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(CommandLineRunner.class);
 
     private CommandLineRunner() { /*NOOP*/ }
 
@@ -28,7 +32,8 @@ public final class CommandLineRunner {
                 }
                 buffer.next();
             }
-        } catch (Exception e) { /* NOOP */
+        } catch (Exception e) {
+            LOGGER.error("ERROR", e);
         } finally {
             TRAFFIC_LIGHT.close();
             System.exit(0);
