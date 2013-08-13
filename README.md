@@ -25,10 +25,10 @@ What is Build Light
 Cleware Traffic Java Driver
 ---------------------------
 
-[Download](http://h1994633.stratoserver.net:9090/job/Build-Light/lastSuccessfulBuild/artifact/driver/cleware/build/libs/cleware-0.1-DEV.jar)
+[Download](http://h1994633.stratoserver.net:9090/job/Build-Light/lastSuccessfulBuild/artifact/driver/cleware/build/distributions/cleware-0.1-DEV.zip)
 
 ```bash
-java -jar cleware.jar
-java -jar cleware-0.1-DEV.jar red on wait 500 yellow on wait 500 green on
-java -jar cleware-0.1-DEV.jar red off wait 500 yellow off wait 500 green off
+./cleware
+./cleware red on wait 500 yellow on wait 500 green on
+./cleware red off wait 500 yellow off wait 500 green off
 ```

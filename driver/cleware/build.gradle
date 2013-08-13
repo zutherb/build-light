@@ -27,7 +27,6 @@ sourceSets {
 dependencies {
     compile commonDeps
     compile "com.codeminders:hidapi:1.1"
-    logger.error("Java-Home: ${System.properties['java.home']}")
     javafx files("${System.properties['java.home']}/lib/jfxrt.jar")
 
     testCompile testDeps
