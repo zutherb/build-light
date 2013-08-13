@@ -19,10 +19,11 @@ public class ArgumentBuffer {
     }
 
     public String next() {
-        if (!isFinished()) {
-            return arguments[++position];
+        position = ++position;
+        if (isFinished()) {
+            return arguments[position - 1];
         }
-        return peek();
+        return arguments[position];
     }
 
     public boolean isEmpty() {
@@ -34,7 +35,7 @@ public class ArgumentBuffer {
     }
 
     public boolean isFinished() {
-        return position > arguments.length;
+        return position >= arguments.length;
     }
 
     public String[] arguments() {

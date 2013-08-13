@@ -21,7 +21,8 @@ public class LedCommand implements Command {
     @Override
     public void execute(ArgumentBuffer buffer) {
         Led led = Led.valueOfIgnoreCaseOrNull(buffer.peek());
-        Mode mode = Mode.valueOfIgnoreCaseOrError(buffer.next());
+        String name = buffer.next();
+        Mode mode = Mode.valueOfIgnoreCaseOrError(name);
         switch (mode) {
             case ON:
                 TRAFFIC_LIGHT.switchOn(led);
