@@ -25,7 +25,7 @@ What is Build Light
 Cleware Traffic Java Driver
 ---------------------------
 
-[Download](https://raw.github.com/zutherb/build-light/master/bin/cleware.jar)
+[Download](http://h1994633.stratoserver.net:9090/job/Build-Light/lastSuccessfulBuild/artifact/driver/cleware/build/libs/cleware-0.1-DEV.jar)
 
 ```bash
 java -jar cleware.jar
