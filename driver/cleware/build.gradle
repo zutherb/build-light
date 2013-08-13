@@ -27,14 +27,8 @@ sourceSets {
 dependencies {
     compile commonDeps
     compile "com.codeminders:hidapi:1.1"
-
-    if (System.properties['os.name'].count("mac") >= 0) {
-        logger.error("find mac")
-        javafx files("${System.properties['java.home']}/lib/jfxrt.jar")
-    } else {
-        logger.error("find other")
-        javafx files("${System.properties['java.home']}/jre/lib/jfxrt.jar")
-    }
+    logger.error("Java-Home: ${System.properties['java.home']}")
+    javafx files("${System.properties['java.home']}/lib/jfxrt.jar")
 
     testCompile testDeps
 }
