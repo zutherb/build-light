@@ -19,7 +19,8 @@ public final class CommandLineRunner {
     private CommandLineRunner() { /*NOOP*/ }
 
     private static final TrafficLight TRAFFIC_LIGHT = TrafficLight.INSTANCE;
-    private static final List<Command> COMMAND_CHAIN = Arrays.asList(new GuiCommand(), new LedCommand(), new WaitCommand(), new KnightRiderCommand());
+    private static final List<Command> COMMAND_CHAIN = Arrays.asList(new GuiCommand(), new LedCommand(),
+            new WaitCommand(), new KnightRiderCommand(), new HelpCommand());
 
     public static void main(String[] args) {
         try {

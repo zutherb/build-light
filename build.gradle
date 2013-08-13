@@ -47,7 +47,8 @@ subprojects {
                 "org.slf4j:slf4j-api:$slf4jVersion",
                 "ch.qos.logback:logback-classic:$logbackVersion",
                 "org.codehaus.groovy:groovy-all:$groovyVersion",
-                "commons-lang:commons-lang:2.6"
+                "commons-lang:commons-lang:2.6",
+                "commons-io:commons-io:2.4"
         ]
 
         springDeps = [
