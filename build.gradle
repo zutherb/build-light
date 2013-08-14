@@ -10,8 +10,8 @@ tasks.withType(Compile) {
 
 group = 'com.build.light'
 
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
+sourceCompatibility = 1.6
+targetCompatibility = 1.6
 
 compileJava.options.encoding = 'UTF-8'
 compileTestJava.options.encoding = 'UTF-8'
