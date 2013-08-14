@@ -1,13 +1,16 @@
 package com.cleware.commandline.command;
 
 import com.cleware.commandline.ArgumentBuffer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author zutherb
  */
 public class WaitCommand implements Command {
 
-    public static final String WAIT = "wait";
+    private static final Logger LOGGER = LoggerFactory.getLogger(WaitCommand.class);
+    private static final String WAIT = "wait";
 
     @Override
     public boolean isResponsible(ArgumentBuffer buffer) {
@@ -19,7 +22,7 @@ public class WaitCommand implements Command {
         try {
             Thread.sleep(Long.parseLong(buffer.next()));
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.error("Error during execution of wait command", e);
         }
     }
 }

@@ -19,25 +19,37 @@ public final class CommandLineRunner {
     private CommandLineRunner() { /*NOOP*/ }
 
     private static final TrafficLight TRAFFIC_LIGHT = TrafficLight.INSTANCE;
+    private static final HelpCommand HELP_COMMAND = new HelpCommand();
     private static final List<Command> COMMAND_CHAIN = Arrays.asList(new GuiCommand(), new LedCommand(),
-            new WaitCommand(), new KnightRiderCommand(), new HelpCommand());
+            new WaitCommand(), new KnightRiderCommand(), HELP_COMMAND, new TestCommand());
 
     public static void main(String[] args) {
         try {
             ArgumentBuffer buffer = new ArgumentBuffer(args);
+            printHelpIfBufferIsEmpty(buffer);
             while (!buffer.isFinished()) {
-                for (Command command : COMMAND_CHAIN) {
-                    if (command.isResponsible(buffer)) {
-                        command.execute(buffer);
-                    }
-                }
                 buffer.next();
+                executeCommandsForBuffer(buffer);
             }
         } catch (Exception e) {
             LOGGER.error("ERROR", e);
         } finally {
             TRAFFIC_LIGHT.close();
             System.exit(0);
+        }
+    }
+
+    private static void executeCommandsForBuffer(ArgumentBuffer buffer) {
+        for (Command command : COMMAND_CHAIN) {
+            if (command.isResponsible(buffer)) {
+                command.execute(buffer);
+            }
+        }
+    }
+
+    private static void printHelpIfBufferIsEmpty(ArgumentBuffer buffer) {
+        if (buffer.isFinished()) {
+            HELP_COMMAND.execute(buffer);
         }
     }
 

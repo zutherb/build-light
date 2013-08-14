@@ -3,16 +3,18 @@
 Cleware Traffic Light Java Driver, Maintained by B. Zuther.
 Send bug reports using https://github.com/zutherb/build-light/issues
 
-Usage: cleware [--gui] [--knightrider] [color on|off] [wait time]
-  Default action is that the JavaFX GUI will be open;
+Usage: cleware [--gui] [--knightrider] [--test] [--help] [color on|off] [wait time]
 
   --gui          opens JavaFX GUI
-  --knightrider  plays Knight Rider sequence on the traffic light
-  color on|off   switchs Led on or off
+  --help         prints out this message
+  --test         runs traffic light test sequence
+  --knightrider  runs Knight Rider sequence on the traffic light
+  color on|off   switches Led on or off
   wait time      waits defined time in ms before the next action is executed
 
 Examples:
   cleware --gui                     => opens JavaFX GUI
-  cleware --knightrider             => plays Knight Rider sequence
-  cleware red on wait 500 red off   => switch on red led, wait 500 ms, switch off red led
-  cleware red on yellow on green on => switch on all leds
+  cleware --test                    => runs Knight Rider sequence
+  cleware --knightrider             => runs Knight Rider sequence
+  cleware red on wait 500 red off   => switches on red led, wait 500 ms, switches off red led
+  cleware red on yellow on green on => switches on all leds

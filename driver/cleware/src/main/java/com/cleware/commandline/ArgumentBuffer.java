@@ -6,24 +6,27 @@ import org.apache.commons.lang.ArrayUtils;
  * @author zutherb
  */
 public class ArgumentBuffer {
+    private static final int START_POSITION = -1;
     private String[] arguments;
     private int position;
 
     public ArgumentBuffer(String[] arguments) {
         this.arguments = arguments;
-        this.position = 0;
+        this.position = START_POSITION;
     }
 
     public String peek() {
+        if (position == START_POSITION) {
+            return null;
+        }
         return arguments[position];
     }
 
     public String next() {
-        position = ++position;
         if (isFinished()) {
-            return arguments[position - 1];
+            return null;
         }
-        return arguments[position];
+        return arguments[++position];
     }
 
     public boolean isEmpty() {
@@ -35,7 +38,7 @@ public class ArgumentBuffer {
     }
 
     public boolean isFinished() {
-        return position >= arguments.length;
+        return arguments.length == 0 || position >= arguments.length - 1;
     }
 
     public String[] arguments() {

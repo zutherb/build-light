@@ -31,7 +31,7 @@ public class HelpCommand implements Command {
             File file = new File(resource.getFile());
             LOGGER.info(FileUtils.readFileToString(file));
         } catch (Exception e) {
-            LOGGER.error("Could not open help file");
+            LOGGER.error("Could not open help file", e);
         }
     }
 }
