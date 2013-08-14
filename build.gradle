@@ -31,6 +31,15 @@ ext {
     springVersion = "3.2.3.RELEASE"
 }
 
+configurations {
+    all*.exclude module: "slf4j-log4j12"
+    all*.exclude module: "jcl-over-slf4"
+    all*.exclude module: "commons-logging"
+    all*.exclude module: "log4j"
+}
+
+
+
 
 subprojects {
     apply plugin: 'java'

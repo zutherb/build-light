@@ -29,10 +29,10 @@ public class GuiArgumentParser extends AbstractArgumentParser {
     @Override
     public void execute(ArgumentBuffer buffer) {
         try {
+            LOGGER.info("Starting GUI ...");
             TrafficLightApplication.main(buffer.arguments());
-            LOGGER.info("GUI started");
         } catch (Exception e) {
-            LOGGER.error("Could not start GUI");
+            throw new ParserException(e);
         }
     }
 }

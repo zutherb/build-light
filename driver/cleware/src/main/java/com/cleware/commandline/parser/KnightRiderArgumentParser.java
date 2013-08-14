@@ -57,7 +57,7 @@ public class KnightRiderArgumentParser extends AbstractArgumentParser {
                 stopWatch.stop();
             }
         } catch (Exception e) {
-            LOGGER.error("Knight Rider sequence could not be executed", e);
+            throw new ParserException(e);
         }
     }
 

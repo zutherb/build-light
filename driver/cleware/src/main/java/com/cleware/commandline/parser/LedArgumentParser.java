@@ -37,8 +37,8 @@ public class LedArgumentParser extends AbstractArgumentParser {
                 trafficLight().switchOff(led);
                 break;
             default:
-                LOGGER.error("Postion {}: Led {} must be following <on | off>", buffer.position(), led);
-                break;
+                String msg = String.format("Postion %d: Led %s must be following <on | off>", buffer.position(), led.name());
+                throw new ParserException(msg);
         }
     }
 

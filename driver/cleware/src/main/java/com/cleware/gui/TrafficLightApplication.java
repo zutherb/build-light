@@ -25,7 +25,7 @@ public class TrafficLightApplication extends Application {
     private static Map<Led, Boolean> LED_STATES;
 
     static {
-        LED_STATES = new HashMap<>();
+        LED_STATES = new HashMap<Led, Boolean>();
         for (Led led : Led.values()) {
             LED_STATES.put(led, Boolean.FALSE);
         }
@@ -73,5 +73,11 @@ public class TrafficLightApplication extends Application {
             }
         });
         return redButton;
+    }
+
+    @Override
+    public void stop() throws Exception {
+        TRAFFIC_LIGHT.close();
+        System.exit(0);
     }
 }
