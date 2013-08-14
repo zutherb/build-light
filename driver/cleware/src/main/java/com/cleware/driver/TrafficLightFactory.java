@@ -28,8 +28,8 @@ public final class TrafficLightFactory {
             dumpDebugInformation(hidDevice);
             return new TrafficLightImpl(hidManager, hidDevice);
         } catch (IOException e) {
-            LOGGER.error("Traffic light instance could not be created", e);
-            throw new TrafficLightException(e);
+            LOGGER.error("Traffic light USB device could not be found. A mock was created instate", e);
+            return new TrafficLightMock();
         }
     }
 

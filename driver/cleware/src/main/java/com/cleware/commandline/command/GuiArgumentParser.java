@@ -1,6 +1,5 @@
 package com.cleware.commandline.command;
 
-import com.cleware.commandline.ArgumentBuffer;
 import com.cleware.gui.TrafficLightApplication;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,9 +7,9 @@ import org.slf4j.LoggerFactory;
 /**
  * @author zutherb
  */
-public class GuiCommand implements Command {
+public class GuiArgumentParser extends AbstractArgumentParser {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(LedCommand.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(LedArgumentParser.class);
     private static final String GUI = "--gui";
 
     @Override

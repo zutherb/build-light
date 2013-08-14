@@ -1,12 +1,14 @@
 package com.cleware.commandline.command;
 
-import com.cleware.commandline.ArgumentBuffer;
+import com.cleware.driver.TrafficLight;
 
 /**
  * @author zutherb
  */
-public interface Command {
+public interface ArgumentParser {
     boolean isResponsible(ArgumentBuffer buffer);
 
     void execute(ArgumentBuffer buffer);
+
+    TrafficLight trafficLight();
 }

@@ -1,6 +1,5 @@
 package com.cleware.commandline.command;
 
-import com.cleware.commandline.ArgumentBuffer;
 import com.cleware.driver.Led;
 import com.cleware.driver.TrafficLight;
 import org.slf4j.Logger;
@@ -9,9 +8,9 @@ import org.slf4j.LoggerFactory;
 /**
  * @author zutherb
  */
-public class KnightRiderCommand implements Command {
+public class KnightRiderArgumentParser extends AbstractArgumentParser {
     private static final TrafficLight TRAFFIC_LIGHT = TrafficLight.INSTANCE;
-    private static final Logger LOGGER = LoggerFactory.getLogger(KnightRiderCommand.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(KnightRiderArgumentParser.class);
     private static final String KNIGHTRIDER = "--knightrider";
 
     @Override

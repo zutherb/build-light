@@ -1,23 +1,23 @@
 package com.cleware.commandline.command;
 
-import com.cleware.commandline.ArgumentBuffer;
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 
 /**
  * @author zutherb
  */
-public class HelpCommand implements Command {
+public final class HelpArgumentParser extends AbstractArgumentParser {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(HelpCommand.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(HelpArgumentParser.class);
+    private static final String help = "--help";
 
+    private static HelpArgumentParser INSTANCE;
 
-    public static final String help = "--help";
+    private HelpArgumentParser() { /* NOOP  */ }
 
     @Override
     public boolean isResponsible(ArgumentBuffer buffer) {
@@ -33,5 +33,12 @@ public class HelpCommand implements Command {
         } catch (Exception e) {
             LOGGER.error("Could not open help file", e);
         }
+    }
+
+    public synchronized static ArgumentParser instance() {
+        if (INSTANCE == null) {
+            INSTANCE = new HelpArgumentParser();
+        }
+        return INSTANCE;
     }
 }
