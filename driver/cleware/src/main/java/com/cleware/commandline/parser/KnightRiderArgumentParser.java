@@ -1,17 +1,28 @@
-package com.cleware.commandline.command;
+package com.cleware.commandline.parser;
 
 import com.cleware.driver.Led;
 import com.cleware.driver.TrafficLight;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.util.StopWatch;
 
 /**
  * @author zutherb
  */
+@Component
 public class KnightRiderArgumentParser extends AbstractArgumentParser {
-    private static final TrafficLight TRAFFIC_LIGHT = TrafficLight.INSTANCE;
     private static final Logger LOGGER = LoggerFactory.getLogger(KnightRiderArgumentParser.class);
     private static final String KNIGHTRIDER = "--knightrider";
+
+    private long executionTime = 0;
+    private long sleepTime = 1000;
+
+    @Autowired
+    public KnightRiderArgumentParser(TrafficLight trafficLight) {
+        super(trafficLight);
+    }
 
     @Override
     public boolean isResponsible(ArgumentBuffer buffer) {
@@ -25,12 +36,14 @@ public class KnightRiderArgumentParser extends AbstractArgumentParser {
             Led[] leds = Led.values();
             int moveCounter = 0;
             boolean moveForward = true;
-            while (true) {
-                TRAFFIC_LIGHT.switchOffAllLeds();
+            StopWatch stopWatch = new StopWatch();
+            while (executionTimeReached(stopWatch)) {
+                stopWatch.start();
+                trafficLight().switchOffAllLeds();
                 if (moveForward) {
-                    TRAFFIC_LIGHT.switchOn(leds[moveCounter++]);
+                    trafficLight().switchOn(leds[moveCounter++]);
                 } else {
-                    TRAFFIC_LIGHT.switchOn(leds[--moveCounter]);
+                    trafficLight().switchOn(leds[--moveCounter]);
                 }
                 if (moveCounter == 0) {
                     moveCounter++;
@@ -40,10 +53,23 @@ public class KnightRiderArgumentParser extends AbstractArgumentParser {
                     moveForward = false;
                     --moveCounter;
                 }
-                Thread.sleep(1000);
+                Thread.sleep(sleepTime);
+                stopWatch.stop();
             }
-        } catch (InterruptedException e) {
+        } catch (Exception e) {
             LOGGER.error("Knight Rider sequence could not be executed", e);
         }
+    }
+
+    private boolean executionTimeReached(StopWatch stopWatch) {
+        return executionTime == 0 || stopWatch.getTotalTimeMillis() < executionTime;
+    }
+
+    public void setExecutionTime(long executionTime) {
+        this.executionTime = executionTime;
+    }
+
+    public void setSleepTime(long sleepTime) {
+        this.sleepTime = sleepTime;
     }
 }

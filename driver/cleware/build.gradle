@@ -26,6 +26,7 @@ sourceSets {
 
 dependencies {
     compile commonDeps
+    compile springDeps
     compile "com.codeminders:hidapi:1.1"
     javafx files("${System.properties['java.home']}/lib/jfxrt.jar")
 

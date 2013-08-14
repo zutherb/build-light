@@ -1,4 +1,4 @@
-package com.cleware.commandline.command;
+package com.cleware.commandline.parser;
 
 import com.cleware.driver.TrafficLight;
 

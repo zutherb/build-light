@@ -1,10 +1,10 @@
 package com.cleware.commandline;
 
-import com.cleware.commandline.command.ArgumentBuffer;
-import com.cleware.commandline.command.CommandLineParser;
-import com.cleware.driver.TrafficLight;
+import com.cleware.commandline.parser.ArgumentBuffer;
+import com.cleware.commandline.parser.CommandLineParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
 /**
@@ -16,17 +16,15 @@ public final class Runner {
 
     private Runner() { /*NOOP*/ }
 
-    private static final TrafficLight TRAFFIC_LIGHT = TrafficLight.INSTANCE;
-
     public static void main(String[] args) {
+        ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("/com/cleware/spring-context.xml");
         try {
             ArgumentBuffer buffer = new ArgumentBuffer(args);
-            new CommandLineParser(buffer).execute();
+            applicationContext.getBean(CommandLineParser.class).execute(buffer);
         } catch (Exception e) {
             LOGGER.error("ERROR", e);
         } finally {
-            TRAFFIC_LIGHT.close();
-            System.exit(0);
+            applicationContext.destroy();
         }
     }
 }

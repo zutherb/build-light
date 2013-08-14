@@ -1,4 +1,4 @@
-package com.cleware.commandline.command;
+package com.cleware.commandline.parser;
 
 import org.apache.commons.lang.ArrayUtils;
 

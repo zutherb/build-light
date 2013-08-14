@@ -1,10 +1,14 @@
-package com.cleware.commandline.command;
+package com.cleware.commandline.parser;
 
+import com.cleware.driver.TrafficLight;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.springframework.util.StopWatch;
 
 import static org.junit.Assert.assertTrue;
+import static org.mockito.MockitoAnnotations.initMocks;
 
 /**
  * @author zutherb
@@ -12,12 +16,16 @@ import static org.junit.Assert.assertTrue;
 public class WaitArgumentParserTest {
 
     private ArgumentBuffer buffer;
-    private WaitArgumentParser parser;
+
+    @Mock
+    private TrafficLight trafficLight;
+    @InjectMocks
+    private ArgumentParser parser = new WaitArgumentParser(trafficLight);
 
     @Before
     public void setup() {
+        initMocks(this);
         buffer = new ArgumentBuffer(new String[]{"wait", "500"});
-        parser = new WaitArgumentParser();
         buffer.next();
     }
 
@@ -38,16 +46,12 @@ public class WaitArgumentParserTest {
     @Test
     public void failedNumberParsing() {
         ArgumentBuffer buffer = new ArgumentBuffer(new String[]{"wait", "fail"});
-        ArgumentParser parser = new WaitArgumentParser();
-        buffer.next();
         parser.execute(buffer);
     }
 
     @Test
     public void failedArrayBufferLength() {
         ArgumentBuffer buffer = new ArgumentBuffer(new String[]{"wait"});
-        ArgumentParser parser = new WaitArgumentParser();
-        buffer.next();
         parser.execute(buffer);
     }
 }

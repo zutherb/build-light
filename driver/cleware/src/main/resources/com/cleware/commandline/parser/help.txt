@@ -9,6 +9,7 @@ Usage: cleware [--gui] [--knightrider] [--test] [--help] [color on|off] [wait ti
   --help         prints out this message
   --test         runs traffic light test sequence
   --knightrider  runs Knight Rider sequence on the traffic light
+
   color on|off   switches Led on or off
   wait time      waits defined time in ms before the next action is executed
 

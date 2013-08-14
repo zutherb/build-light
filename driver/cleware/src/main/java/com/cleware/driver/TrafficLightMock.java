@@ -10,6 +10,10 @@ public class TrafficLightMock implements TrafficLight {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TrafficLightImpl.class);
 
+    public TrafficLightMock() {
+        LOGGER.info("Traffic Light Mock was created");
+    }
+
     @Override
     public void switchOn(Led led) {
         LOGGER.info("Switch on Led {}", led.name());
@@ -17,7 +21,7 @@ public class TrafficLightMock implements TrafficLight {
 
     @Override
     public void switchOff(Led led) {
-        LOGGER.info("Switch of Led {}", led.name());
+        LOGGER.info("Switch off Led {}", led.name());
     }
 
     @Override

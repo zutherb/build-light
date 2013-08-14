@@ -16,11 +16,24 @@ public final class TrafficLightFactory {
     private TrafficLightFactory() { /*NOOP*/ }
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TrafficLightFactory.class);
+    private static final TrafficLight INSTANCE = createNewInstance();
 
     private static final int VENDOR_ID = 0xD50;     //Cleware Vendor Id
     private static final int PRODUCT_ID = 0x8;      //Traffic Light Product Id
 
-    public static TrafficLight createNewInstance() {
+    /**
+     * Methods returns a traffic light implementation.
+     * <p/>
+     * When an usb device is connect it returns an implemation that can access the usb device.
+     * If no device is connected and mock traffic light is return that prints access to the usb device to the console.
+     *
+     * @return traffic light implementation
+     */
+    public static TrafficLight instance() {
+        return INSTANCE;
+    }
+
+    private static TrafficLight createNewInstance() {
         try {
             ClassPathLibraryLoader.loadNativeHIDLibrary();
             HIDManager hidManager = HIDManager.getInstance();
