@@ -27,7 +27,10 @@ Cleware Traffic Java Driver
 
 ### Installation ###
 
-[Download](http://h1994633.stratoserver.net:9090/job/Build-Light/lastSuccessfulBuild/artifact/driver/cleware/build/distributions/cleware-0.1-DEV.zip)
+<a rel="nofollow" title="Download this repository as a zip file" class="minibutton" href="http://h1994633.stratoserver.net:9090/job/Build-Light/lastSuccessfulBuild/artifact/driver/cleware/build/distributions/cleware-0.1-DEV.zip">
+    <span class="octicon octicon-cloud-download"></span>
+    Download ZIP
+</a>
 
 ```bash
 berndzuther@Bernds-MacBook-Pro ~/Downloads$ unzip cleware-0.1-DEV.zip
