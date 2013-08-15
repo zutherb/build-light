@@ -1,0 +1,199 @@
+{
+    "results": {
+        "start-index": 0,
+        "max-result": 17,
+        "size": 17,
+        "result": [
+            {
+                "link": {
+                    "href": "http://mybambooserver/rest/api/latest/result/BUILDLIGHT-CLEWAREDRIVER-94",
+                    "rel": "self"
+                },
+                "key": "BUILDLIGHT-CLEWAREDRIVER-94",
+                "state": "Successful",
+                "lifeCycleState": "Finished",
+                "number": 94,
+                "id": 13272109
+            },
+            {
+                "link": {
+                    "href": "http://mybambooserver/rest/api/latest/result/BUILDLIGHT-CLEWAREDRIVER-93",
+                    "rel": "self"
+                },
+                "key": "BUILDLIGHT-CLEWAREDRIVER-93",
+                "state": "Successful",
+                "lifeCycleState": "Finished",
+                "number": 93,
+                "id": 13272106
+            },
+            {
+                "link": {
+                    "href": "http://mybambooserver/rest/api/latest/result/BUILDLIGHT-CLEWAREDRIVER-92",
+                    "rel": "self"
+                },
+                "key": "BUILDLIGHT-CLEWAREDRIVER-92",
+                "state": "Successful",
+                "lifeCycleState": "Finished",
+                "number": 92,
+                "id": 13272101
+            },
+            {
+                "link": {
+                    "href": "http://mybambooserver/rest/api/latest/result/BUILDLIGHT-CLEWAREDRIVER-91",
+                    "rel": "self"
+                },
+                "key": "BUILDLIGHT-CLEWAREDRIVER-91",
+                "state": "Successful",
+                "lifeCycleState": "Finished",
+                "number": 91,
+                "id": 13272096
+            },
+            {
+                "link": {
+                    "href": "http://mybambooserver/rest/api/latest/result/BUILDLIGHT-CLEWAREDRIVER-90",
+                    "rel": "self"
+                },
+                "key": "BUILDLIGHT-CLEWAREDRIVER-90",
+                "state": "Successful",
+                "lifeCycleState": "Finished",
+                "number": 90,
+                "id": 13272084
+            },
+            {
+                "link": {
+                    "href": "http://mybambooserver/rest/api/latest/result/BUILDLIGHT-CLEWAREDRIVER-89",
+                    "rel": "self"
+                },
+                "key": "BUILDLIGHT-CLEWAREDRIVER-89",
+                "state": "Successful",
+                "lifeCycleState": "Finished",
+                "number": 89,
+                "id": 13272081
+            },
+            {
+                "link": {
+                    "href": "http://mybambooserver/rest/api/latest/result/BUILDLIGHT-CLEWAREDRIVER-88",
+                    "rel": "self"
+                },
+                "key": "BUILDLIGHT-CLEWAREDRIVER-88",
+                "state": "Successful",
+                "lifeCycleState": "Finished",
+                "number": 88,
+                "id": 13272074
+            },
+            {
+                "link": {
+                    "href": "http://mybambooserver/rest/api/latest/result/BUILDLIGHT-CLEWAREDRIVER-87",
+                    "rel": "self"
+                },
+                "key": "BUILDLIGHT-CLEWAREDRIVER-87",
+                "state": "Failed",
+                "lifeCycleState": "Finished",
+                "number": 87,
+                "id": 13272069
+            },
+            {
+                "link": {
+                    "href": "http://mybambooserver/rest/api/latest/result/BUILDLIGHT-CLEWAREDRIVER-86",
+                    "rel": "self"
+                },
+                "key": "BUILDLIGHT-CLEWAREDRIVER-86",
+                "state": "Successful",
+                "lifeCycleState": "Finished",
+                "number": 86,
+                "id": 13272064
+            },
+            {
+                "link": {
+                    "href": "http://mybambooserver/rest/api/latest/result/BUILDLIGHT-CLEWAREDRIVER-85",
+                    "rel": "self"
+                },
+                "key": "BUILDLIGHT-CLEWAREDRIVER-85",
+                "state": "Successful",
+                "lifeCycleState": "Finished",
+                "number": 85,
+                "id": 13272059
+            },
+            {
+                "link": {
+                    "href": "http://mybambooserver/rest/api/latest/result/BUILDLIGHT-CLEWAREDRIVER-84",
+                    "rel": "self"
+                },
+                "key": "BUILDLIGHT-CLEWAREDRIVER-84",
+                "state": "Successful",
+                "lifeCycleState": "Finished",
+                "number": 84,
+                "id": 13272050
+            },
+            {
+                "link": {
+                    "href": "http://mybambooserver/rest/api/latest/result/BUILDLIGHT-CLEWAREDRIVER-83",
+                    "rel": "self"
+                },
+                "key": "BUILDLIGHT-CLEWAREDRIVER-83",
+                "state": "Failed",
+                "lifeCycleState": "Finished",
+                "number": 83,
+                "id": 13272045
+            },
+            {
+                "link": {
+                    "href": "http://mybambooserver/rest/api/latest/result/BUILDLIGHT-CLEWAREDRIVER-82",
+                    "rel": "self"
+                },
+                "key": "BUILDLIGHT-CLEWAREDRIVER-82",
+                "state": "Successful",
+                "lifeCycleState": "Finished",
+                "number": 82,
+                "id": 13272034
+            },
+            {
+                "link": {
+                    "href": "http://mybambooserver/rest/api/latest/result/BUILDLIGHT-CLEWAREDRIVER-81",
+                    "rel": "self"
+                },
+                "key": "BUILDLIGHT-CLEWAREDRIVER-81",
+                "state": "Successful",
+                "lifeCycleState": "Finished",
+                "number": 81,
+                "id": 13272031
+            },
+            {
+                "link": {
+                    "href": "http://mybambooserver/rest/api/latest/result/BUILDLIGHT-CLEWAREDRIVER-80",
+                    "rel": "self"
+                },
+                "key": "BUILDLIGHT-CLEWAREDRIVER-80",
+                "state": "Successful",
+                "lifeCycleState": "Finished",
+                "number": 80,
+                "id": 13272028
+            },
+            {
+                "link": {
+                    "href": "http://mybambooserver/rest/api/latest/result/BUILDLIGHT-CLEWAREDRIVER-79",
+                    "rel": "self"
+                },
+                "key": "BUILDLIGHT-CLEWAREDRIVER-79",
+                "state": "Successful",
+                "lifeCycleState": "Finished",
+                "number": 79,
+                "id": 13272025
+            },
+            {
+                "link": {
+                    "href": "http://mybambooserver/rest/api/latest/result/BUILDLIGHT-CLEWAREDRIVER-78",
+                    "rel": "self"
+                },
+                "key": "BUILDLIGHT-CLEWAREDRIVER-78",
+                "state": "Failed",
+                "lifeCycleState": "Finished",
+                "number": 78,
+                "id": 13272022
+            }
+        ],
+        "expand": "result"
+    }, "expand": "results", "link": {
+    "href": "http://mybambooserver/rest/api/latest/result/BUILDLIGHT-CLEWAREDRIVER",
+    "rel": "self"
+}}
