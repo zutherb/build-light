@@ -77,5 +77,7 @@ Examples:
   cleware red on wait 500 red off   => switches on red led, wait 500 ms, switches off red led
   cleware red on yellow on green on => switches on all leds
 
+berndzuther@Bernds-MacBook-Pro ~/Downloads$ ./cleware --gui
 ```
+![Cleware Java GUI](picture/driver-gui-screen.png)
 
