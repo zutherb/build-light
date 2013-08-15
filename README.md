@@ -28,7 +28,8 @@ Cleware Traffic Java Driver
 ### Installation ###
 
 1. [Download](http://h1994633.stratoserver.net:9090/job/Build-Light/lastSuccessfulBuild/artifact/driver/cleware/build/distributions/cleware-0.1-DEV.zip)
-2. ```bash
+2.
+```bash
 berndzuther@Bernds-MacBook-Pro ~/Downloads$ unzip cleware-0.1-DEV.zip
 Archive:  cleware-0.1-DEV.zip
    creating: cleware-0.1-DEV/
@@ -54,10 +55,12 @@ Archive:  cleware-0.1-DEV.zip
   inflating: cleware-0.1-DEV/bin/cleware
   inflating: cleware-0.1-DEV/bin/cleware.bat
 ```
-3. ```bash
+3.
+```bash
 berndzuther@Bernds-MacBook-Pro ~/Downloads$ cd cleware-0.1-DEV/bin
 ```
-4. ```bash
+4.
+```bash
 berndzuther@Bernds-MacBook-Pro ~/Downloads$ ./cleware
 
 Cleware Traffic Light Java Driver, Maintained by B. Zuther.
