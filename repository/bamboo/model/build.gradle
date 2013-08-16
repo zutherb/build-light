@@ -1,0 +1,26 @@
+group = 'com.buildlight.repository'
+
+jar {
+    baseName = 'bamboo-model'
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDir 'src/main/java'
+        }
+    }
+    test {
+        resources {
+            srcDir 'src/test/java'
+            srcDir 'src/test/resources'
+        }
+    }
+}
+
+dependencies {
+    compile commonDeps
+    compile jacksonDeps
+
+    testCompile testDeps
+}

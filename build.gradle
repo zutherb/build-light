@@ -27,8 +27,9 @@ ext {
     groovyVersion = "2.1.6"
     junitVersion = "4.11"
     mockitoVersion = "1.9.5"
-    jettyVersion = "9.0.4.v20130625"
+    jettyVersion = "8.1.12.v20130726"
     springVersion = "3.2.3.RELEASE"
+    jacksonVersion = "1.9.13"
 }
 
 configurations {
@@ -57,7 +58,9 @@ subprojects {
                 "ch.qos.logback:logback-classic:$logbackVersion",
                 "org.codehaus.groovy:groovy-all:$groovyVersion",
                 "commons-lang:commons-lang:2.6",
-                "commons-io:commons-io:2.4"
+                "commons-collections:commons-collections:3.2.1",
+                "commons-io:commons-io:2.4",
+                "org.apache.commons:commons-math:2.2"
         ]
 
         springDeps = [
@@ -65,6 +68,11 @@ subprojects {
                 "org.springframework:spring-beans:$springVersion",
                 "org.springframework:spring-context:$springVersion",
                 "org.springframework:spring-context-support:$springVersion"
+        ]
+
+        springMvcDeps = [
+                "org.springframework:spring-web:$springVersion",
+                "org.springframework:spring-webmvc:$springVersion"
         ]
 
         jettyDeps = [
@@ -78,6 +86,11 @@ subprojects {
                 "org.springframework:spring-test:$springVersion",
                 "junit:junit:$junitVersion",
                 "org.mockito:mockito-all:$mockitoVersion"
+        ]
+
+        jacksonDeps = [
+                "org.codehaus.jackson:jackson-mapper-asl:$jacksonVersion",
+                "org.codehaus.jackson:jackson-core-asl:$jacksonVersion"
         ]
     }
 

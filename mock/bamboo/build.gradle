@@ -1,0 +1,36 @@
+apply plugin: 'war'
+apply plugin: 'jetty'
+
+group = 'com.buildlight.mock'
+
+jar {
+    baseName = 'bamboo-mock'
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDir 'src/main/java'
+            srcDir 'src/main/resources'
+            srcDir 'src/main/webapp'
+        }
+    }
+    test {
+        resources {
+            srcDir 'src/test/java'
+            srcDir 'src/test/resources'
+        }
+    }
+}
+
+dependencies {
+    compile project(":repository:bamboo:model")
+
+    compile commonDeps
+    compile jacksonDeps
+    compile springDeps
+    compile springMvcDeps
+
+    testCompile testDeps
+    testCompile jettyDeps
+}

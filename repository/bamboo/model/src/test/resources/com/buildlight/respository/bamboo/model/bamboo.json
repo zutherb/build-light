@@ -193,7 +193,9 @@
             }
         ],
         "expand": "result"
-    }, "expand": "results", "link": {
-    "href": "http://mybambooserver/rest/api/latest/result/BUILDLIGHT-CLEWAREDRIVER",
-    "rel": "self"
-}}
+    },
+    "expand": "results",
+    "link": {
+        "href": "http://mybambooserver/rest/api/latest/result/BUILDLIGHT-CLEWAREDRIVER",
+        "rel": "self"
+    }}
