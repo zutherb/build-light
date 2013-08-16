@@ -1,7 +1,7 @@
 group = 'com.buildlight.repository'
 
 jar {
-    baseName = 'bamboo-model'
+    baseName = 'bamboo-impl'
 }
 
 sourceSets {
