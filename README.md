@@ -20,7 +20,7 @@ It is important to understand that any code commit may be released to customers 
 What is Build Light
 -------------------
 
-[![Build Light](picture/Build-Light.jpg)](youtube-ArT32kL_j9g-722x542)
+[![Build Light](picture/Build-Light.jpg)](http://youtu.be/ArT32kL_j9g)
 
 Cleware Traffic Java Driver
 ---------------------------
