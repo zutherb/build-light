@@ -18,6 +18,7 @@ public class BuildChecker {
 
     private TrafficLight light;
     private BambooRepository bambooRepository;
+    private BuildState lastChangedBuildState;
 
     @Autowired
     public BuildChecker(TrafficLight light, BambooRepository bambooRepository) {
@@ -28,14 +29,21 @@ public class BuildChecker {
     @Scheduled(fixedDelay = 1000)
     public void changeTrafficLightLed() {
         BambooBuildResponse bambooBuildResponse = bambooRepository.getBambooBuildResponse();
-        List<Result> results = bambooBuildResponse.getResults().getResults();
-        Result result = results.get(0);
-        BuildState state = getBuildState(result);
-        light.switchOffAllLeds();
-        light.switchOn(state.getLed());
+        BuildState currentBuildState = getBuildState(bambooBuildResponse);
+        changeLedIfNessary(currentBuildState);
     }
 
-    private BuildState getBuildState(Result result) {
+    private void changeLedIfNessary(BuildState currentBuildState) {
+        if (!currentBuildState.equals(lastChangedBuildState)) {
+            lastChangedBuildState = currentBuildState;
+            light.switchOffAllLeds();
+            light.switchOn(currentBuildState.getLed());
+        }
+    }
+
+    private BuildState getBuildState(BambooBuildResponse bambooBuildResponse) {
+        List<Result> results = bambooBuildResponse.getResults().getResults();
+        Result result = results.get(0);
         switch (result.getState()) {
             case Unkown:
                 return BuildState.Building;
