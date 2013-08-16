@@ -22,7 +22,8 @@ public class BambooSimulator {
     private AtomicInteger buildIdGenerator = new AtomicInteger(0);
     private AtomicInteger resultIdGenerator = new AtomicInteger(10000);
 
-    private Results.Builder resultsBuilder = new Results.Builder();
+    private Results.Builder resultsBuilder = new Results.Builder()
+            .expand("result");
     private Result.Builder resultBuilder = new Result.Builder();
     private BambooBuildResponse.Builder responseBuilder = new BambooBuildResponse.Builder()
             .results(resultsBuilder.build());
@@ -78,7 +79,7 @@ public class BambooSimulator {
 
     private void createLifeCycleIfNeeded() {
         if (isEmpty(currentLifeCycle)) {
-            int buildLifeCycleId = randomData.nextInt(0, 10);
+            int buildLifeCycleId = randomData.nextInt(0, 30);
             if (buildLifeCycleId < 20) {
                 currentLifeCycle = new ArrayList<LifeCycleState>(LifeCycleState.getSuccessfulBambooLifeCycle());
             }

@@ -61,5 +61,10 @@ public class Results {
             results.results = newResults;
             return this;
         }
+
+        public Builder expand(String expand) {
+            results.expand = expand;
+            return this;
+        }
     }
 }

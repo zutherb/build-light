@@ -85,6 +85,7 @@ subprojects {
         testDeps = [
                 "org.springframework:spring-test:$springVersion",
                 "junit:junit:$junitVersion",
+                "com.jayway.jsonpath:json-path:0.8.1",
                 "org.mockito:mockito-all:$mockitoVersion"
         ]
 
