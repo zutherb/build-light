@@ -12,7 +12,7 @@ public class Runner {
     public static void main(String[] args) {
 
         System.setProperty("jenkins.serverUrl", "http://h1994633.stratoserver.net:9090");
-        System.setProperty("jenkins.name", "Build-Light-Test-Build");
+        System.setProperty("jenkins.build.name", "Build-Light-Test-Build");
         System.setProperty("spring.profiles.active", "test,jenkins");
 
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("/com/buildlight/spring-context.xml");

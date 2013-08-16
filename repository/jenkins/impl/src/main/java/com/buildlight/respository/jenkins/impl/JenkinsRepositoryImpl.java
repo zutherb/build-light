@@ -19,7 +19,7 @@ public class JenkinsRepositoryImpl implements JenkinsRepository {
 
     @Value("${jenkins.serverUrl}")
     private String serverUrl;
-    @Value("${jenkins.name}")
+    @Value("${jenkins.build.name}")
     private String name;
 
 
