@@ -1,4 +1,4 @@
-package com.buildlight.mock.bamboo.controller;
+package com.buildlight.mock.controller.bamboo;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -20,7 +20,7 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppC
 @WebAppConfiguration
 @ContextConfiguration(locations = {
         "classpath:/com/buildlight/mock/spring-context.xml",
-        "classpath:/com/buildlight/mock/bamboo/spring-mvc-context.xml"})
+        "classpath:/com/buildlight/mock/spring-bamboo-mvc-context.xml"})
 public class BambooMockTest extends AbstractJUnit4SpringContextTests {
 
     @Autowired

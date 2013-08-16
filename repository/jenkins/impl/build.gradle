@@ -1,8 +1,5 @@
 group = 'com.buildlight.repository'
-
-jar {
-    baseName = 'jenkins-model'
-}
+archivesBaseName = 'jenkins-impl'
 
 sourceSets {
     main {

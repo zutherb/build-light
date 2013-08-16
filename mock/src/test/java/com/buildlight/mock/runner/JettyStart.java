@@ -1,4 +1,4 @@
-package com.buildlight.mock.bamboo.runner;
+package com.buildlight.mock.runner;
 
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.webapp.WebAppContext;

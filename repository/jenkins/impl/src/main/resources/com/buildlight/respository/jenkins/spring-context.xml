@@ -13,7 +13,9 @@
     </beans>
 
     <beans profile="test">
-        <context:property-placeholder ignore-unresolvable="false" properties-ref="repositoryProperties"/>
+        <context:property-placeholder ignore-unresolvable="false"
+                                      system-properties-mode="OVERRIDE"
+                                      properties-ref="repositoryProperties"/>
 
         <util:properties id="repositoryProperties">
             <prop key="jenkins.serverUrl">http://localhost:8081/build-server</prop>

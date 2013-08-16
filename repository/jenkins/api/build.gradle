@@ -1,8 +1,6 @@
 group = 'com.buildlight.repository'
+archivesBaseName = 'jenkins-api'
 
-jar {
-    baseName = 'jenkins-api'
-}
 
 sourceSets {
     main {
