@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
  */
 public class BambooBuildResponseTest {
 
-    private ClassPathResource BUILD_REPONSE = new ClassPathResource("/com/buildlight/respository/bamboo/model/bamboo.json");
+    private ClassPathResource BUILD_REPONSE = new ClassPathResource("/com/buildlight/respository/bamboo/model/bambooResponse.json");
     private ObjectMapper objectMapper;
 
     @Before

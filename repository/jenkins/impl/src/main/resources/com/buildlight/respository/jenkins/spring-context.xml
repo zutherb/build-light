@@ -6,8 +6,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <beans profile="bamboo">
-        <context:component-scan base-package="com.buildlight.respository.bamboo"/>
+    <beans profile="jenkins">
+        <context:component-scan base-package="com.buildlight.respository.jenkins"/>
 
         <bean class="org.springframework.web.client.RestTemplate"/>
     </beans>
@@ -16,10 +16,8 @@
         <context:property-placeholder ignore-unresolvable="false" properties-ref="repositoryProperties"/>
 
         <util:properties id="repositoryProperties">
-            <prop key="bamboo.serverUrl">http://localhost:8081/build-server</prop>
-            <prop key="bamboo.buildKey">MYBUILDKEY_MYJOBKEY</prop>
-            <prop key="bamboo.username">heinz</prop>
-            <prop key="bamboo.password">dieter</prop>
+            <prop key="jenkins.serverUrl">http://localhost:8081/build-server</prop>
+            <prop key="jenkins.name">MYBUILD</prop>
         </util:properties>
     </beans>
 </beans>

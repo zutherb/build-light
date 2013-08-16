@@ -34,7 +34,7 @@ public class BambooRepositoryImpl implements BambooRepository {
     }
 
     @Override
-    public BambooBuildResponse getBambooBuildResponse() {
+    public BambooBuildResponse getBuildResponse() {
         UriTemplate buildServerUriTemplate = new UriTemplate(BAMBOO_URL);
         URI buildServerUri = buildServerUriTemplate.expand(serverUrl, buildKey, username, password);
         return restTemplate.getForObject(buildServerUri, BambooBuildResponse.class);

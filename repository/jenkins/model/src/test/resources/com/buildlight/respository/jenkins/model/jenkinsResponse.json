@@ -1,0 +1,74 @@
+{
+    "actions": [
+        {
+
+        }
+    ],
+    "description": "",
+    "displayName": "Build-Light",
+    "displayNameOrNull": null,
+    "name": "Build-Light",
+    "url": "http://localhost:8081/jenkins/job/Build-Light/",
+    "buildable": true,
+    "builds": [
+        {
+            "number": 34,
+            "url": "http://localhost:8081/jenkins/job/Build-Light/34/"
+        },
+        {
+            "number": 29,
+            "url": "http://localhost:8081/jenkins/job/Build-Light/29/"
+        }
+    ],
+    "color": "aborted",
+    "firstBuild": {
+        "number": 29,
+        "url": "http://localhost:8081/jenkins/job/Build-Light/29/"
+    },
+    "healthReport": [
+        {
+            "description": "Build-Stabilität: In letzter Zeit schlug kein Build fehl.",
+            "iconUrl": "health-80plus.png",
+            "score": 100
+        }
+    ],
+    "inQueue": false,
+    "keepDependencies": false,
+    "lastBuild": {
+        "number": 34,
+        "url": "http://localhost:8081/jenkins/job/Build-Light/34/"
+    },
+    "lastCompletedBuild": {
+        "number": 34,
+        "url": "http://localhost:8081/jenkins/job/Build-Light/34/"
+    },
+    "lastFailedBuild": null,
+    "lastStableBuild": {
+        "number": 29,
+        "url": "http://localhost:8081/jenkins/job/Build-Light/29/"
+    },
+    "lastSuccessfulBuild": {
+        "number": 29,
+        "url": "http://localhost:8081/jenkins/job/Build-Light/29/"
+    },
+    "lastUnstableBuild": null,
+    "lastUnsuccessfulBuild": {
+        "number": 34,
+        "url": "http://localhost:8081/jenkins/job/Build-Light/34/"
+    },
+    "nextBuildNumber": 35,
+    "property": [
+
+    ],
+    "queueItem": null,
+    "concurrentBuild": false,
+    "downstreamProjects": [
+
+    ],
+    "scm": {
+
+    },
+    "upstreamProjects": [
+
+    ]
+}

@@ -24,6 +24,9 @@ dependencies {
     compile project(":repository:bamboo:api")
     compile project(":repository:bamboo:model")
     compile project(":repository:bamboo:impl")
+    compile project(":repository:jenkins:api")
+    compile project(":repository:jenkins:model")
+    compile project(":repository:jenkins:impl")
 
     compile commonDeps
     compile springDeps

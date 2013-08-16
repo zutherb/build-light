@@ -24,7 +24,7 @@ public class BambooBuildInterrogator implements BuildInterrogator {
 
     @Override
     public BuildState getCurrentBuildState() {
-        BambooBuildResponse bambooBuildResponse = bambooRepository.getBambooBuildResponse();
+        BambooBuildResponse bambooBuildResponse = bambooRepository.getBuildResponse();
         List<Result> results = bambooBuildResponse.getResults().getResults();
         Result result = results.get(0);
         switch (result.getState()) {
@@ -32,9 +32,8 @@ public class BambooBuildInterrogator implements BuildInterrogator {
                 return BuildState.Building;
             case Successful:
                 return BuildState.Successful;
-            case Failed:
+            default:
                 return BuildState.Failed;
         }
-        throw new IllegalArgumentException();
     }
 }

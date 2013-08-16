@@ -1,8 +1,11 @@
 package com.buildlight.respository.bamboo.model;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
 /**
  * @author zutherb
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class BambooBuildResponse {
     private Results results;
     private String expand;

@@ -6,5 +6,5 @@ import com.buildlight.respository.bamboo.model.BambooBuildResponse;
  * @author zutherb
  */
 public interface BambooRepository {
-    BambooBuildResponse getBambooBuildResponse();
+    BambooBuildResponse getBuildResponse();
 }
