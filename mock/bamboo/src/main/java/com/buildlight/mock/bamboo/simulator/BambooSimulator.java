@@ -33,7 +33,7 @@ public class BambooSimulator {
         return responseBuilder.build();
     }
 
-    @Scheduled(fixedDelay = 1000)
+    @Scheduled(fixedDelay = 2000)
     public void simulateBuilds() {
         createLifeCycleIfNeeded();
         LifeCycleState currentLifeCyleState = currentLifeCycle.remove(0);
