@@ -1,0 +1,17 @@
+group = 'com.buildlight.repository'
+
+jar {
+    baseName = 'jenkins-api'
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDir 'src/main/java'
+        }
+    }
+}
+
+dependencies {
+    compile project(":repository:jenkins:model")
+}

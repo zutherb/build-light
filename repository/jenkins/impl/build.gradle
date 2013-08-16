@@ -1,7 +1,7 @@
 group = 'com.buildlight.repository'
 
 jar {
-    baseName = 'bamboo-model'
+    baseName = 'jenkins-model'
 }
 
 sourceSets {
@@ -20,8 +20,8 @@ sourceSets {
 }
 
 dependencies {
-    compile project(":repository:bamboo:api")
-    compile project(":repository:bamboo:model")
+    compile project(":repository:jenkins:api")
+    compile project(":repository:jenkins:model")
 
     compile commonDeps
     compile jacksonDeps

@@ -1,14 +1,13 @@
 group = 'com.buildlight.repository'
 
 jar {
-    baseName = 'bamboo-model'
+    baseName = 'jenkins-model'
 }
 
 sourceSets {
     main {
         resources {
             srcDir 'src/main/java'
-            srcDir 'src/main/resources'
         }
     }
     test {
@@ -20,14 +19,8 @@ sourceSets {
 }
 
 dependencies {
-    compile project(":repository:bamboo:api")
-    compile project(":repository:bamboo:model")
-
     compile commonDeps
     compile jacksonDeps
-    compile springDeps
-
-    compile "org.springframework:spring-web:$springVersion"
 
     testCompile testDeps
 }
