@@ -11,9 +11,10 @@
     <bean class="org.springframework.web.client.RestTemplate"/>
 
     <beans profile="test">
-        <context:property-placeholder properties-ref="properties"/>
-        <util:properties id="properties">
-            <prop key="bamboo.serverUrl">http://localhost:8081</prop>
+        <context:property-placeholder ignore-unresolvable="false" properties-ref="repositoryProperties"/>
+
+        <util:properties id="repositoryProperties">
+            <prop key="bamboo.serverUrl">http://localhost:8081/bamboo</prop>
             <prop key="bamboo.buildKey">MYBUILDKEY_MYJOBKEY</prop>
             <prop key="bamboo.username">heinz</prop>
             <prop key="bamboo.password">dieter</prop>

@@ -17,13 +17,13 @@ import java.net.URI;
 public class BambooRepositoryImpl implements BambooRepository {
     private final String BAMBOO_URL = "{serverUrl}/rest/api/latest/result/{buildKey}.json?os_authType=basic&os_username={username}&os_password={password}";
 
-    @Value("bamboo.serverUrl")
+    @Value("${bamboo.serverUrl}")
     private String serverUrl;
-    @Value("bamboo.buildKey")
+    @Value("${bamboo.buildKey}")
     private String buildKey;
-    @Value("bamboo.username")
+    @Value("${bamboo.username}")
     private String username;
-    @Value("bamboo.password")
+    @Value("${bamboo.password}")
     private String password;
 
     private RestTemplate restTemplate;

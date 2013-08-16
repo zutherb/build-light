@@ -29,5 +29,6 @@ dependencies {
 
     compile "org.springframework:spring-web:$springVersion"
 
+    testCompile project(":mock:bamboo")
     testCompile testDeps
 }

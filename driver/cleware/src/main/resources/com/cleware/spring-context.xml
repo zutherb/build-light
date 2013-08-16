@@ -12,8 +12,9 @@
     <bean id="trafficLight" class="com.cleware.driver.TrafficLightFactory" factory-method="instance" destroy-method="close"/>
 
     <beans profile="test">
-        <context:property-override properties-ref="properties"/>
-        <util:properties id="properties">
+        <context:property-override properties-ref="clewareProperties"/>
+
+        <util:properties id="clewareProperties">
             <prop key="knightRiderArgumentParser.executionTime">1000</prop>
             <prop key="knightRiderArgumentParser.sleepTime">50</prop>
         </util:properties>
