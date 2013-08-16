@@ -1,0 +1,74 @@
+group = 'com.buildlight.repository'
+
+project(":repository:jenkins:api") {
+    archivesBaseName = 'jenkins-api'
+
+    sourceSets {
+        main {
+            resources {
+                srcDir 'src/main/java'
+            }
+        }
+    }
+
+    dependencies {
+        compile project(":repository:jenkins:model")
+    }
+}
+
+project(":repository:jenkins:impl") {
+    archivesBaseName = 'jenkins-impl'
+
+    sourceSets {
+        main {
+            resources {
+                srcDir 'src/main/java'
+                srcDir 'src/main/resources'
+            }
+        }
+        test {
+            resources {
+                srcDir 'src/test/java'
+                srcDir 'src/test/resources'
+            }
+        }
+    }
+
+    dependencies {
+        compile project(":repository:jenkins:api")
+        compile project(":repository:jenkins:model")
+
+        compile commonDeps
+        compile jacksonDeps
+        compile springDeps
+
+        compile "org.springframework:spring-web:$springVersion"
+
+        testCompile testDeps
+    }
+}
+
+project(":repository:jenkins:model") {
+    archivesBaseName = 'jenkins-model'
+
+    sourceSets {
+        main {
+            resources {
+                srcDir 'src/main/java'
+            }
+        }
+        test {
+            resources {
+                srcDir 'src/test/java'
+                srcDir 'src/test/resources'
+            }
+        }
+    }
+
+    dependencies {
+        compile commonDeps
+        compile jacksonDeps
+
+        testCompile testDeps
+    }
+}
