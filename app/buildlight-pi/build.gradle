@@ -1,0 +1,46 @@
+apply plugin: 'application'
+
+mainClassName = "com.buildlight.application.commandline.Runner"
+
+group = 'com.buildlight.application'
+
+sourceSets {
+    main {
+        resources {
+            srcDir 'src/main/java'
+            srcDir 'src/main/resources'
+        }
+    }
+    test {
+        resources {
+            srcDir 'src/test/java'
+            srcDir 'src/test/resources'
+        }
+    }
+}
+
+configurations {
+    all*.exclude group: "com.codeminders"
+}
+
+dependencies {
+    compile project(":app:buildlight")
+    compile project(":driver:cleware-pi")
+}
+
+jar {
+    manifest {
+        attributes(
+                "Implementation-Title": "Build Light Application for Raspberry PI",
+                "Implementation-Version": version,
+                "Author": "Bernd Zuther <bernd.zuther@me.com>",
+                "Main-Class": mainClassName
+        )
+    }
+}
+
+run {
+    if (project.hasProperty('args')) {
+        args project.args.split('\\s+')
+    }
+}
