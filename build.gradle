@@ -30,6 +30,7 @@ ext {
     jettyVersion = "8.1.12.v20130726"
     springVersion = "3.2.3.RELEASE"
     jacksonVersion = "1.9.13"
+    httpClientVersion = "4.2.5"
 }
 
 configurations {

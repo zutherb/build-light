@@ -1,4 +1,4 @@
-package com.buildlight.application;
+package com.buildlight.application.commandline;
 
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
@@ -15,11 +15,11 @@ import static com.buildlight.application.ConfigurationFile.*;
 /**
  * @author zutherb
  */
-public final class CommandlineRunner {
+public final class Runner {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(CommandlineRunner.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(Runner.class);
 
-    private CommandlineRunner() {/* NOOP */}
+    private Runner() {/* NOOP */}
 
     public static void main(String[] args) throws IOException {
         LOGGER.info("Build Light - Build Watch Application, Maintained by B. Zuther.\n" +
@@ -34,7 +34,7 @@ public final class CommandlineRunner {
 
             LOGGER.info(String.format("Buildlight started in %s Mode", builderServer));
 
-            ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("/com/buildlight/spring-context.xml");
+            ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("/com/buildlight/application/spring-context.xml");
 
             Scanner scanner = new Scanner(System.in);
             String next = null;

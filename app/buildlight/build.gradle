@@ -1,6 +1,6 @@
 apply plugin: 'application'
 
-mainClassName = "com.buildlight.application.CommandlineRunner"
+mainClassName = "com.buildlight.application.commandline.Runner"
 
 group = 'com.buildlight.application'
 
@@ -34,6 +34,7 @@ dependencies {
     compile springDeps
 
     compile "org.springframework:spring-web:$springVersion"
+    compile "org.apache.httpcomponents:httpclient:$httpClientVersion"
 
     testCompile testDeps
 }

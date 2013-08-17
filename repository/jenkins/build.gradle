@@ -43,6 +43,7 @@ project(":repository:jenkins:impl") {
         compile springDeps
 
         compile "org.springframework:spring-web:$springVersion"
+        compile "org.apache.httpcomponents:httpclient:$httpClientVersion"
 
         testCompile testDeps
     }
