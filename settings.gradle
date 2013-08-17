@@ -1,5 +1,6 @@
 include ":app:buildlight"
 include ":driver:cleware"
+include ":driver:cleware-pi"
 include ":mock"
 include ":repository:bamboo:api"
 include ":repository:bamboo:model"
