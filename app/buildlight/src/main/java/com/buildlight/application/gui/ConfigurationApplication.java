@@ -20,7 +20,9 @@ import java.io.IOException;
  */
 public class ConfigurationApplication extends Application {
 
-    private ConfigurationFile configurationFile = new ConfigurationFile();
+    private ConfigurationFile configurationFile = new ConfigurationFile.Builder()
+            .serverType(BuildServerType.Jenkins)
+            .build();
 
     private Pane jenkinsConfigurationBox;
 
@@ -65,7 +67,7 @@ public class ConfigurationApplication extends Application {
             @Override
             protected void buildServerComboBoxChanged(BuildServerType currentValue) {
                 jenkinsConfigurationBox.setVisible(BuildServerType.Jenkins.equals(currentValue));
-                configurationFile.setServerType(currentValue);
+                //configurationFile.setServerType(currentValue);
             }
         };
     }
