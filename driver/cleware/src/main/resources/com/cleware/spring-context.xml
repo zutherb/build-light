@@ -9,7 +9,7 @@
 
     <context:component-scan base-package="com.cleware"/>
 
-    <bean id="trafficLight" class="com.cleware.driver.TrafficLightFactory" factory-method="instance" destroy-method="close"/>
+    <bean id="trafficLight" factory-bean="trafficLightFactory" factory-method="instance" destroy-method="close"/>
 
     <beans profile="test">
         <context:property-override properties-ref="clewareProperties"/>

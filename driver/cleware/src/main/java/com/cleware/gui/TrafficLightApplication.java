@@ -20,7 +20,7 @@ import java.util.Map;
  */
 public class TrafficLightApplication extends Application {
 
-    private static final TrafficLight TRAFFIC_LIGHT = TrafficLightFactory.instance();
+    private static final TrafficLight TRAFFIC_LIGHT = TrafficLightFactory.getInstance();
 
     private static Map<Led, Boolean> LED_STATES;
 

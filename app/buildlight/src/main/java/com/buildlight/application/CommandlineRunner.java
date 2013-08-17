@@ -22,6 +22,8 @@ public final class CommandlineRunner {
     private CommandlineRunner() {/* NOOP */}
 
     public static void main(String[] args) throws IOException {
+        LOGGER.info("Build Light - Build Watch Application, Maintained by B. Zuther.\n" +
+                "Send bug reports using https://github.com/zutherb/build-light/issues\n");
         if (CONFIGURATION_FILE.exists()) {
             Properties properties = new Properties();
             properties.load(FileUtils.openInputStream(CONFIGURATION_FILE));
