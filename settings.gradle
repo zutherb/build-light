@@ -1,4 +1,4 @@
-include ":app:build-light"
+include ":app:buildlight"
 include ":driver:cleware"
 include ":mock"
 include ":repository:bamboo:api"

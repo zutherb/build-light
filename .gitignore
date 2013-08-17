@@ -9,4 +9,4 @@ build/
 out/
 .gradle/
 
-build-light.properties
+buildlight.properties

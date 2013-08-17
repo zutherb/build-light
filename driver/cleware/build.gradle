@@ -2,7 +2,7 @@ apply plugin: 'application'
 
 mainClassName = "com.cleware.commandline.Runner"
 
-group = 'com.cleware.driver'
+group = 'com.buildlight.cleware.driver'
 
 sourceSets {
     main {

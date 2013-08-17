@@ -18,7 +18,7 @@
                                       properties-ref="repositoryProperties"/>
 
         <util:properties id="repositoryProperties">
-            <prop key="jenkins.serverUrl">http://localhost:8081/build-server</prop>
+            <prop key="jenkins.server.url">http://localhost:8081/build-server</prop>
             <prop key="jenkins.build.name">MYBUILD</prop>
         </util:properties>
     </beans>

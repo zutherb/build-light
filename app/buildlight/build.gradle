@@ -1,6 +1,6 @@
 apply plugin: 'application'
 
-mainClassName = "com.buildlight.application.Runner"
+mainClassName = "com.buildlight.application.CommandlineRunner"
 
 group = 'com.buildlight.application'
 

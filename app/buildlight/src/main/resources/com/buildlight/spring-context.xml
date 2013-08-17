@@ -16,4 +16,6 @@
     <import resource="classpath:/com/cleware/spring-context.xml"/>
     <import resource="respository/bamboo/spring-context.xml"/>
     <import resource="respository/jenkins/spring-context.xml"/>
+
+    <context:property-placeholder system-properties-mode="OVERRIDE" location="file:${buildlight.property.file}"/>
 </beans>

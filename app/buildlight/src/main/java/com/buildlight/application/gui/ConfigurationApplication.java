@@ -1,5 +1,6 @@
 package com.buildlight.application.gui;
 
+import com.buildlight.application.ConfigurationFile;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -12,7 +13,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.apache.commons.io.FileUtils;
 
-import java.io.File;
 import java.io.IOException;
 
 /**
@@ -50,7 +50,7 @@ public class ConfigurationApplication extends Application {
             public void handle(ActionEvent actionEvent) {
                 try {
 
-                    FileUtils.write(new File("build-light.properties"), configurationFile.toString());
+                    FileUtils.write(ConfigurationFile.CONFIGURATION_FILE, configurationFile.toString());
                 } catch (IOException e) {
                     e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
                 }

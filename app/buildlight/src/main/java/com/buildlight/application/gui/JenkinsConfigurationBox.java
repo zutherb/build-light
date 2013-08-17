@@ -1,5 +1,6 @@
 package com.buildlight.application.gui;
 
+import com.buildlight.application.ConfigurationFile;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;

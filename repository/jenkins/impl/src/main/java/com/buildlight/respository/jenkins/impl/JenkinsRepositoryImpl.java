@@ -17,7 +17,7 @@ import java.net.URI;
 public class JenkinsRepositoryImpl implements JenkinsRepository {
     private final String JENKINS_URL = "{serverUrl}/job/{name}/api/json";
 
-    @Value("${jenkins.serverUrl}")
+    @Value("${jenkins.server.url}")
     private String serverUrl;
     @Value("${jenkins.build.name}")
     private String name;
