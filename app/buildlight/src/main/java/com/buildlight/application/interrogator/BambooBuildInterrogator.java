@@ -1,7 +1,8 @@
 package com.buildlight.application.interrogator;
 
 import com.buildlight.respository.bamboo.api.BambooRepository;
-import com.buildlight.respository.bamboo.model.BambooBuildResponse;
+import com.buildlight.respository.bamboo.model.BambooPlanResponse;
+import com.buildlight.respository.bamboo.model.BambooResultResponse;
 import com.buildlight.respository.bamboo.model.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -24,12 +25,14 @@ public class BambooBuildInterrogator implements BuildInterrogator {
 
     @Override
     public BuildState getCurrentBuildState() {
-        BambooBuildResponse bambooBuildResponse = bambooRepository.getBuildResponse();
-        List<Result> results = bambooBuildResponse.getResults().getResults();
+        BambooPlanResponse planResponse = bambooRepository.getPlanResponse();
+        if (planResponse.isBuilding()) {
+            return BuildState.Building;
+        }
+        BambooResultResponse bambooResultResponse = bambooRepository.getResultResponse();
+        List<Result> results = bambooResultResponse.getResults().getResults();
         Result result = results.get(0);
         switch (result.getState()) {
-            case Unkown:
-                return BuildState.Building;
             case Successful:
                 return BuildState.Successful;
             default:

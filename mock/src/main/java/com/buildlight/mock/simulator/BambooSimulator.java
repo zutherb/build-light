@@ -25,11 +25,11 @@ public class BambooSimulator {
     private Results.Builder resultsBuilder = new Results.Builder()
             .expand("result");
     private Result.Builder resultBuilder = new Result.Builder();
-    private BambooBuildResponse.Builder responseBuilder = new BambooBuildResponse.Builder()
+    private BambooResultResponse.Builder responseBuilder = new BambooResultResponse.Builder()
             .results(resultsBuilder.build());
     private List<LifeCycleState> currentLifeCycle = Collections.emptyList();
 
-    public BambooBuildResponse getBuildResponse() {
+    public BambooResultResponse getBuildResponse() {
         return responseBuilder.build();
     }
 

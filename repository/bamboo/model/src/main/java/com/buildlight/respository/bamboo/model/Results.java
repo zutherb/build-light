@@ -1,5 +1,6 @@
 package com.buildlight.respository.bamboo.model;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 import java.util.ArrayList;
@@ -10,28 +11,12 @@ import static org.apache.commons.collections.CollectionUtils.isEmpty;
 /**
  * @author zutherb
  */
-public class Results {
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Results extends Metrics {
 
-    @JsonProperty("start-index")
-    private int startIndex;
-    @JsonProperty("max-result")
-    private int maxResult;
-    private int size;
     @JsonProperty("result")
     private List<Result> results;
     private String expand;
-
-    public int getStartIndex() {
-        return startIndex;
-    }
-
-    public int getMaxResult() {
-        return maxResult;
-    }
-
-    public int getSize() {
-        return size;
-    }
 
     public List<Result> getResults() {
         return results;

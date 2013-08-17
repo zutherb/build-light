@@ -1,0 +1,34 @@
+{"results": {
+    "size": 1,
+    "expand": "result",
+    "start-index": 0,
+    "max-result": 25,
+    "result": [
+        {
+            "link": {
+                "href": "http://localhost:8080/bamboo/rest/api/latest/result/BUILDLIGHT-BUILD-2",
+                "rel": "self"
+            },
+            "plan": {
+                "shortName": "Build",
+                "shortKey": "BUILD",
+                "type": "chain",
+                "enabled": true,
+                "link": {
+                    "href": "http://localhost:8080/bamboo/rest/api/latest/plan/BUILDLIGHT-BUILD",
+                    "rel": "self"
+                },
+                "key": "BUILDLIGHT-BUILD",
+                "name": "BuildLight - Build"
+            },
+            "lifeCycleState": "Finished",
+            "id": 557059,
+            "key": "BUILDLIGHT-BUILD-2",
+            "state": "Successful",
+            "number": 2
+        }
+    ]
+}, "expand": "results", "link": {
+    "href": "http://localhost:8080/bamboo/rest/api/latest/result/BUILDLIGHT-BUILD",
+    "rel": "self"
+}}

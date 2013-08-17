@@ -1,10 +1,13 @@
 package com.buildlight.respository.bamboo.api;
 
-import com.buildlight.respository.bamboo.model.BambooBuildResponse;
+import com.buildlight.respository.bamboo.model.BambooPlanResponse;
+import com.buildlight.respository.bamboo.model.BambooResultResponse;
 
 /**
  * @author zutherb
  */
 public interface BambooRepository {
-    BambooBuildResponse getBuildResponse();
+    BambooResultResponse getResultResponse();
+
+    BambooPlanResponse getPlanResponse();
 }

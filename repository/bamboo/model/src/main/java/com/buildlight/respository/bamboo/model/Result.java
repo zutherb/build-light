@@ -1,12 +1,16 @@
 package com.buildlight.respository.bamboo.model;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
 /**
  * @author zutherb
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Result {
     private Link link;
     private String key;
     private State state;
+    private Plan plan;
     private LifeCycleState lifeCycleState;
     private int number;
     private int id;
@@ -33,6 +37,10 @@ public class Result {
 
     public int getId() {
         return id;
+    }
+
+    public Plan getPlan() {
+        return plan;
     }
 
     public static class Builder {

@@ -6,7 +6,7 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
  * @author zutherb
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class BambooBuildResponse {
+public class BambooResultResponse {
     private Results results;
     private String expand;
     private Link link;
@@ -37,14 +37,14 @@ public class BambooBuildResponse {
 
     public static class Builder {
 
-        private BambooBuildResponse response = new BambooBuildResponse();
+        private BambooResultResponse response = new BambooResultResponse();
 
         public Builder results(Results results) {
             response.results = results;
             return this;
         }
 
-        public BambooBuildResponse build() {
+        public BambooResultResponse build() {
             return response;
         }
     }

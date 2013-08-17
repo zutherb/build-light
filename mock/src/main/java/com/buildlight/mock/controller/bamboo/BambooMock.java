@@ -1,7 +1,7 @@
 package com.buildlight.mock.controller.bamboo;
 
 import com.buildlight.mock.simulator.BambooSimulator;
-import com.buildlight.respository.bamboo.model.BambooBuildResponse;
+import com.buildlight.respository.bamboo.model.BambooResultResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -25,7 +25,7 @@ public class BambooMock {
     @RequestMapping(value = "result/{buildKey}.json", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public BambooBuildResponse getBambooBuildResponse(@PathVariable("buildKey") String buildKey,
+    public BambooResultResponse getBambooBuildResponse(@PathVariable("buildKey") String buildKey,
                                                       @RequestParam(value = "os_authType", required = false) String authType,
                                                       @RequestParam(value = "os_username", required = false) String username,
                                                       @RequestParam(value = "os_password", required = false) String password) {

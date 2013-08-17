@@ -1,0 +1,40 @@
+{
+
+    "expand": "actions,stages,branches,variableContext",
+    "projectKey": "BUILDLIGHT",
+    "projectName": "BuildLight",
+    "shortName": "Build",
+    "shortKey": "BUILD",
+    "type": "chain",
+    "enabled": true,
+    "link": {
+        "href": "http://localhost:8080/bamboo/rest/api/latest/plan/BUILDLIGHT-BUILD",
+        "rel": "self"
+    },
+    "isFavourite": false,
+    "isActive": false,
+    "isBuilding": false,
+    "averageBuildTimeInSeconds": 41,
+    "actions": {
+        "size": 7,
+        "start-index": 0,
+        "max-result": 7
+    },
+    "stages": {
+        "size": 1,
+        "start-index": 0,
+        "max-result": 1
+    },
+    "branches": {
+        "size": 0,
+        "start-index": 0,
+        "max-result": 0
+    },
+    "variableContext": {
+        "size": 0,
+        "max-results": 0
+    },
+    "key": "BUILDLIGHT-BUILD",
+    "name": "BuildLight - Build"
+
+}

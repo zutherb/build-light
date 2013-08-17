@@ -1,7 +1,8 @@
 package com.buildlight.respository.bamboo.impl;
 
 import com.buildlight.respository.bamboo.api.BambooRepository;
-import com.buildlight.respository.bamboo.model.BambooBuildResponse;
+import com.buildlight.respository.bamboo.model.BambooPlanResponse;
+import com.buildlight.respository.bamboo.model.BambooResultResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -15,7 +16,8 @@ import java.net.URI;
  */
 @Component
 public class BambooRepositoryImpl implements BambooRepository {
-    private final String BAMBOO_URL = "{serverUrl}/rest/api/latest/result/{buildKey}.json?os_authType=basic&os_username={username}&os_password={password}";
+    private final String BAMBOO_RESULT_URL = "{serverUrl}/rest/api/latest/result/{buildKey}.json?os_authType=basic&os_username={username}&os_password={password}";
+    private final String BAMBOO_PLAN_URL = "{serverUrl}/rest/api/latest/plan/{buildKey}.json?os_authType=basic&os_username={username}&os_password={password}";
 
     @Value("${bamboo.server.url}")
     private String serverUrl;
@@ -34,9 +36,16 @@ public class BambooRepositoryImpl implements BambooRepository {
     }
 
     @Override
-    public BambooBuildResponse getBuildResponse() {
-        UriTemplate buildServerUriTemplate = new UriTemplate(BAMBOO_URL);
+    public BambooPlanResponse getPlanResponse() {
+        UriTemplate buildServerUriTemplate = new UriTemplate(BAMBOO_PLAN_URL);
         URI buildServerUri = buildServerUriTemplate.expand(serverUrl, buildKey, username, password);
-        return restTemplate.getForObject(buildServerUri, BambooBuildResponse.class);
+        return restTemplate.getForObject(buildServerUri, BambooPlanResponse.class);
+    }
+
+    @Override
+    public BambooResultResponse getResultResponse() {
+        UriTemplate buildServerUriTemplate = new UriTemplate(BAMBOO_RESULT_URL);
+        URI buildServerUri = buildServerUriTemplate.expand(serverUrl, buildKey, username, password);
+        return restTemplate.getForObject(buildServerUri, BambooResultResponse.class);
     }
 }
