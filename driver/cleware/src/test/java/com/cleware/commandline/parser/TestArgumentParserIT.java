@@ -9,7 +9,7 @@ import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 /**
  * @author zutherb
  */
-@ContextConfiguration(locations = "classpath:/com/cleware/spring-context.xml")
+@ContextConfiguration(locations = "classpath:/com/cleware/spring-daemon-context.xml")
 public class TestArgumentParserIT extends AbstractJUnit4SpringContextTests {
 
     @Autowired

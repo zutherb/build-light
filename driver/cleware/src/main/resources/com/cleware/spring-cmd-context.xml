@@ -9,6 +9,6 @@
         <property name="serviceUrl" ref="jmxServiceURL"/>
     </bean>
 
-    <bean id="jmxServiceURL" class="com.cleware.daemon.ClewareDaemonJMXServiceUrlFactoryBean"/>
+    <bean id="jmxServiceURL" class="com.cleware.daemon.ClewareDaemonFactoryBean"/>
 
 </beans>

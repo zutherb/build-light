@@ -1,6 +1,5 @@
 package com.cleware.commandline.parser;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -10,7 +9,7 @@ import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 /**
  * @author zutherb
  */
-@ContextConfiguration(locations = "classpath:/com/cleware/spring-context.xml")
+@ContextConfiguration(locations = "classpath:/com/cleware/spring-daemon-context.xml")
 public class LedArgumentParserIT extends AbstractJUnit4SpringContextTests {
 
     @Autowired

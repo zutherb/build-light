@@ -3,6 +3,8 @@ package com.cleware.daemon;
 import com.sun.tools.attach.VirtualMachine;
 import com.sun.tools.attach.VirtualMachineDescriptor;
 import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.FactoryBean;
 
 import javax.management.remote.JMXServiceURL;
@@ -12,7 +14,11 @@ import java.util.Properties;
 /**
  * @author zutherb
  */
-public class ClewareDaemonJMXServiceUrlFactoryBean implements FactoryBean<String> {
+public class ClewareDaemonFactoryBean implements FactoryBean<String> {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(ClewareDaemonFactoryBean.class);
+
+    private boolean lunch = true;
 
     @Override
     public String getObject() throws Exception {
@@ -25,9 +31,15 @@ public class ClewareDaemonJMXServiceUrlFactoryBean implements FactoryBean<String
                 if (StringUtils.isNotEmpty(connectorAddress)) {
                     return connectorAddress;
                 }
+                lunch = false;
             }
         }
-        return null;
+        if (lunch) {
+            ClewareDaemonLuncher.lunch();
+            lunch = false;
+        }
+        Thread.sleep(1000);
+        return getObject();
     }
 
     @Override

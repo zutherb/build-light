@@ -5,6 +5,7 @@ import com.cleware.driver.TrafficLight;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StopWatch;
 
@@ -29,6 +30,7 @@ public class KnightRiderArgumentParser extends AbstractArgumentParser {
         return KNIGHTRIDER.equalsIgnoreCase(buffer.peek());
     }
 
+    @Async
     @Override
     public void execute(ArgumentBuffer buffer) {
         LOGGER.info("Knight Rider sequence can be exit by pressing Ctrl+C");

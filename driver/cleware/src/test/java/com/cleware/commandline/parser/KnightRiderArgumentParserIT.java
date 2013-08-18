@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
  * @author zutherb
  */
 @ActiveProfiles("test")
-@ContextConfiguration(locations = "classpath:/com/cleware/spring-context.xml")
+@ContextConfiguration(locations = "classpath:/com/cleware/spring-daemon-context.xml")
 public class KnightRiderArgumentParserIT extends AbstractJUnit4SpringContextTests {
 
     @Autowired

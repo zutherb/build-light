@@ -11,7 +11,7 @@ import static org.junit.Assert.assertNotNull;
  * @author zutherb
  */
 @ActiveProfiles("test")
-@ContextConfiguration(locations = "classpath:/com/cleware/spring-context.xml")
+@ContextConfiguration(locations = "classpath:/com/cleware/spring-daemon-context.xml")
 public class ClewareLuncherTest extends AbstractJUnit4SpringContextTests {
 
     @Test

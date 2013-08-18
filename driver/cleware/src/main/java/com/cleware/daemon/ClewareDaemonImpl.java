@@ -26,7 +26,7 @@ public class ClewareDaemonImpl implements ClewareDaemon {
 
     @Override
     @ManagedOperation
-    public void parseCommandLineArgs(String[] args) {
+    public void execute(String[] args) {
         commandLineParser.execute(new ArgumentBuffer(args));
     }
 
