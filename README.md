@@ -21,10 +21,21 @@ The article [Using a Raspberry PI to control an extreme feedback device](http://
 * [Linux/Mac Download](http://h1994633.stratoserver.net:9090/job/Build-Light/lastSuccessfulBuild/artifact/app/buildlight/build/distributions/buildlight-0.1-DEV.tar)
 * [RaspberryPI Download](http://h1994633.stratoserver.net:9090/job/Build-Light/lastSuccessfulBuild/artifact/app/buildlight-pi/build/distributions/buildlight-pi-0.1-DEV.tar)
 
+#### Installation Linux/Mac ####
+
 ```bash
 berndzuther@Bernds-MacBook-Pro ~/Downloads$ tar xvf buildlight-0.1-DEV.zip
 berndzuther@Bernds-MacBook-Pro ~/Downloads$ cd buildlight-0.1-DEV/bin
 berndzuther@Bernds-MacBook-Pro ~/Downloads$ ./buildlight
+```
+
+#### Installation RaspberryPI ####
+
+```bash
+pi@raspberry ~$ sudo apt-get install libusb-1.0-0 openjdk-7-jdk
+pi@raspberry ~/Downloads$ tar xvf buildlight-0.1-DEV.zip
+pi@raspberry ~/Downloads$ cd buildlight-0.1-DEV/bin
+pi@raspberry ~/Downloads$ sudo ./buildlight
 ```
 
 ### Configuration ###
