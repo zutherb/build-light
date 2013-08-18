@@ -1,4 +1,4 @@
-package com.cleware.gui;
+package com.cleware.commandline.gui;
 
 import com.cleware.driver.Led;
 import com.cleware.driver.TrafficLight;

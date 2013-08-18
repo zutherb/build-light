@@ -1,7 +1,7 @@
 package com.cleware.commandline.parser;
 
 import com.cleware.driver.TrafficLight;
-import com.cleware.gui.TrafficLightApplication;
+import com.cleware.commandline.gui.TrafficLightApplication;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

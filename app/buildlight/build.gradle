@@ -1,6 +1,6 @@
 apply plugin: 'application'
 
-mainClassName = "com.buildlight.application.commandline.Runner"
+mainClassName = "com.buildlight.application.commandline.ClewareLuncher"
 
 group = 'com.buildlight.application'
 

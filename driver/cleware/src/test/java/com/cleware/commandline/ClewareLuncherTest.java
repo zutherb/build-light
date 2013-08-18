@@ -12,7 +12,7 @@ import static org.junit.Assert.assertNotNull;
  */
 @ActiveProfiles("test")
 @ContextConfiguration(locations = "classpath:/com/cleware/spring-context.xml")
-public class RunnerTest extends AbstractJUnit4SpringContextTests {
+public class ClewareLuncherTest extends AbstractJUnit4SpringContextTests {
 
     @Test
     public void testApplicationContext() {
