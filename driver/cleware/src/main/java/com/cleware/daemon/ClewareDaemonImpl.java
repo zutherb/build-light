@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 /**
  * @author zutherb
  */
-@Component
+@Component("clewareDaemon")
 @ManagedResource(objectName = "com.cleware:name=ClewareDaemon")
 public class ClewareDaemonImpl implements ClewareDaemon {
 

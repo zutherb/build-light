@@ -6,7 +6,9 @@
     <bean class="org.springframework.jmx.access.MBeanProxyFactoryBean">
         <property name="objectName" value="com.cleware:name=ClewareDaemon"/>
         <property name="proxyInterface" value="com.cleware.daemon.ClewareDaemon"/>
+        <property name="serviceUrl" ref="jmxServiceURL"/>
     </bean>
 
+    <bean id="jmxServiceURL" class="com.cleware.daemon.ClewareDaemonJMXServiceUrlFactoryBean"/>
 
 </beans>
