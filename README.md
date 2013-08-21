@@ -62,5 +62,5 @@ berndzuther@Bernds-MacBook-Pro ~/Downloads$ tar xvf cleware-0.1-DEV.zip
 berndzuther@Bernds-MacBook-Pro ~/Downloads$ cd cleware-0.1-DEV/bin
 berndzuther@Bernds-MacBook-Pro ~/Downloads$ ./cleware --gui
 ```
-![Cleware Java GUI](picture/driver-gui-screen.png)
+![Cleware Java GUI](picture/driver-gui-screen-windows.png)
 

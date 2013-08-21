@@ -26,9 +26,9 @@ public class BambooMock {
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public BambooResultResponse getBambooBuildResponse(@PathVariable("buildKey") String buildKey,
-                                                      @RequestParam(value = "os_authType", required = false) String authType,
-                                                      @RequestParam(value = "os_username", required = false) String username,
-                                                      @RequestParam(value = "os_password", required = false) String password) {
+                                                       @RequestParam(value = "os_authType", required = false) String authType,
+                                                       @RequestParam(value = "os_username", required = false) String username,
+                                                       @RequestParam(value = "os_password", required = false) String password) {
         return simulator.getBuildResponse();
     }
 
