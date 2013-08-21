@@ -1,7 +1,7 @@
 apply plugin: 'war'
 apply plugin: 'jetty'
 
-group = 'com.buildlight.mock'
+group = 'com.comsysto.buildlight.mock'
 
 jar {
     baseName = 'build-server-mock'

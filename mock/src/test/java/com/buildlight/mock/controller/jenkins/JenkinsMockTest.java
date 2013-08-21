@@ -1,4 +1,4 @@
-package com.buildlight.mock.controller.jenkins;
+package com.comsysto.buildlight.mock.controller.jenkins;
 
 import org.junit.Before;
 import org.junit.Test;

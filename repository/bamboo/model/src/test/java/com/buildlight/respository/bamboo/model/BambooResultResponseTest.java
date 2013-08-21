@@ -1,4 +1,4 @@
-package com.buildlight.respository.bamboo.model;
+package com.comsysto.buildlight.respository.bamboo.model;
 
 import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Before;

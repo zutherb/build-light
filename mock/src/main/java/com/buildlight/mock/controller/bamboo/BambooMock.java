@@ -1,7 +1,7 @@
-package com.buildlight.mock.controller.bamboo;
+package com.comsysto.buildlight.mock.controller.bamboo;
 
-import com.buildlight.mock.simulator.BambooSimulator;
-import com.buildlight.respository.bamboo.model.BambooResultResponse;
+import com.comsysto.buildlight.mock.simulator.BambooSimulator;
+import com.comsysto.buildlight.respository.bamboo.model.BambooResultResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

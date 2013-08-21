@@ -7,7 +7,7 @@
             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
     <beans profile="bamboo">
-        <context:component-scan base-package="com.buildlight.respository.bamboo"/>
+        <context:component-scan base-package="com.comsysto.buildlight.respository.bamboo"/>
     </beans>
 
     <beans profile="test">

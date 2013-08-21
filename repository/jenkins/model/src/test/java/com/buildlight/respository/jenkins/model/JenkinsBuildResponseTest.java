@@ -1,4 +1,4 @@
-package com.buildlight.respository.jenkins.model;
+package com.comsysto.buildlight.respository.jenkins.model;
 
 import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Before;

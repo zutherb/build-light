@@ -1,8 +1,8 @@
 apply plugin: 'application'
 
-mainClassName = "com.cleware.commandline.ClewareLuncher"
+mainClassName = "com.cleware.commandline.Runner"
 
-group = 'com.buildlight.cleware.driver'
+group = 'com.comsysto.buildlight.cleware.driver'
 
 sourceSets {
     main {

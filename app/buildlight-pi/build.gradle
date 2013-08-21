@@ -1,8 +1,8 @@
 apply plugin: 'application'
 
-mainClassName = "com.buildlight.application.commandline.Runner"
+mainClassName = "com.comsysto.buildlight.application.commandline.Runner"
 
-group = 'com.buildlight.application'
+group = 'com.comsysto.buildlight.application'
 
 sourceSets {
     main {

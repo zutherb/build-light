@@ -1,6 +1,6 @@
-package com.buildlight.mock.simulator;
+package com.comsysto.buildlight.mock.simulator;
 
-import com.buildlight.respository.bamboo.model.*;
+import com.comsysto.buildlight.respository.bamboo.model.*;
 import org.apache.commons.math.random.RandomData;
 import org.apache.commons.math.random.RandomDataImpl;
 import org.springframework.scheduling.annotation.Scheduled;

@@ -1,4 +1,4 @@
-package com.buildlight.mock.controller.bamboo;
+package com.comsysto.buildlight.mock.controller.bamboo;
 
 import org.junit.Before;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-group = 'com.buildlight.repository'
+group = 'com.comsysto.buildlight.repository'
 
 project(":repository:jenkins:api") {
     archivesBaseName = 'jenkins-api'

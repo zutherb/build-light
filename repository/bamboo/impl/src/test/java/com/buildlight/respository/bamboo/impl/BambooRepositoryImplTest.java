@@ -1,6 +1,6 @@
-package com.buildlight.respository.bamboo.impl;
+package com.comsysto.buildlight.respository.bamboo.impl;
 
-import com.buildlight.respository.bamboo.api.BambooRepository;
+import com.comsysto.buildlight.respository.bamboo.api.BambooRepository;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ActiveProfiles;

@@ -1,7 +1,7 @@
-package com.buildlight.mock.controller.jenkins;
+package com.comsysto.buildlight.mock.controller.jenkins;
 
-import com.buildlight.mock.simulator.JenkinsSimulator;
-import com.buildlight.respository.jenkins.model.JenkinsBuildResponse;
+import com.comsysto.buildlight.mock.simulator.JenkinsSimulator;
+import com.comsysto.buildlight.respository.jenkins.model.JenkinsBuildResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

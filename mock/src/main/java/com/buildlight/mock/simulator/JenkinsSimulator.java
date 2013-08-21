@@ -1,7 +1,7 @@
-package com.buildlight.mock.simulator;
+package com.comsysto.buildlight.mock.simulator;
 
-import com.buildlight.respository.jenkins.model.Color;
-import com.buildlight.respository.jenkins.model.JenkinsBuildResponse;
+import com.comsysto.buildlight.respository.jenkins.model.Color;
+import com.comsysto.buildlight.respository.jenkins.model.JenkinsBuildResponse;
 import org.apache.commons.math.random.RandomData;
 import org.apache.commons.math.random.RandomDataImpl;
 import org.springframework.scheduling.annotation.Scheduled;
