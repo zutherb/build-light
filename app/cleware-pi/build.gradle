@@ -1,6 +1,6 @@
 apply plugin: 'application'
 
-mainClassName = "com.cleware.commandline.Runner"
+mainClassName = "com.comsysto.buildlight.cleware.commandline.Runner"
 
 group = 'com.comsysto.buildlight.cleware.driver'
 

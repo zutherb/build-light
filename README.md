@@ -7,12 +7,17 @@ software to be developed to a high standard and easily packaged and deployed to 
 
 ![Continuous Delivery process diagram](picture/Continuous_Delivery_process_diagram.png)
 
-Continuous delivery treats the commonplace notion of a deployment pipeline: a set of validations through which a piece of software must pass on its way to release. Code is compiled if necessary and then packaged by a build server every time a change is committed to a source control repository, then tested by a number of different techniques before it can be marked as releasable. It is important to understand that any code commit may be released to customers at any point.
+Continuous delivery treats the commonplace notion of a deployment pipeline: a set of validations through
+which a piece of software must pass on its way to release. Code is compiled if necessary and then packaged by a
+build server every time a change is committed to a source control repository, then tested by a number of different
+techniques before it can be marked as releasable. It is important to understand that any code commit may be released to
+customers at any point.
 
 What is Build Light
 -------------------
 
-The article [Using a Raspberry PI to control an extreme feedback device](http://blog.codecentric.de/en/2013/07/using-a-raspberry-pi-to-control-an-extreme-feedback-devices/) has inspired me to buy a traffic light in the [Cleware Shop](http://www.cleware-shop.de/).
+The article [Using a Raspberry PI to control an extreme feedback device](http://blog.codecentric.de/en/2013/07/using-a-raspberry-pi-to-control-an-extreme-feedback-devices/)
+has inspired me to buy a traffic light in the [Cleware Shop](http://www.cleware-shop.de/).
 
 
 ### Installation ###
@@ -51,7 +56,7 @@ pi@raspberry ~/Downloads$ sudo ./buildlight
 Cleware Traffic Java Driver
 ---------------------------
 
-### Use Cleware Traffic Java Driver ###
+### Use Cleware Traffic Driver in our Application ###
 
 ```java
 public class TrafficLightFactoryTest {
