@@ -26,7 +26,7 @@ public class WaitArgumentParser extends AbstractArgumentParser {
     }
 
     @Override
-    public void execute(ArgumentBuffer buffer) {
+    public void execute(ArgumentBuffer buffer, StringBuffer outputBuffer) {
         try {
             Thread.sleep(Long.parseLong(buffer.next()));
         } catch (Exception e) {

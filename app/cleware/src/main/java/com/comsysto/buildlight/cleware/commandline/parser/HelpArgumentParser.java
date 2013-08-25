@@ -47,9 +47,10 @@ public final class HelpArgumentParser extends AbstractArgumentParser {
     }
 
     @Override
-    public void execute(ArgumentBuffer buffer) {
+    public void execute(ArgumentBuffer buffer, StringBuffer outputBuffer) {
         try {
             LOGGER.info(MESSAGE);
+            outputBuffer.append(MESSAGE);
         } catch (Exception e) {
             throw new ParserException(e);
         }

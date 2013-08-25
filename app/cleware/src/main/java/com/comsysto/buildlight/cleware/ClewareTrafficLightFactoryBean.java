@@ -16,16 +16,14 @@ import org.springframework.stereotype.Component;
 public class ClewareTrafficLightFactoryBean implements FactoryBean<TrafficLight> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ClewareTrafficLightFactoryBean.class);
+    private static TrafficLight LIGHT_INSTANCE;
 
     @Override
     public TrafficLight getObject() throws Exception {
-        try {
-            return TrafficLightFactory.createNewInstance();
-        } catch (TrafficLightException e) {
-            LOGGER.error("Traffic light USB device could not be found", e);
-            LOGGER.info("Traffic Light Mock is used instate.");
-            return new TrafficLightMock();
+        if (LIGHT_INSTANCE == null) {
+            instance();
         }
+        return LIGHT_INSTANCE;
     }
 
     @Override
@@ -36,5 +34,18 @@ public class ClewareTrafficLightFactoryBean implements FactoryBean<TrafficLight>
     @Override
     public boolean isSingleton() {
         return true;
+    }
+
+    public static TrafficLight instance() {
+        if (LIGHT_INSTANCE == null) {
+            try {
+                LIGHT_INSTANCE = TrafficLightFactory.createNewInstance();
+            } catch (TrafficLightException e) {
+                LOGGER.error("Traffic Light USB device could not be found", e);
+                LOGGER.info("Traffic Light Mock is used instate.");
+                LIGHT_INSTANCE = new TrafficLightMock();
+            }
+        }
+        return LIGHT_INSTANCE;
     }
 }

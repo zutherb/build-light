@@ -47,7 +47,7 @@ public class LedArgumentParserTest {
     public void testLedOn() throws Exception {
         ArgumentBuffer buffer = new ArgumentBuffer(new String[]{"red", "on"});
         buffer.next();
-        parser.execute(buffer);
+        parser.execute(buffer, new StringBuffer());
         verify(light, only()).switchOn(Led.RED);
     }
 
@@ -55,7 +55,7 @@ public class LedArgumentParserTest {
     public void testLedOff() throws Exception {
         ArgumentBuffer buffer = new ArgumentBuffer(new String[]{"red", "off"});
         buffer.next();
-        parser.execute(buffer);
+        parser.execute(buffer, new StringBuffer());
         verify(light, only()).switchOff(Led.RED);
     }
 
@@ -63,6 +63,6 @@ public class LedArgumentParserTest {
     public void testLedError() throws Exception {
         ArgumentBuffer buffer = new ArgumentBuffer(new String[]{"red", "thisisanerror"});
         buffer.next();
-        parser.execute(buffer);
+        parser.execute(buffer, new StringBuffer());
     }
 }

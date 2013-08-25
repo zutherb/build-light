@@ -20,6 +20,6 @@ public class KnightRiderArgumentParserIT extends AbstractJUnit4SpringContextTest
 
     @Test
     public void testExecute() throws Exception {
-        parser.execute(new ArgumentBuffer(new String[]{"--knightrider"}));
+        parser.execute(new ArgumentBuffer(new String[]{"--knightrider"}), new StringBuffer());
     }
 }

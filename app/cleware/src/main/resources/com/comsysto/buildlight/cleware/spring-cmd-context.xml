@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean class="org.springframework.jmx.access.MBeanProxyFactoryBean">
-        <property name="objectName" value="com.cleware:name=ClewareDaemon"/>
+        <property name="objectName" value="com.comsysto.buildlight.cleware.daemon@:name=ClewareDaemon"/>
         <property name="proxyInterface" value="com.comsysto.buildlight.cleware.daemon.ClewareDaemon"/>
         <property name="serviceUrl" ref="jmxServiceURL"/>
     </bean>

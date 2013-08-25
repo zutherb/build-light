@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  * @author zutherb
  */
 @Component("clewareDaemon")
-@ManagedResource(objectName = "com.cleware:name=ClewareDaemon")
+@ManagedResource(objectName = "com.comsysto.buildlight.cleware.daemon@:name=ClewareDaemon")
 public class ClewareDaemonImpl implements ClewareDaemon {
 
     private static boolean run = true;
@@ -26,8 +26,8 @@ public class ClewareDaemonImpl implements ClewareDaemon {
 
     @Override
     @ManagedOperation
-    public void execute(String[] args) {
-        commandLineParser.execute(new ArgumentBuffer(args));
+    public String execute(String[] args) {
+        return commandLineParser.execute(new ArgumentBuffer(args));
     }
 
     @Override

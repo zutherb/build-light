@@ -35,7 +35,7 @@ public class ClewareDaemonFactoryBean implements FactoryBean<String> {
             }
         }
         if (lunch) {
-            ClewareDaemonLuncher.lunch();
+            ClewareDaemonLauncher.lunch();
             lunch = false;
         }
         Thread.sleep(1000);

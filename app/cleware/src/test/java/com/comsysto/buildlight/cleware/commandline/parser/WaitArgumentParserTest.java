@@ -16,6 +16,7 @@ import static org.mockito.MockitoAnnotations.initMocks;
 public class WaitArgumentParserTest {
 
     private ArgumentBuffer buffer;
+    private StringBuffer outputBuffer;
 
     @Mock
     private TrafficLight trafficLight;
@@ -28,6 +29,7 @@ public class WaitArgumentParserTest {
         initMocks(this);
         buffer = new ArgumentBuffer(new String[]{"wait", "500"});
         buffer.next();
+        outputBuffer = new StringBuffer();
     }
 
     @Test
@@ -39,7 +41,7 @@ public class WaitArgumentParserTest {
     public void testExecute() throws Exception {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
-        parser.execute(buffer);
+        parser.execute(buffer, outputBuffer);
         stopWatch.stop();
         assertTrue("Wait seems to be not executed", stopWatch.getLastTaskTimeMillis() > 470);
     }
@@ -47,12 +49,12 @@ public class WaitArgumentParserTest {
     @Test
     public void failedNumberParsing() {
         ArgumentBuffer buffer = new ArgumentBuffer(new String[]{"wait", "fail"});
-        parser.execute(buffer);
+        parser.execute(buffer, outputBuffer);
     }
 
     @Test
     public void failedArrayBufferLength() {
         ArgumentBuffer buffer = new ArgumentBuffer(new String[]{"wait"});
-        parser.execute(buffer);
+        parser.execute(buffer, outputBuffer);
     }
 }

@@ -25,7 +25,7 @@ public class LedArgumentParser extends AbstractArgumentParser {
     }
 
     @Override
-    public void execute(ArgumentBuffer buffer) {
+    public void execute(ArgumentBuffer buffer, StringBuffer outputBuffer) {
         Led led = Led.valueOfIgnoreCaseOrNull(buffer.peek());
         String name = buffer.next();
         Mode mode = Mode.valueOfIgnoreCaseOrError(name);

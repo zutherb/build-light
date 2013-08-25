@@ -48,7 +48,7 @@ public class KnightRiderArgumentParserTest {
 
     @Test
     public void testExecute() throws Exception {
-        parser.execute(buffer);
+        parser.execute(buffer, new StringBuffer());
         verify(light, atLeastOnce()).switchOn(Led.RED);
         verify(light, atLeastOnce()).switchOn(Led.YELLOW);
         verify(light, atLeastOnce()).switchOn(Led.GREEN);

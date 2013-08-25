@@ -20,13 +20,13 @@ public class LedArgumentParserIT extends AbstractJUnit4SpringContextTests {
     public void testExecuteSwitchOn() throws Exception {
         ArgumentBuffer buffer = new ArgumentBuffer(new String[]{"red", "on"});
         buffer.next();
-        parser.execute(buffer);
+        parser.execute(buffer, new StringBuffer());
     }
 
     @Test
     public void testExecuteSwitchOff() throws Exception {
         ArgumentBuffer buffer = new ArgumentBuffer(new String[]{"red", "off"});
         buffer.next();
-        parser.execute(buffer);
+        parser.execute(buffer, new StringBuffer());
     }
 }

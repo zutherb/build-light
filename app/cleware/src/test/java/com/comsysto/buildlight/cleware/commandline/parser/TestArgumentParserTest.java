@@ -44,7 +44,7 @@ public class TestArgumentParserTest {
 
     @Test
     public void testExecute() throws Exception {
-        parser.execute(new ArgumentBuffer(new String[]{"--test"}));
+        parser.execute(new ArgumentBuffer(new String[]{"--test"}), new StringBuffer());
         verify(light, times(1)).switchOnAllLeds();
         verify(light, times(1)).switchOffAllLeds();
     }

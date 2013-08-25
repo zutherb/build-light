@@ -4,6 +4,7 @@ import com.comsysto.buildlight.cleware.driver.TrafficLight;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -22,8 +23,9 @@ public class TestArgumentParser extends AbstractArgumentParser {
         return TEST.equalsIgnoreCase(buffer.peek());
     }
 
+    @Async
     @Override
-    public void execute(ArgumentBuffer buffer) {
+    public void execute(ArgumentBuffer buffer, StringBuffer outputBuffer) {
         try {
             trafficLight().switchOnAllLeds();
             Thread.sleep(1000);

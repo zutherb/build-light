@@ -32,8 +32,9 @@ public class KnightRiderArgumentParser extends AbstractArgumentParser {
 
     @Async
     @Override
-    public void execute(ArgumentBuffer buffer) {
+    public void execute(ArgumentBuffer buffer, StringBuffer outputBuffer) {
         LOGGER.info("Knight Rider sequence can be exit by pressing Ctrl+C");
+        outputBuffer.append("Knight Rider sequence can be exit by pressing Ctrl+C");
         try {
             Led[] leds = Led.values();
             int moveCounter = 0;

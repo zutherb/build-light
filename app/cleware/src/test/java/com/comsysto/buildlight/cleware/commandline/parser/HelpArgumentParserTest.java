@@ -43,7 +43,7 @@ public class HelpArgumentParserTest {
 
     @Test
     public void testExecute() throws Exception {
-        parser.execute(mock(ArgumentBuffer.class));
+        parser.execute(mock(ArgumentBuffer.class), new StringBuffer());
         verifyZeroInteractions(light);
     }
 }

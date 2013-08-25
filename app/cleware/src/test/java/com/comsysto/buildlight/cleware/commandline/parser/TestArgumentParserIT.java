@@ -18,6 +18,6 @@ public class TestArgumentParserIT extends AbstractJUnit4SpringContextTests {
 
     @Test
     public void testExecute() throws Exception {
-        parser.execute(new ArgumentBuffer(new String[]{"--test"}));
+        parser.execute(new ArgumentBuffer(new String[]{"--test"}), new StringBuffer());
     }
 }

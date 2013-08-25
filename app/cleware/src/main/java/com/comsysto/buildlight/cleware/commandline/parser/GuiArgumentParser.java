@@ -27,7 +27,7 @@ public class GuiArgumentParser extends AbstractArgumentParser {
     }
 
     @Override
-    public void execute(ArgumentBuffer buffer) {
+    public void execute(ArgumentBuffer buffer, StringBuffer outputBuffer) {
         try {
             LOGGER.info("Starting GUI ...");
             TrafficLightApplication.main(buffer.arguments());

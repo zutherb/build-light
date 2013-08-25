@@ -1,8 +1,8 @@
 package com.comsysto.buildlight.cleware.commandline.gui;
 
+import com.comsysto.buildlight.cleware.ClewareTrafficLightFactoryBean;
 import com.comsysto.buildlight.cleware.driver.Led;
 import com.comsysto.buildlight.cleware.driver.TrafficLight;
-import com.comsysto.buildlight.cleware.driver.TrafficLightFactory;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -20,7 +20,7 @@ import java.util.Map;
  */
 public class TrafficLightApplication extends Application {
 
-    private static final TrafficLight TRAFFIC_LIGHT = TrafficLightFactory.createNewInstance();
+    private static final TrafficLight TRAFFIC_LIGHT = ClewareTrafficLightFactoryBean.instance();
 
     private static Map<Led, Boolean> LED_STATES;
 
@@ -73,11 +73,5 @@ public class TrafficLightApplication extends Application {
             }
         });
         return redButton;
-    }
-
-    @Override
-    public void stop() throws Exception {
-        TRAFFIC_LIGHT.close();
-        System.exit(0);
     }
 }

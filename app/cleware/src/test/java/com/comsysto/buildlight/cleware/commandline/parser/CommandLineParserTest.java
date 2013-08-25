@@ -26,20 +26,13 @@ public class CommandLineParserTest {
     public void setup() {
         initMocks(this);
         when(otherParser.isResponsible(any(ArgumentBuffer.class))).thenReturn(true);
-        commandLineParser = new CommandLineParser(Arrays.asList(otherParser), helpParser);
-    }
-
-    @Test
-    public void testEmptyArgumentBuffer() throws Exception {
-        commandLineParser.execute(new ArgumentBuffer(new String[]{}));
-        verifyZeroInteractions(otherParser);
-        verify(helpParser, times(1)).execute(any(ArgumentBuffer.class));
+        commandLineParser = new CommandLineParser(Arrays.asList(otherParser));
     }
 
     @Test
     public void testChainExecution() throws Exception {
         commandLineParser.execute(new ArgumentBuffer(new String[]{"--argument"}));
         verifyZeroInteractions(helpParser);
-        verify(otherParser, times(1)).execute(any(ArgumentBuffer.class));
+        verify(otherParser, times(1)).execute(any(ArgumentBuffer.class), any(StringBuffer.class));
     }
 }

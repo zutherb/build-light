@@ -8,7 +8,7 @@ import com.comsysto.buildlight.cleware.driver.TrafficLight;
 public interface ArgumentParser {
     boolean isResponsible(ArgumentBuffer buffer);
 
-    void execute(ArgumentBuffer buffer);
+    void execute(ArgumentBuffer buffer, StringBuffer outputBuffer);
 
     TrafficLight trafficLight();
 }
