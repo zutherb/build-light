@@ -1,8 +1,8 @@
 apply plugin: 'application'
 
-mainClassName = "com.comsysto.buildlight.application.commandline.Runner"
+mainClassName = "com.cleware.commandline.Runner"
 
-group = 'com.comsysto.buildlight.application'
+group = 'com.comsysto.buildlight.cleware.driver'
 
 sourceSets {
     main {
@@ -24,14 +24,14 @@ configurations {
 }
 
 dependencies {
-    compile project(":app:buildlight")
-    compile project(":app:cleware-pi")
+    compile project(":app:cleware")
+    //compile files("lib/hidapi-pi-1.1.jar")
 }
 
 jar {
     manifest {
         attributes(
-                "Implementation-Title": "Build Light Application for Raspberry PI",
+                "Implementation-Title": "Cleware Traffic Light Driver for Raspberry PI",
                 "Implementation-Version": version,
                 "Author": "Bernd Zuther <bernd.zuther@me.com>",
                 "Main-Class": mainClassName

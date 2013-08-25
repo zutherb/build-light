@@ -1,0 +1,85 @@
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+group = 'com.comsysto.buildlight'
+
+sourceSets {
+    main {
+        resources {
+            srcDir 'src/main/java'
+        }
+    }
+    test {
+        resources {
+            srcDir 'src/test/java'
+            srcDir 'src/test/resources'
+        }
+    }
+}
+
+dependencies {
+    compile commonDeps
+    compile "com.codeminders:hidapi:1.1"
+
+    testCompile testDeps
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from 'build/docs/javadoc'
+}
+
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allSource
+    classifier = 'sources'
+}
+
+artifacts {
+    archives jar
+    archives javadocJar
+    archives sourcesJar
+}
+
+signing {
+    sign configurations.archives
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: sonatypeUsername, password: sonatypePassword)
+            }
+
+            pom.project {
+                name 'Cleware Traffic Light Driver'
+                packaging 'jar'
+                description 'Java Driver for the Cleware Traffic Light'
+                url 'https://github.com/comsysto/build-light'
+
+                scm {
+                    url 'scm:git@github.com:comsysto/build-light.git'
+                    connection 'scm:git@github.com:comsysto/build-light.git'
+                    developerConnection 'scm:git@github.com:comsysto/build-light.git'
+                }
+
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        distribution 'repo'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'zutherb'
+                        name 'Bernd Zuther'
+                    }
+                }
+            }
+        }
+    }
+}

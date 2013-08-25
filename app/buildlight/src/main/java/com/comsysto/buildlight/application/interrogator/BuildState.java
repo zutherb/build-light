@@ -1,6 +1,7 @@
 package com.comsysto.buildlight.application.interrogator;
 
-import com.cleware.driver.Led;
+
+import com.comsysto.buildlight.cleware.driver.Led;
 
 /**
  * @author zutherb

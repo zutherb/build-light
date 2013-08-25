@@ -1,6 +1,6 @@
 package com.comsysto.buildlight.application;
 
-import com.cleware.driver.TrafficLight;
+import com.comsysto.buildlight.cleware.driver.TrafficLight;
 import com.comsysto.buildlight.application.interrogator.BuildInterrogator;
 import com.comsysto.buildlight.application.interrogator.BuildState;
 import org.springframework.beans.factory.annotation.Autowired;
