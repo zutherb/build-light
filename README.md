@@ -51,7 +51,20 @@ pi@raspberry ~/Downloads$ sudo ./buildlight
 Cleware Traffic Java Driver
 ---------------------------
 
-### Installation ###
+### Use Cleware Traffic Java Driver ###
+
+```java
+public class TrafficLightFactoryTest {
+    public static void main(String[] args) {
+        TrafficLight light = TrafficLightFactory.createNewInstance();
+        light.switchOn(Led.RED);
+        light.switchOffAllLeds();
+        light.close();
+    }
+}
+```
+
+### Installation of the commandline tool ###
 
 * [Windows Download](http://h1994633.stratoserver.net:9090/job/Build-Light/lastSuccessfulBuild/artifact/driver/cleware/build/distributions/cleware-0.1-DEV.zip)
 * [Linux/Mac Download](http://h1994633.stratoserver.net:9090/job/Build-Light/lastSuccessfulBuild/artifact/driver/cleware/build/distributions/cleware-0.1-DEV.tar)
