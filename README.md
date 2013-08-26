@@ -58,7 +58,7 @@ Cleware Traffic Java Driver
 
 ### Use Cleware Traffic Driver in our Application ###
 
-[![Class Diagramm](picture/classdiagramm.png)](picture/classdiagramm.pngs)
+[![Class Diagramm](picture/classdiagram.png)](picture/classdiagram.png)
 
 #### Maven ####
 ```java
