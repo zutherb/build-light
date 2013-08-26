@@ -44,6 +44,16 @@ signing {
     sign configurations.archives
 }
 
+jar {
+    manifest {
+        attributes(
+                "Implementation-Title": "Build Light Application",
+                "Implementation-Version": version,
+                "Author": "Bernd Zuther <bernd.zuther@comsysto.com>",
+        )
+    }
+}
+
 uploadArchives {
     repositories {
         mavenDeployer {

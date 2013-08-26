@@ -58,6 +58,9 @@ Cleware Traffic Java Driver
 
 ### Use Cleware Traffic Driver in our Application ###
 
+[![Class Diagramm](picture/classdiagramm.jpg)](picture/classdiagramm.jpg)
+
+#### Maven ####
 ```java
 <dependency>
   <groupId>com.comsysto.buildlight</groupId>
@@ -65,7 +68,11 @@ Cleware Traffic Java Driver
   <version>1.0</version>
 </dependency>
 ```
-
+#### Gradle ####
+```groovy
+compile "com.comsysto.buildlight:cleware-driver:1.0"
+```
+#### Java ####
 ```java
 public class TrafficLightFactoryTest {
     public static void main(String[] args) {

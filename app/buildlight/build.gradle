@@ -47,7 +47,7 @@ jar {
         attributes(
                 "Implementation-Title": "Build Light Application",
                 "Implementation-Version": version,
-                "Author": "Bernd Zuther <bernd.zuther@me.com>",
+                "Author": "Bernd Zuther <bernd.zuther@comsysto.com>",
                 "Main-Class": mainClassName
         )
     }
