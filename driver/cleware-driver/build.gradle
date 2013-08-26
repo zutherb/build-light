@@ -18,7 +18,8 @@ sourceSets {
 }
 
 dependencies {
-    compile commonDeps
+    compile "org.slf4j:slf4j-api:$slf4jVersion"
+    compile "commons-lang:commons-lang:$commonsLangVersion"
     compile "com.codeminders:hidapi:1.1"
 
     testCompile testDeps

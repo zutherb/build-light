@@ -2,13 +2,11 @@ package com.comsysto.buildlight.cleware.driver;
 
 import com.codeminders.hidapi.HIDDevice;
 import com.codeminders.hidapi.HIDManager;
-import org.apache.commons.lang.Validate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
-
 import static java.lang.String.format;
+import static org.apache.commons.lang.Validate.isTrue;
 
 /**
  * @author zutherb
@@ -17,8 +15,15 @@ public class TrafficLightImpl implements TrafficLight {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TrafficLightImpl.class);
 
-    private static final String SWITCH_ON_ERROR = "Led {} could not be switched on";
-    private static final String SWITCH_OFF_ERROR = "Led {} could not be switched off";
+    private static final String MESSAGE_SWITCH_ON_ERROR = "Led {} could not be switched on";
+    private static final String MESSAGE_SWITCH_OFF_ERROR = "Led {} could not be switched off";
+    private static final String MESSAGE_NOT_ALL_BYTES_FROM_THE_WAS_WRITTEN_TO_USB = "Not all bytes from the was written to usb";
+    private static final String MESSAGE_SWITCH_ON_LED = "Switch on '%s' Led";
+    private static final String MESSAGE_SWITCH_OFF_LED = "Switch off '%s' Led";
+    private static final String MESSAGE_USB_DEVICE_COULD_NOT_BE_CLOSED = "USB Device could not be closed";
+
+    private static final byte ZERO = (byte) 0x0;
+    private static final byte ONE = (byte) 0x1;
 
     private final HIDManager hidManager;
     private final HIDDevice hidDevice;
@@ -31,12 +36,12 @@ public class TrafficLightImpl implements TrafficLight {
     @Override
     public void switchOn(Led led) {
         try {
-            byte[] writeBuffer = createSwitchOnBuffer(led);
+            byte[] writeBuffer = createSwitchOnSequenceBuffer(led);
             int writtenBytes = hidDevice.write(writeBuffer);
-            Validate.isTrue(writtenBytes == writeBuffer.length, "Not all bytes from the was written to usb");
-            LOGGER.debug(format("Switch on '%s' Led", led.name()));
-        } catch (IOException e) {
-            LOGGER.error(SWITCH_ON_ERROR, led.name());
+            isTrue(writtenBytes == writeBuffer.length, MESSAGE_NOT_ALL_BYTES_FROM_THE_WAS_WRITTEN_TO_USB);
+            LOGGER.debug(format(MESSAGE_SWITCH_ON_LED, led.name()));
+        } catch (Exception e) {
+            LOGGER.error(MESSAGE_SWITCH_ON_ERROR, led.name());
             throw new TrafficLightException(e);
         }
     }
@@ -44,12 +49,12 @@ public class TrafficLightImpl implements TrafficLight {
     @Override
     public void switchOff(Led led) {
         try {
-            byte[] writeBuffer = createSwitchOffBuffer(led);
+            byte[] writeBuffer = createSwitchOffSequenceBuffer(led);
             int writtenBytes = hidDevice.write(writeBuffer);
-            Validate.isTrue(writtenBytes == writeBuffer.length, "Not all bytes from the was written to usb");
-            LOGGER.debug(format("Switch off '%s' Led", led.name()));
-        } catch (IOException e) {
-            LOGGER.error(SWITCH_OFF_ERROR, led.name());
+            isTrue(writtenBytes == writeBuffer.length, MESSAGE_NOT_ALL_BYTES_FROM_THE_WAS_WRITTEN_TO_USB);
+            LOGGER.debug(format(MESSAGE_SWITCH_OFF_LED, led.name()));
+        } catch (Exception e) {
+            LOGGER.error(MESSAGE_SWITCH_OFF_ERROR, led.name());
             throw new TrafficLightException(e);
         }
     }
@@ -68,12 +73,12 @@ public class TrafficLightImpl implements TrafficLight {
         }
     }
 
-    private byte[] createSwitchOnBuffer(Led led) {
-        return new byte[]{(byte) 0x0, (byte) 0x0, led.getAddress(), (byte) 0x1};
+    private byte[] createSwitchOnSequenceBuffer(Led led) {
+        return new byte[]{ZERO, ZERO, led.getAddress(), ONE};
     }
 
-    private byte[] createSwitchOffBuffer(Led led) {
-        return new byte[]{(byte) 0x0, (byte) 0x0, led.getAddress(), (byte) 0x0};
+    private byte[] createSwitchOffSequenceBuffer(Led led) {
+        return new byte[]{ZERO, ZERO, led.getAddress(), ZERO};
     }
 
     @Override
@@ -81,8 +86,8 @@ public class TrafficLightImpl implements TrafficLight {
         try {
             hidDevice.close();
             hidManager.release();
-        } catch (IOException e) {
-            LOGGER.error("USB Device could not be closed");
+        } catch (Exception e) {
+            LOGGER.error(MESSAGE_USB_DEVICE_COULD_NOT_BE_CLOSED);
             throw new TrafficLightException(e);
         }
     }
