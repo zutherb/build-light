@@ -56,7 +56,7 @@ uploadArchives {
             pom.project {
                 name 'Cleware Traffic Light Driver'
                 packaging 'jar'
-                description 'Java Driver for the Cleware Traffic Light'
+                description 'Java Driver for Cleware Traffic Light'
                 url 'https://github.com/comsysto/build-light'
 
                 scm {

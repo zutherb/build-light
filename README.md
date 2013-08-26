@@ -59,6 +59,14 @@ Cleware Traffic Java Driver
 ### Use Cleware Traffic Driver in our Application ###
 
 ```java
+<dependency>
+  <groupId>com.comsysto.buildlight</groupId>
+  <artifactId>cleware-driver</artifactId>
+  <version>1.0</version>
+</dependency>
+```
+
+```java
 public class TrafficLightFactoryTest {
     public static void main(String[] args) {
         TrafficLight light = TrafficLightFactory.createNewInstance();
