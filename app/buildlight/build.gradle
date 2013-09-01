@@ -1,8 +1,10 @@
+apply plugin: 'maven'
+apply plugin: 'signing'
 apply plugin: 'application'
 
 mainClassName = "com.comsysto.buildlight.application.commandline.Runner"
 
-group = 'com.comsysto.buildlight.application'
+group = 'com.comsysto.buildlight'
 
 sourceSets {
     main {
@@ -21,7 +23,6 @@ sourceSets {
 
 dependencies {
     compile project(":driver:cleware-driver")
-    //compile "com.comsysto.buildlight:cleware-driver:1.0"
 
     compile project(":repository:bamboo:api")
     compile project(":repository:bamboo:model")
@@ -58,3 +59,57 @@ run {
         args project.args.split('\\s+')
     }
 }
+
+/*
+artifacts {
+    archives jar
+    archives javadocJar
+    archives sourcesJar
+    archives distZip
+    archives distTar
+}
+
+signing {
+    sign configurations.archives
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: sonatypeUsername, password: sonatypePassword)
+            }
+
+            pom.project {
+                name 'Build Light Application'
+                packaging 'zip'
+                description 'Build Light Light Application'
+                url 'https://github.com/comsysto/build-light'
+
+                scm {
+                    url 'scm:git@github.com:comsysto/build-light.git'
+                    connection 'scm:git@github.com:comsysto/build-light.git'
+                    developerConnection 'scm:git@github.com:comsysto/build-light.git'
+                }
+
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        distribution 'repo'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'zutherb'
+                        name 'Bernd Zuther'
+                    }
+                }
+            }
+        }
+    }
+}
+*/

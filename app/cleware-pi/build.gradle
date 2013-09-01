@@ -1,8 +1,10 @@
+apply plugin: 'maven'
+apply plugin: 'signing'
 apply plugin: 'application'
 
 mainClassName = "com.comsysto.buildlight.cleware.commandline.Runner"
 
-group = 'com.comsysto.buildlight.cleware.driver'
+group = 'com.comsysto.buildlight'
 
 sourceSets {
     main {
@@ -25,7 +27,7 @@ configurations {
 
 dependencies {
     compile project(":app:cleware")
-    //compile files("lib/hidapi-pi-1.1.jar")
+    compile files("lib/hidapi-pi-1.1.jar")
 }
 
 jar {
@@ -44,3 +46,56 @@ run {
         args project.args.split('\\s+')
     }
 }
+
+/*
+artifacts {
+    archives distTar
+    archives jar
+    archives javadocJar
+    archives sourcesJar
+}
+
+signing {
+    sign configurations.archives
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: sonatypeUsername, password: sonatypePassword)
+            }
+
+            pom.project {
+                name 'Cleware Traffic Light Application - Raspberry PI'
+                packaging 'zip'
+                description 'Cleware Traffic Light Application - Raspberry PI'
+                url 'https://github.com/comsysto/build-light'
+
+                scm {
+                    url 'scm:git@github.com:comsysto/build-light.git'
+                    connection 'scm:git@github.com:comsysto/build-light.git'
+                    developerConnection 'scm:git@github.com:comsysto/build-light.git'
+                }
+
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        distribution 'repo'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'zutherb'
+                        name 'Bernd Zuther'
+                    }
+                }
+            }
+        }
+    }
+}
+*/

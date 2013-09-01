@@ -20,15 +20,18 @@ public final class TrafficLightFactory {
     private static final int VENDOR_ID = 0xD50;     //Cleware Vendor Id
     private static final int PRODUCT_ID = 0x8;      //Traffic Light Product Id
 
+    static {
+        ClassPathLibraryLoader.loadNativeHIDLibrary();
+    }
+
     public static TrafficLight createNewInstance() {
         try {
-            ClassPathLibraryLoader.loadNativeHIDLibrary();
             HIDManager hidManager = HIDManager.getInstance();
             HIDDevice hidDevice = hidManager.openById(VENDOR_ID, PRODUCT_ID, null);
             dumpDebugInformation(hidDevice);
             return new TrafficLightImpl(hidManager, hidDevice);
         } catch (IOException e) {
-            throw new TrafficLightException("Traffic light USB device could not be found.", e);
+            throw new TrafficLightException("Traffic Light USB device could not be found.", e);
         }
     }
 
