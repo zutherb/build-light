@@ -2,7 +2,7 @@ package com.comsysto.buildlight.application;
 
 import com.comsysto.buildlight.application.interrogator.BuildInterrogator;
 import com.comsysto.buildlight.application.interrogator.BuildState;
-import com.comsysto.buildlight.cleware.driver.TrafficLight;
+import com.comsysto.buildlight.common.driver.TrafficLight;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -39,7 +39,7 @@ public class LedSwitcher {
         if (!currentBuildState.equals(lastChangedBuildState) || BuildState.Building.equals(currentBuildState)) {
             lastChangedBuildState = currentBuildState;
             light.switchOffAllLeds();
-            light.switchOn(currentBuildState.getLed());
+            light.switchOn(currentBuildState.getColor());
         }
     }
 

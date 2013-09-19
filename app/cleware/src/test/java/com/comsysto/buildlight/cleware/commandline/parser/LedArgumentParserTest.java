@@ -1,7 +1,7 @@
 package com.comsysto.buildlight.cleware.commandline.parser;
 
-import com.comsysto.buildlight.cleware.driver.Led;
-import com.comsysto.buildlight.cleware.driver.TrafficLight;
+import com.comsysto.buildlight.common.driver.Color;
+import com.comsysto.buildlight.common.driver.TrafficLight;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -48,7 +48,7 @@ public class LedArgumentParserTest {
         ArgumentBuffer buffer = new ArgumentBuffer(new String[]{"red", "on"});
         buffer.next();
         parser.execute(buffer, new StringBuffer());
-        verify(light, only()).switchOn(Led.RED);
+        verify(light, only()).switchOn(Color.RED);
     }
 
     @Test
@@ -56,7 +56,7 @@ public class LedArgumentParserTest {
         ArgumentBuffer buffer = new ArgumentBuffer(new String[]{"red", "off"});
         buffer.next();
         parser.execute(buffer, new StringBuffer());
-        verify(light, only()).switchOff(Led.RED);
+        verify(light, only()).switchOff(Color.RED);
     }
 
     @Test(expected = ParserException.class)

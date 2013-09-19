@@ -2,6 +2,7 @@ package com.comsysto.buildlight.cleware.driver;
 
 import com.codeminders.hidapi.HIDDevice;
 import com.codeminders.hidapi.HIDManager;
+import com.comsysto.buildlight.common.driver.TrafficLightException;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;

@@ -3,6 +3,8 @@ package com.comsysto.buildlight.cleware.driver;
 import com.codeminders.hidapi.ClassPathLibraryLoader;
 import com.codeminders.hidapi.HIDDevice;
 import com.codeminders.hidapi.HIDManager;
+import com.comsysto.buildlight.common.driver.TrafficLight;
+import com.comsysto.buildlight.common.driver.TrafficLightException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

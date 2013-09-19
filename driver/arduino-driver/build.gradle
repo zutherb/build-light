@@ -22,7 +22,7 @@ dependencies {
 
     compile "org.slf4j:slf4j-api:$slf4jVersion"
     compile "commons-lang:commons-lang:$commonsLangVersion"
-    compile "com.codeminders:hidapi:1.1"
+    compile "org.rxtx:rxtx:2.1.7"
 
     testCompile testDeps
 }
@@ -50,7 +50,7 @@ signing {
 jar {
     manifest {
         attributes(
-                "Implementation-Title": "Build Light - Cleware Driver",
+                "Implementation-Title": "Build Light - Arduino Driver",
                 "Implementation-Version": version,
                 "Author": "Bernd Zuther <bernd.zuther@comsysto.com>",
         )
@@ -67,9 +67,9 @@ uploadArchives {
             }
 
             pom.project {
-                name 'Cleware Traffic Light Driver'
+                name 'Arduino Driver'
                 packaging 'jar'
-                description 'Java Driver for Cleware Traffic Light'
+                description 'Java Driver for Arduino'
                 url 'https://github.com/comsysto/build-light'
 
                 scm {

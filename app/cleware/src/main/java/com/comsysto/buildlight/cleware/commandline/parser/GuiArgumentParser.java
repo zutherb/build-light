@@ -1,7 +1,7 @@
 package com.comsysto.buildlight.cleware.commandline.parser;
 
 import com.comsysto.buildlight.cleware.commandline.gui.TrafficLightApplication;
-import com.comsysto.buildlight.cleware.driver.TrafficLight;
+import com.comsysto.buildlight.common.driver.TrafficLight;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

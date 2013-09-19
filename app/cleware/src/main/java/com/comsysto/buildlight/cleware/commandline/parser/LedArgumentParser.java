@@ -1,7 +1,7 @@
 package com.comsysto.buildlight.cleware.commandline.parser;
 
-import com.comsysto.buildlight.cleware.driver.Led;
-import com.comsysto.buildlight.cleware.driver.TrafficLight;
+import com.comsysto.buildlight.common.driver.Color;
+import com.comsysto.buildlight.common.driver.TrafficLight;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,23 +21,23 @@ public class LedArgumentParser extends AbstractArgumentParser {
 
     @Override
     public boolean isResponsible(ArgumentBuffer buffer) {
-        return Led.valueOfIgnoreCaseOrNull(buffer.peek()) != null;
+        return Color.valueOfIgnoreCaseOrNull(buffer.peek()) != null;
     }
 
     @Override
     public void execute(ArgumentBuffer buffer, StringBuffer outputBuffer) {
-        Led led = Led.valueOfIgnoreCaseOrNull(buffer.peek());
+        Color color = Color.valueOfIgnoreCaseOrNull(buffer.peek());
         String name = buffer.next();
         Mode mode = Mode.valueOfIgnoreCaseOrError(name);
         switch (mode) {
             case ON:
-                trafficLight().switchOn(led);
+                trafficLight().switchOn(color);
                 break;
             case OFF:
-                trafficLight().switchOff(led);
+                trafficLight().switchOff(color);
                 break;
             default:
-                String msg = String.format("Postion %d: Led %s must be following <on | off>", buffer.position(), led.name());
+                String msg = String.format("Postion %d: Led %s must be following <on | off>", buffer.position(), color.name());
                 throw new ParserException(msg);
         }
     }

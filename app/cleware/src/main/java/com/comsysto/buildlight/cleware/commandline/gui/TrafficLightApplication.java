@@ -1,8 +1,8 @@
 package com.comsysto.buildlight.cleware.commandline.gui;
 
 import com.comsysto.buildlight.cleware.ClewareTrafficLightFactoryBean;
-import com.comsysto.buildlight.cleware.driver.Led;
-import com.comsysto.buildlight.cleware.driver.TrafficLight;
+import com.comsysto.buildlight.common.driver.Color;
+import com.comsysto.buildlight.common.driver.TrafficLight;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -22,12 +22,12 @@ public class TrafficLightApplication extends Application {
 
     private static final TrafficLight TRAFFIC_LIGHT = ClewareTrafficLightFactoryBean.instance();
 
-    private static Map<Led, Boolean> LED_STATES;
+    private static Map<Color, Boolean> LED_STATES;
 
     static {
-        LED_STATES = new HashMap<Led, Boolean>();
-        for (Led led : Led.values()) {
-            LED_STATES.put(led, Boolean.FALSE);
+        LED_STATES = new HashMap<Color, Boolean>();
+        for (Color color : Color.values()) {
+            LED_STATES.put(color, Boolean.FALSE);
         }
     }
 
@@ -40,7 +40,7 @@ public class TrafficLightApplication extends Application {
         TRAFFIC_LIGHT.switchOffAllLeds();
 
         VBox vbox = vBox();
-        vbox.getChildren().addAll(buttonForLed(Led.RED), buttonForLed(Led.YELLOW), buttonForLed(Led.GREEN));
+        vbox.getChildren().addAll(buttonForLed(Color.RED), buttonForLed(Color.YELLOW), buttonForLed(Color.GREEN));
 
         primaryStage.setTitle("Cleware Traffic Light");
         primaryStage.setResizable(false);
@@ -55,20 +55,20 @@ public class TrafficLightApplication extends Application {
         return vbox;
     }
 
-    private Button buttonForLed(final Led led) {
+    private Button buttonForLed(final Color color) {
         Button redButton = new Button();
-        redButton.setStyle("-fx-background-color: " + led.name().toLowerCase());
+        redButton.setStyle("-fx-background-color: " + color.name().toLowerCase());
         redButton.setPrefSize(270, 70);
         redButton.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event) {
-                if (!LED_STATES.get(led)) {
-                    TRAFFIC_LIGHT.switchOn(led);
-                    LED_STATES.put(led, Boolean.TRUE);
+                if (!LED_STATES.get(color)) {
+                    TRAFFIC_LIGHT.switchOn(color);
+                    LED_STATES.put(color, Boolean.TRUE);
                 } else {
-                    TRAFFIC_LIGHT.switchOff(led);
-                    LED_STATES.put(led, Boolean.FALSE);
+                    TRAFFIC_LIGHT.switchOff(color);
+                    LED_STATES.put(color, Boolean.FALSE);
                 }
             }
         });

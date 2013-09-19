@@ -2,8 +2,14 @@ package com.comsysto.buildlight.cleware.driver;
 
 import com.codeminders.hidapi.HIDDevice;
 import com.codeminders.hidapi.HIDManager;
+import com.comsysto.buildlight.common.driver.AbstractTrafficLight;
+import com.comsysto.buildlight.common.driver.Color;
+import com.comsysto.buildlight.common.driver.TrafficLightException;
+import com.google.common.collect.ImmutableMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Map;
 
 import static java.lang.String.format;
 import static org.apache.commons.lang.Validate.isTrue;
@@ -11,19 +17,18 @@ import static org.apache.commons.lang.Validate.isTrue;
 /**
  * @author zutherb
  */
-public class TrafficLightImpl implements TrafficLight {
+public class TrafficLightImpl extends AbstractTrafficLight<Byte> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TrafficLightImpl.class);
 
-    private static final String MESSAGE_SWITCH_ON_ERROR = "Led {} could not be switched on";
-    private static final String MESSAGE_SWITCH_OFF_ERROR = "Led {} could not be switched off";
-    private static final String MESSAGE_NOT_ALL_BYTES_FROM_THE_WAS_WRITTEN_TO_USB = "Not all bytes from the was written to usb";
-    private static final String MESSAGE_SWITCH_ON_LED = "Switch on '%s' Led";
-    private static final String MESSAGE_SWITCH_OFF_LED = "Switch off '%s' Led";
-    private static final String MESSAGE_USB_DEVICE_COULD_NOT_BE_CLOSED = "USB Device could not be closed";
-
     private static final byte ZERO = (byte) 0x0;
     private static final byte ONE = (byte) 0x1;
+
+    private static Map<Color, Byte> LED_MAPPING = ImmutableMap.<Color, Byte>builder()
+            .put(Color.RED, new Byte((byte) 0x10))
+            .put(Color.YELLOW, new Byte((byte) 0x11))
+            .put(Color.GREEN, new Byte((byte) 0x12))
+            .build();
 
     private final HIDManager hidManager;
     private final HIDDevice hidDevice;
@@ -34,51 +39,37 @@ public class TrafficLightImpl implements TrafficLight {
     }
 
     @Override
-    public void switchOn(Led led) {
+    public void switchOn(Color color) {
         try {
-            byte[] writeBuffer = createSwitchOnSequenceBuffer(led);
+            byte[] writeBuffer = createSwitchOnSequenceBuffer(color);
             int writtenBytes = hidDevice.write(writeBuffer);
             isTrue(writtenBytes == writeBuffer.length, MESSAGE_NOT_ALL_BYTES_FROM_THE_WAS_WRITTEN_TO_USB);
-            LOGGER.debug(format(MESSAGE_SWITCH_ON_LED, led.name()));
+            LOGGER.debug(format(MESSAGE_SWITCH_ON_LED, color.name()));
         } catch (Exception e) {
-            LOGGER.error(MESSAGE_SWITCH_ON_ERROR, led.name());
+            LOGGER.error(MESSAGE_SWITCH_ON_ERROR, color.name());
             throw new TrafficLightException(e);
         }
     }
 
     @Override
-    public void switchOff(Led led) {
+    public void switchOff(Color color) {
         try {
-            byte[] writeBuffer = createSwitchOffSequenceBuffer(led);
+            byte[] writeBuffer = createSwitchOffSequenceBuffer(color);
             int writtenBytes = hidDevice.write(writeBuffer);
             isTrue(writtenBytes == writeBuffer.length, MESSAGE_NOT_ALL_BYTES_FROM_THE_WAS_WRITTEN_TO_USB);
-            LOGGER.debug(format(MESSAGE_SWITCH_OFF_LED, led.name()));
+            LOGGER.debug(format(MESSAGE_SWITCH_OFF_LED, color.name()));
         } catch (Exception e) {
-            LOGGER.error(MESSAGE_SWITCH_OFF_ERROR, led.name());
+            LOGGER.error(MESSAGE_SWITCH_OFF_ERROR, color.name());
             throw new TrafficLightException(e);
         }
     }
 
-    @Override
-    public void switchOnAllLeds() {
-        for (Led led : Led.values()) {
-            switchOn(led);
-        }
+    private byte[] createSwitchOnSequenceBuffer(Color color) {
+        return new byte[]{ZERO, ZERO, map(color), ONE};
     }
 
-    @Override
-    public void switchOffAllLeds() {
-        for (Led led : Led.values()) {
-            switchOff(led);
-        }
-    }
-
-    private byte[] createSwitchOnSequenceBuffer(Led led) {
-        return new byte[]{ZERO, ZERO, led.getAddress(), ONE};
-    }
-
-    private byte[] createSwitchOffSequenceBuffer(Led led) {
-        return new byte[]{ZERO, ZERO, led.getAddress(), ZERO};
+    private byte[] createSwitchOffSequenceBuffer(Color color) {
+        return new byte[]{ZERO, ZERO, map(color), ZERO};
     }
 
     @Override
@@ -90,5 +81,10 @@ public class TrafficLightImpl implements TrafficLight {
             LOGGER.error(MESSAGE_USB_DEVICE_COULD_NOT_BE_CLOSED);
             throw new TrafficLightException(e);
         }
+    }
+
+    @Override
+    protected Byte map(Color color) {
+        return LED_MAPPING.get(color);
     }
 }

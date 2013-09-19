@@ -1,9 +1,9 @@
 package com.comsysto.buildlight.cleware;
 
-import com.comsysto.buildlight.cleware.driver.TrafficLight;
-import com.comsysto.buildlight.cleware.driver.TrafficLightException;
 import com.comsysto.buildlight.cleware.driver.TrafficLightFactory;
-import com.comsysto.buildlight.cleware.driver.TrafficLightMock;
+import com.comsysto.buildlight.common.driver.TrafficLight;
+import com.comsysto.buildlight.common.driver.TrafficLightException;
+import com.comsysto.buildlight.common.driver.TrafficLightMock;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.FactoryBean;

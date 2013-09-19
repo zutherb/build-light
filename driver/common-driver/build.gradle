@@ -9,20 +9,12 @@ sourceSets {
             srcDir 'src/main/java'
         }
     }
-    test {
-        resources {
-            srcDir 'src/test/java'
-            srcDir 'src/test/resources'
-        }
-    }
 }
 
 dependencies {
-    compile project(":driver:common-driver")
-
     compile "org.slf4j:slf4j-api:$slf4jVersion"
     compile "commons-lang:commons-lang:$commonsLangVersion"
-    compile "com.codeminders:hidapi:1.1"
+    compile "com.google.guava:guava:14.0.1"
 
     testCompile testDeps
 }
@@ -50,7 +42,7 @@ signing {
 jar {
     manifest {
         attributes(
-                "Implementation-Title": "Build Light - Cleware Driver",
+                "Implementation-Title": "Build Light - Common Driver",
                 "Implementation-Version": version,
                 "Author": "Bernd Zuther <bernd.zuther@comsysto.com>",
         )
@@ -67,9 +59,9 @@ uploadArchives {
             }
 
             pom.project {
-                name 'Cleware Traffic Light Driver'
+                name 'Common Driver'
                 packaging 'jar'
-                description 'Java Driver for Cleware Traffic Light'
+                description 'Common Driver'
                 url 'https://github.com/comsysto/build-light'
 
                 scm {

@@ -1,4 +1,4 @@
-package com.comsysto.buildlight.cleware.driver;
+package com.comsysto.buildlight.arduino.driver;
 
 import com.comsysto.buildlight.common.driver.Color;
 import com.comsysto.buildlight.common.driver.TrafficLight;
@@ -9,7 +9,7 @@ import com.comsysto.buildlight.common.driver.TrafficLight;
 public class TrafficLightFactoryTest {
     public static void main(String[] args) {
         TrafficLight light = TrafficLightFactory.createNewInstance();
-        light.switchOn(Color.RED);
+        light.switchOnAllLeds();
         light.switchOffAllLeds();
         light.close();
     }

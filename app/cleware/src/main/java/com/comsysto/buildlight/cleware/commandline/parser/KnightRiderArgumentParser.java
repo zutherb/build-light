@@ -1,7 +1,7 @@
 package com.comsysto.buildlight.cleware.commandline.parser;
 
-import com.comsysto.buildlight.cleware.driver.Led;
-import com.comsysto.buildlight.cleware.driver.TrafficLight;
+import com.comsysto.buildlight.common.driver.Color;
+import com.comsysto.buildlight.common.driver.TrafficLight;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +36,7 @@ public class KnightRiderArgumentParser extends AbstractArgumentParser {
         LOGGER.info("Knight Rider sequence can be exit by pressing Ctrl+C");
         outputBuffer.append("Knight Rider sequence can be exit by pressing Ctrl+C");
         try {
-            Led[] leds = Led.values();
+            Color[] colors = Color.values();
             int moveCounter = 0;
             boolean moveForward = true;
             StopWatch stopWatch = new StopWatch();
@@ -44,15 +44,15 @@ public class KnightRiderArgumentParser extends AbstractArgumentParser {
                 stopWatch.start();
                 trafficLight().switchOffAllLeds();
                 if (moveForward) {
-                    trafficLight().switchOn(leds[moveCounter++]);
+                    trafficLight().switchOn(colors[moveCounter++]);
                 } else {
-                    trafficLight().switchOn(leds[--moveCounter]);
+                    trafficLight().switchOn(colors[--moveCounter]);
                 }
                 if (moveCounter == 0) {
                     moveCounter++;
                     moveForward = true;
                 }
-                if (moveCounter == leds.length) {
+                if (moveCounter == colors.length) {
                     moveForward = false;
                     --moveCounter;
                 }

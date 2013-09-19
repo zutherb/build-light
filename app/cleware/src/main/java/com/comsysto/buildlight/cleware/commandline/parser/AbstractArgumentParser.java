@@ -1,7 +1,7 @@
 package com.comsysto.buildlight.cleware.commandline.parser;
 
 
-import com.comsysto.buildlight.cleware.driver.TrafficLight;
+import com.comsysto.buildlight.common.driver.TrafficLight;
 
 /**
  * @author zutherb

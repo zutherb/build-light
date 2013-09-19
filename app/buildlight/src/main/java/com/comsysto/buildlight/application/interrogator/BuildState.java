@@ -1,23 +1,23 @@
 package com.comsysto.buildlight.application.interrogator;
 
 
-import com.comsysto.buildlight.cleware.driver.Led;
+import com.comsysto.buildlight.common.driver.Color;
 
 /**
  * @author zutherb
  */
 public enum BuildState {
-    Successful(Led.GREEN),
-    Building(Led.YELLOW),
-    Failed(Led.RED);
+    Successful(Color.GREEN),
+    Building(Color.YELLOW),
+    Failed(Color.RED);
 
-    private Led led;
+    private Color color;
 
-    BuildState(Led led) {
-        this.led = led;
+    BuildState(Color color) {
+        this.color = color;
     }
 
-    public Led getLed() {
-        return led;
+    public Color getColor() {
+        return color;
     }
 }

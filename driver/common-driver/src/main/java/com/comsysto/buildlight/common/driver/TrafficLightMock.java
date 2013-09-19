@@ -1,4 +1,4 @@
-package com.comsysto.buildlight.cleware.driver;
+package com.comsysto.buildlight.common.driver;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,20 +8,20 @@ import org.slf4j.LoggerFactory;
  */
 public class TrafficLightMock implements TrafficLight {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(TrafficLightImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(TrafficLightMock.class);
 
     public TrafficLightMock() {
         LOGGER.info("Traffic Light Mock was created");
     }
 
     @Override
-    public void switchOn(Led led) {
-        LOGGER.info("Switch on Led {}", led.name());
+    public void switchOn(Color color) {
+        LOGGER.info("Switch on Led {}", color.name());
     }
 
     @Override
-    public void switchOff(Led led) {
-        LOGGER.info("Switch off Led {}", led.name());
+    public void switchOff(Color color) {
+        LOGGER.info("Switch off Led {}", color.name());
     }
 
     @Override

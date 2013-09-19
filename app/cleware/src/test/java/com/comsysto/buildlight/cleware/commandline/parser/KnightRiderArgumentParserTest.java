@@ -1,8 +1,8 @@
 package com.comsysto.buildlight.cleware.commandline.parser;
 
 
-import com.comsysto.buildlight.cleware.driver.Led;
-import com.comsysto.buildlight.cleware.driver.TrafficLight;
+import com.comsysto.buildlight.common.driver.Color;
+import com.comsysto.buildlight.common.driver.TrafficLight;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -49,9 +49,9 @@ public class KnightRiderArgumentParserTest {
     @Test
     public void testExecute() throws Exception {
         parser.execute(buffer, new StringBuffer());
-        verify(light, atLeastOnce()).switchOn(Led.RED);
-        verify(light, atLeastOnce()).switchOn(Led.YELLOW);
-        verify(light, atLeastOnce()).switchOn(Led.GREEN);
+        verify(light, atLeastOnce()).switchOn(Color.RED);
+        verify(light, atLeastOnce()).switchOn(Color.YELLOW);
+        verify(light, atLeastOnce()).switchOn(Color.GREEN);
         verify(light, atLeast(5)).switchOffAllLeds();
     }
 }
