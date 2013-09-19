@@ -34,7 +34,7 @@ public final class Runner {
 
             LOGGER.info(String.format("Buildlight started in %s Mode", builderServer));
 
-            ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("/com/buildlight/application/spring-daemon-context.xml");
+            ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:/com/comsysto/buildlight/application/spring-context.xml");
 
             Scanner scanner = new Scanner(System.in);
             String next = null;

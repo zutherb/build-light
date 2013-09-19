@@ -15,7 +15,6 @@
     <task:annotation-driven scheduler="taskScheduler"/>
     <task:scheduler id="taskScheduler" pool-size="1"/>
 
-    <import resource="classpath:/com/cleware/spring-context.xml"/>
     <import resource="classpath:/com/buildlight/respository/bamboo/spring-context.xml"/>
     <import resource="classpath:/com/buildlight/respository/jenkins/spring-context.xml"/>
 

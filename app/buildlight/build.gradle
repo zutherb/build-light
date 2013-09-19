@@ -23,6 +23,7 @@ sourceSets {
 
 dependencies {
     compile project(":driver:cleware-driver")
+    compile project(":driver:arduino-driver")
 
     compile project(":repository:bamboo:api")
     compile project(":repository:bamboo:model")
