@@ -8,7 +8,7 @@ import com.comsysto.buildlight.common.driver.TrafficLight;
  */
 public class TrafficLightFactoryTest {
     public static void main(String[] args) {
-        TrafficLight light = TrafficLightFactory.createNewInstance();
+        TrafficLight light = TrafficLightFactory.createNewInstance("test");
         light.switchOnAllLeds();
         light.switchOffAllLeds();
         light.close();

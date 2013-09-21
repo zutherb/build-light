@@ -18,9 +18,9 @@ public class TrafficLightImpl extends AbstractTrafficLight<Integer> {
     private static final Logger LOGGER = LoggerFactory.getLogger(TrafficLightImpl.class);
 
     private static Map<Color, Integer> PIN_MAPPING = ImmutableMap.<Color, Integer>builder()
-            .put(Color.RED, DIGITAL_PIN2)
+            .put(Color.GREEN, DIGITAL_PIN2)
             .put(Color.YELLOW, DIGITAL_PIN4)
-            .put(Color.GREEN, DIGITAL_PIN7)
+            .put(Color.RED, DIGITAL_PIN7)
             .build();
 
     private Arduino arduino;
@@ -39,13 +39,13 @@ public class TrafficLightImpl extends AbstractTrafficLight<Integer> {
 
     @Override
     public void switchOn(Color color) {
-        arduino.digitalWrite(map(color), HIGH);
+        arduino.digitalWrite(map(color), LOW);
 
     }
 
     @Override
     public void switchOff(Color color) {
-        arduino.digitalWrite(map(color), LOW);
+        arduino.digitalWrite(map(color), HIGH);
 
     }
 

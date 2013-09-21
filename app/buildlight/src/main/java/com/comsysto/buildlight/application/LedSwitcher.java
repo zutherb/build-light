@@ -36,7 +36,7 @@ public class LedSwitcher {
     }
 
     private void changeLedIfNessary(BuildState currentBuildState) {
-        if (!currentBuildState.equals(lastChangedBuildState) || BuildState.Building.equals(currentBuildState)) {
+        if (!currentBuildState.equals(lastChangedBuildState)) {
             lastChangedBuildState = currentBuildState;
             light.switchOffAllLeds();
             light.switchOn(currentBuildState.getColor());

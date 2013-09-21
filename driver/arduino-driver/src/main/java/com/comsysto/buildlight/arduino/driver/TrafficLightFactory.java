@@ -9,11 +9,14 @@ import org.slf4j.LoggerFactory;
  */
 public final class TrafficLightFactory {
 
+    public static final int RATE = 57600;
+
     private TrafficLightFactory() { /* NOOP */ }
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TrafficLightFactory.class);
 
-    public static TrafficLight createNewInstance() {
-        return new TrafficLightImpl(new Arduino(Arduino.list()[8], 57600));
+    public static TrafficLight createNewInstance(String port) {
+        Arduino arduino = new Arduino(port, RATE);
+        return new TrafficLightImpl(arduino);
     }
 }

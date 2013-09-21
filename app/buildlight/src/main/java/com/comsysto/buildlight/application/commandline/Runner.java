@@ -1,5 +1,6 @@
 package com.comsysto.buildlight.application.commandline;
 
+import com.comsysto.buildlight.arduino.driver.Arduino;
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,7 +24,7 @@ public final class Runner {
 
     public static void main(String[] args) throws IOException {
         LOGGER.info("Build Light - Build Watch Application, Maintained by B. Zuther.\n" +
-                "Send bug reports using https://github.com/zutherb/build-light/issues\n");
+                "Send bug reports using https://github.com/comsysto/build-light/issues\n");
         if (CONFIGURATION_FILE.exists()) {
             Properties properties = new Properties();
             properties.load(FileUtils.openInputStream(CONFIGURATION_FILE));
@@ -51,6 +52,14 @@ public final class Runner {
             LOGGER.error(JENKINS_DEFAULT_CONFIGURATION);
             LOGGER.error("Bamboo example:\n");
             LOGGER.error(BAMBOO_DEFAULT_CONFIGURATION);
+            LOGGER.error("Arduino Factory:\n");
+            LOGGER.error("traffic.light.factory=com.comsysto.buildlight.application.factory.ArduinoDriverFactoryBean\n");
+            LOGGER.error("Available Serial Port:\n");
+            String[] portList = Arduino.list();
+            LOGGER.error("");
+            for (String port : portList) {
+                LOGGER.error(port);
+            }
         }
     }
 }

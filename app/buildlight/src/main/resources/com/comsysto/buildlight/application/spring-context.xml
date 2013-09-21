@@ -26,7 +26,10 @@
     <util:properties id="defaultProperties">
         <prop key="buildlight.read.timeout">1000</prop>
         <prop key="buildlight.connection.timeout">1000</prop>
+        <prop key="traffic.light.factory">com.comsysto.buildlight.application.factory.ClewareDriverFactoryBean</prop>
     </util:properties>
+
+    <bean id="trafficLight" class="${traffic.light.factory}"/>
 
     <bean class="org.springframework.web.client.RestTemplate">
         <constructor-arg>
