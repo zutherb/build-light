@@ -1,6 +1,5 @@
 package com.comsysto.buildlight.application.gui;
 
-import com.comsysto.buildlight.application.ConfigurationFile;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;

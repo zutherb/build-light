@@ -1,4 +1,4 @@
-package com.comsysto.buildlight.application.interrogator;
+package com.comsysto.buildlight.application.adapter;
 
 import com.comsysto.buildlight.respository.jenkins.api.JenkinsRepository;
 import com.comsysto.buildlight.respository.jenkins.model.JenkinsBuildResponse;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  * @author zutherb
  */
 @Component
-public class JenkinsBuildInterrogator implements BuildInterrogator {
+public class JenkinsAdapter implements BuildServerAdapter {
 
     @Autowired(required = false)
     private JenkinsRepository jenkinsRepository;

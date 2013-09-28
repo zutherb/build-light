@@ -1,4 +1,4 @@
-package com.comsysto.buildlight.application.commandline;
+package com.comsysto.buildlight.application;
 
 import com.comsysto.buildlight.arduino.driver.Arduino;
 import org.apache.commons.io.FileUtils;
@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.Scanner;
 
-import static com.comsysto.buildlight.application.ConfigurationFile.*;
+import static com.comsysto.buildlight.application.gui.ConfigurationFile.*;
 
 
 /**

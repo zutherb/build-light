@@ -2,7 +2,7 @@ apply plugin: 'maven'
 apply plugin: 'signing'
 apply plugin: 'application'
 
-mainClassName = "com.comsysto.buildlight.application.commandline.Runner"
+mainClassName = "com.comsysto.buildlight.application.Runner"
 
 group = 'com.comsysto.buildlight'
 

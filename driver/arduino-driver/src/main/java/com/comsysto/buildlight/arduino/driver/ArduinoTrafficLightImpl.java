@@ -13,9 +13,9 @@ import static com.comsysto.buildlight.arduino.driver.Arduino.*;
 /**
  * @author zutherb
  */
-public class TrafficLightImpl extends AbstractTrafficLight<Integer> {
+public class ArduinoTrafficLightImpl extends AbstractTrafficLight<Integer> {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(TrafficLightImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ArduinoTrafficLightImpl.class);
 
     private static Map<Color, Integer> PIN_MAPPING = ImmutableMap.<Color, Integer>builder()
             .put(Color.GREEN, DIGITAL_PIN2)
@@ -26,7 +26,7 @@ public class TrafficLightImpl extends AbstractTrafficLight<Integer> {
     private Arduino arduino;
 
 
-    TrafficLightImpl(Arduino arduino) {
+    ArduinoTrafficLightImpl(Arduino arduino) {
         this.arduino = arduino;
         initArduino();
     }
@@ -34,6 +34,8 @@ public class TrafficLightImpl extends AbstractTrafficLight<Integer> {
     private void initArduino() {
         for (Map.Entry<Color, Integer> entry : PIN_MAPPING.entrySet()) {
             arduino.pinMode(entry.getValue(), Arduino.OUTPUT);
+            //switch off lamp
+            arduino.digitalWrite(entry.getValue(), HIGH);
         }
     }
 

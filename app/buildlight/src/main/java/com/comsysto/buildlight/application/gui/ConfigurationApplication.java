@@ -1,6 +1,5 @@
 package com.comsysto.buildlight.application.gui;
 
-import com.comsysto.buildlight.application.ConfigurationFile;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

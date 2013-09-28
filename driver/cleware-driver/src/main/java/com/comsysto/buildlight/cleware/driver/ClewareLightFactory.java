@@ -13,11 +13,11 @@ import java.io.IOException;
 /**
  * @author zutherb
  */
-public final class TrafficLightFactory {
+public final class ClewareLightFactory {
 
-    private TrafficLightFactory() { /* NOOP */ }
+    private ClewareLightFactory() { /* NOOP */ }
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(TrafficLightFactory.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ClewareLightFactory.class);
 
     private static final int VENDOR_ID = 0xD50;     //Cleware Vendor Id
     private static final int PRODUCT_ID = 0x8;      //Traffic Light Product Id
@@ -31,7 +31,7 @@ public final class TrafficLightFactory {
             HIDManager hidManager = HIDManager.getInstance();
             HIDDevice hidDevice = hidManager.openById(VENDOR_ID, PRODUCT_ID, null);
             dumpDebugInformation(hidDevice);
-            return new TrafficLightImpl(hidManager, hidDevice);
+            return new ClewareTrafficLightImpl(hidManager, hidDevice);
         } catch (IOException e) {
             throw new TrafficLightException("Traffic Light USB device could not be found.", e);
         }

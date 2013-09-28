@@ -1,4 +1,4 @@
-package com.comsysto.buildlight.application.interrogator;
+package com.comsysto.buildlight.application.adapter;
 
 
 import com.comsysto.buildlight.common.driver.Color;

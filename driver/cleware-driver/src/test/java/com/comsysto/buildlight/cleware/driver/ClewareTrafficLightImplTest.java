@@ -17,7 +17,7 @@ import static org.mockito.MockitoAnnotations.initMocks;
 /**
  * @author zutherb
  */
-public class TrafficLightImplTest {
+public class ClewareTrafficLightImplTest {
 
     @Mock
     private HIDManager hidManager;
@@ -26,7 +26,7 @@ public class TrafficLightImplTest {
     private HIDDevice hidDevice;
 
     @InjectMocks
-    private TrafficLightImpl light;
+    private ClewareTrafficLightImpl light;
 
     @Before
     public void setup() throws IOException {

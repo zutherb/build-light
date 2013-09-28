@@ -1,7 +1,5 @@
-package com.comsysto.buildlight.application;
+package com.comsysto.buildlight.application.adapter;
 
-import com.comsysto.buildlight.application.interrogator.BuildInterrogator;
-import com.comsysto.buildlight.application.interrogator.BuildState;
 import com.comsysto.buildlight.common.driver.TrafficLight;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -13,23 +11,23 @@ import java.util.List;
  * @author zutherb
  */
 @Component
-public class LedSwitcher {
+public class ColorSwitcher {
 
     private TrafficLight light;
     private BuildState lastChangedBuildState;
-    private List<BuildInterrogator> buildInterrogators;
+    private List<BuildServerAdapter> buildServerAdapters;
 
     @Autowired
-    public LedSwitcher(TrafficLight light, List<BuildInterrogator> buildInterrogators) {
+    public ColorSwitcher(TrafficLight light, List<BuildServerAdapter> buildServerAdapters) {
         this.light = light;
-        this.buildInterrogators = buildInterrogators;
+        this.buildServerAdapters = buildServerAdapters;
     }
 
     @Scheduled(fixedDelay = 1000)
     public void changeTrafficLightLed() {
-        for (BuildInterrogator buildInterrogator : buildInterrogators) {
-            if (buildInterrogator.isResponsible()) {
-                BuildState currentBuildState = buildInterrogator.getCurrentBuildState();
+        for (BuildServerAdapter buildServerAdapter : buildServerAdapters) {
+            if (buildServerAdapter.isResponsible()) {
+                BuildState currentBuildState = buildServerAdapter.getCurrentBuildState();
                 changeLedIfNessary(currentBuildState);
             }
         }

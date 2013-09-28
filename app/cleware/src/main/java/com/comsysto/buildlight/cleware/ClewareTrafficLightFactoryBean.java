@@ -1,6 +1,6 @@
 package com.comsysto.buildlight.cleware;
 
-import com.comsysto.buildlight.cleware.driver.TrafficLightFactory;
+import com.comsysto.buildlight.cleware.driver.ClewareLightFactory;
 import com.comsysto.buildlight.common.driver.TrafficLight;
 import com.comsysto.buildlight.common.driver.TrafficLightException;
 import com.comsysto.buildlight.common.driver.TrafficLightMock;
@@ -39,7 +39,7 @@ public class ClewareTrafficLightFactoryBean implements FactoryBean<TrafficLight>
     public static TrafficLight instance() {
         if (LIGHT_INSTANCE == null) {
             try {
-                LIGHT_INSTANCE = TrafficLightFactory.createNewInstance();
+                LIGHT_INSTANCE = ClewareLightFactory.createNewInstance();
             } catch (TrafficLightException e) {
                 LOGGER.error("Traffic Light USB device could not be found", e);
                 LOGGER.info("Traffic Light Mock is used instate.");

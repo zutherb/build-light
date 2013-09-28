@@ -1,6 +1,6 @@
-package com.comsysto.buildlight.application.factory;
+package com.comsysto.buildlight.application.factorybean;
 
-import com.comsysto.buildlight.cleware.driver.TrafficLightFactory;
+import com.comsysto.buildlight.cleware.driver.ClewareLightFactory;
 import com.comsysto.buildlight.common.driver.TrafficLight;
 import org.springframework.beans.factory.FactoryBean;
 
@@ -11,7 +11,7 @@ public class ClewareDriverFactoryBean implements FactoryBean<TrafficLight> {
 
     @Override
     public TrafficLight getObject() throws Exception {
-        return TrafficLightFactory.createNewInstance();
+        return ClewareLightFactory.createNewInstance();
     }
 
     @Override

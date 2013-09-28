@@ -17,6 +17,6 @@ public final class TrafficLightFactory {
 
     public static TrafficLight createNewInstance(String port) {
         Arduino arduino = new Arduino(port, RATE);
-        return new TrafficLightImpl(arduino);
+        return new ArduinoTrafficLightImpl(arduino);
     }
 }

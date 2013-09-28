@@ -17,9 +17,9 @@ import static org.apache.commons.lang.Validate.isTrue;
 /**
  * @author zutherb
  */
-public class TrafficLightImpl extends AbstractTrafficLight<Byte> {
+public class ClewareTrafficLightImpl extends AbstractTrafficLight<Byte> {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(TrafficLightImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ClewareTrafficLightImpl.class);
 
     private static final byte ZERO = (byte) 0x0;
     private static final byte ONE = (byte) 0x1;
@@ -33,7 +33,7 @@ public class TrafficLightImpl extends AbstractTrafficLight<Byte> {
     private final HIDManager hidManager;
     private final HIDDevice hidDevice;
 
-    TrafficLightImpl(HIDManager hidManager, HIDDevice hidDevice) {
+    ClewareTrafficLightImpl(HIDManager hidManager, HIDDevice hidDevice) {
         this.hidManager = hidManager;
         this.hidDevice = hidDevice;
     }

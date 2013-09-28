@@ -1,4 +1,4 @@
-package com.comsysto.buildlight.application.factory;
+package com.comsysto.buildlight.application.factorybean;
 
 import com.comsysto.buildlight.arduino.driver.TrafficLightFactory;
 import com.comsysto.buildlight.common.driver.TrafficLight;
@@ -6,7 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 
 /**
  * @author zutherb

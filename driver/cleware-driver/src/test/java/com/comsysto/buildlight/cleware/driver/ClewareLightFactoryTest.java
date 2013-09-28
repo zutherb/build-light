@@ -6,9 +6,9 @@ import com.comsysto.buildlight.common.driver.TrafficLight;
 /**
  * @author zutherb
  */
-public class TrafficLightFactoryTest {
+public class ClewareLightFactoryTest {
     public static void main(String[] args) {
-        TrafficLight light = TrafficLightFactory.createNewInstance();
+        TrafficLight light = ClewareLightFactory.createNewInstance();
         light.switchOn(Color.RED);
         light.switchOffAllLeds();
         light.close();

@@ -1,4 +1,4 @@
-package com.comsysto.buildlight.application.interrogator;
+package com.comsysto.buildlight.application.adapter;
 
 import com.comsysto.buildlight.respository.bamboo.api.BambooRepository;
 import com.comsysto.buildlight.respository.bamboo.model.BambooPlanResponse;
@@ -13,7 +13,7 @@ import java.util.List;
  * @author zutherb
  */
 @Component
-public class BambooBuildInterrogator implements BuildInterrogator {
+public class BambooAdapter implements BuildServerAdapter {
 
     @Autowired(required = false)
     private BambooRepository bambooRepository;

@@ -1,6 +1,5 @@
-package com.comsysto.buildlight.application;
+package com.comsysto.buildlight.application.gui;
 
-import com.comsysto.buildlight.application.gui.BuildServerType;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import org.apache.commons.lang.NotImplementedException;
