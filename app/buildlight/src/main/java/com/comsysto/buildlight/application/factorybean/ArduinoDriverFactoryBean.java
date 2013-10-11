@@ -1,6 +1,6 @@
 package com.comsysto.buildlight.application.factorybean;
 
-import com.comsysto.buildlight.arduino.driver.TrafficLightFactory;
+import com.comsysto.buildlight.arduino.driver.ArduinoTrafficLightFactory;
 import com.comsysto.buildlight.common.driver.TrafficLight;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +19,7 @@ public class ArduinoDriverFactoryBean implements FactoryBean<TrafficLight> {
 
     @Override
     public TrafficLight getObject() throws Exception {
-        return TrafficLightFactory.createNewInstance(trafficLightPort);
+        return ArduinoTrafficLightFactory.createNewInstance(trafficLightPort);
     }
 
     @Override
