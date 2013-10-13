@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import java.util.Map;
 
 import static com.comsysto.buildlight.arduino.driver.Arduino.*;
+import static com.comsysto.buildlight.arduino.driver.SwitchOnLevel.neg;
 
 /**
  * @author zutherb
@@ -24,10 +25,12 @@ public class ArduinoTrafficLightImpl extends AbstractTrafficLight<Integer> {
             .build();
 
     private Arduino arduino;
+    private SwitchOnLevel switchOnLevel;
 
 
-    ArduinoTrafficLightImpl(Arduino arduino) {
+    ArduinoTrafficLightImpl(Arduino arduino, SwitchOnLevel switchOnLevel) {
         this.arduino = arduino;
+        this.switchOnLevel = switchOnLevel;
         initArduino();
     }
 
@@ -35,19 +38,19 @@ public class ArduinoTrafficLightImpl extends AbstractTrafficLight<Integer> {
         for (Map.Entry<Color, Integer> entry : PIN_MAPPING.entrySet()) {
             arduino.pinMode(entry.getValue(), Arduino.OUTPUT);
             //switch off lamp
-            arduino.digitalWrite(entry.getValue(), HIGH);
+            arduino.digitalWrite(entry.getValue(), switchOnLevel.getLevelValue());
         }
     }
 
     @Override
     public void switchOn(Color color) {
-        arduino.digitalWrite(map(color), LOW);
+        arduino.digitalWrite(map(color), switchOnLevel.getLevelValue());
 
     }
 
     @Override
     public void switchOff(Color color) {
-        arduino.digitalWrite(map(color), HIGH);
+        arduino.digitalWrite(map(color), neg(switchOnLevel).getLevelValue());
 
     }
 

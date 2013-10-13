@@ -7,7 +7,7 @@ import com.comsysto.buildlight.common.driver.TrafficLight;
  */
 public class ArduinoTrafficLightFactoryTest {
     public static void main(String[] args) {
-        TrafficLight light = ArduinoTrafficLightFactory.createNewInstance("test");
+        TrafficLight light = ArduinoTrafficLightFactory.createNewInstance("test", "HIGH");
         light.switchOnAllLeds();
         light.switchOffAllLeds();
         light.close();

@@ -14,12 +14,15 @@ public class ArduinoDriverFactoryBean implements FactoryBean<TrafficLight> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ArduinoDriverFactoryBean.class);
 
-    @Value("${traffic.light.port}")
+    @Value("${traffic.light.arduino.port}")
     private String trafficLightPort;
+
+    @Value("${traffic.light.switch.on.level}")
+    private String switchOnLevel;
 
     @Override
     public TrafficLight getObject() throws Exception {
-        return ArduinoTrafficLightFactory.createNewInstance(trafficLightPort);
+        return ArduinoTrafficLightFactory.createNewInstance(trafficLightPort, switchOnLevel);
     }
 
     @Override
