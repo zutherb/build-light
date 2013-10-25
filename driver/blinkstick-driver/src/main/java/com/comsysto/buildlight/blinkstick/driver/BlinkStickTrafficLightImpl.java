@@ -2,6 +2,7 @@ package com.comsysto.buildlight.blinkstick.driver;
 
 import com.comsysto.buildlight.common.driver.AbstractTrafficLight;
 import com.comsysto.buildlight.common.driver.Color;
+import com.comsysto.buildlight.common.driver.TrafficLightException;
 
 /**
  * @author zutherb

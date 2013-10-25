@@ -16,6 +16,7 @@ import static org.mockito.MockitoAnnotations.initMocks;
  */
 public class BlinkStickTrafficLightImplTest {
 
+
     @Mock
     private BlinkStick blinkStick;
 

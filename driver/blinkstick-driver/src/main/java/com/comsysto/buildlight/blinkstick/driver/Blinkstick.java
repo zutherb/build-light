@@ -31,20 +31,21 @@
  * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
  * OF SUCH DAMAGE.
  *
- * @author      ##author##
- * @modified    ##date##
- * @version     ##library.prettyVersion## (##library.version##)
+ * @author ##author##
+ * @modified ##date##
+ * @version ##library.prettyVersion## (##library.version##)
  */
 
 package com.comsysto.buildlight.blinkstick.driver;
 
+import com.codeminders.hidapi.HIDDevice;
 import com.codeminders.hidapi.HIDDeviceInfo;
 import com.codeminders.hidapi.HIDManager;
-import com.codeminders.hidapi.HIDDevice;
-import java.util.Hashtable;
-import java.util.Random;
-import java.util.List;
+
 import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.List;
+import java.util.Random;
 
 /**
  * This is a template class and can be used to start a new processing library or
@@ -61,7 +62,6 @@ import java.util.ArrayList;
 
 /**
  * @author Arvydas
- *
  */
 public class BlinkStick {
 
@@ -293,11 +293,11 @@ public class BlinkStick {
         return null;
     }
 
-    /** Find BlinkStick by serial number
+    /**
+     * Find BlinkStick by serial number
      *
-     * @param serial	The serial number to search
-     *
-     * @return			BlinkStick object or null if device was not found
+     * @param serial The serial number to search
+     * @return BlinkStick object or null if device was not found
      */
     public static BlinkStick findBySerial(String serial) {
         Initialize();
@@ -371,7 +371,7 @@ public class BlinkStick {
      * Set the color of the device with separate r, g and b int values.
      * The values are automatically converted to byte values
      *
-     * @param r	red int color value 0..255
+     * @param r red int color value 0..255
      * @param g gree int color value 0..255
      * @param b blue int color value 0..255
      */
@@ -382,7 +382,7 @@ public class BlinkStick {
     /**
      * Set the color of the device with separate r, g and b byte values
      *
-     * @param r	red byte color value 0..255
+     * @param r red byte color value 0..255
      * @param g gree byte color value 0..255
      * @param b blue byte color value 0..255
      */
@@ -405,12 +405,12 @@ public class BlinkStick {
     /**
      * Set the color of the device with Processing color value
      *
-     * @param value	color as int
+     * @param value color as int
      */
     public void setColor(int value) {
         int r = (value >> 16) & 0xFF;
-        int g = (value >> 8)  & 0xFF;
-        int b =  value        & 0xFF;
+        int g = (value >> 8) & 0xFF;
+        int b = value & 0xFF;
 
         this.setColor(r, g, b);
     }
@@ -418,8 +418,8 @@ public class BlinkStick {
     /**
      * Set the color of the device with string value
      *
-     * @param value	this can either be a named color "red", "green", "blue" and etc.
-     * 			or a hex color in #rrggbb format
+     * @param value this can either be a named color "red", "green", "blue" and etc.
+     *              or a hex color in #rrggbb format
      */
     public void setColor(String value) {
         if (COLORS.containsKey(value)) {
@@ -451,14 +451,13 @@ public class BlinkStick {
     /**
      * Convert hex string to color object
      *
-     * @param colorStr	Color value as hex string #rrggbb
-     *
-     * @return			color object
+     * @param colorStr Color value as hex string #rrggbb
+     * @return color object
      */
     private int hex2Rgb(String colorStr) {
-        int red   = Integer.valueOf(colorStr.substring(1, 3), 16)+ 0;
+        int red = Integer.valueOf(colorStr.substring(1, 3), 16) + 0;
         int green = Integer.valueOf(colorStr.substring(3, 5), 16) + 0;
-        int blue  = Integer.valueOf(colorStr.substring(5, 7), 16) + 0;
+        int blue = Integer.valueOf(colorStr.substring(5, 7), 16) + 0;
 
         return (255 << 24) | (red << 16) | (green << 8) | blue;
     }
@@ -491,9 +490,9 @@ public class BlinkStick {
     public String getColorString() {
         int c = getColor();
 
-        int red   = (c >> 16) & 0xFF;
-        int green = (c >> 8)  & 0xFF;
-        int blue  =  c        & 0xFF;
+        int red = (c >> 16) & 0xFF;
+        int green = (c >> 8) & 0xFF;
+        int blue = c & 0xFF;
 
         return "#" + String.format("%02X", red)
                 + String.format("%02X", green)
@@ -503,7 +502,7 @@ public class BlinkStick {
     /**
      * Get value of InfoBlocks
      *
-     * @param id	InfoBlock id, should be 1 or 2 as only supported info blocks
+     * @param id InfoBlock id, should be 1 or 2 as only supported info blocks
      */
     private String getInfoBlock(int id) {
         byte[] data = new byte[33];
@@ -549,8 +548,8 @@ public class BlinkStick {
     /**
      * Set value for InfoBlocks
      *
-     * @param id	InfoBlock id, should be 1 or 2 as only supported info blocks
-     * @param value	The value to be written to the info block
+     * @param id    InfoBlock id, should be 1 or 2 as only supported info blocks
+     * @param value The value to be written to the info block
      */
     private void setInfoBlock(int id, String value) {
         char[] charArray = value.toCharArray();
@@ -576,7 +575,7 @@ public class BlinkStick {
     /**
      * Set value for InfoBlock1
      *
-     * @param value	The value to be written to the info block 1
+     * @param value The value to be written to the info block 1
      */
     public void setInfoBlock1(String value) {
         setInfoBlock(1, value);
@@ -585,7 +584,7 @@ public class BlinkStick {
     /**
      * Set value for InfoBlock2
      *
-     * @param value	The value to be written to the info block 2
+     * @param value The value to be written to the info block 2
      */
     public void setInfoBlock2(String value) {
         setInfoBlock(2, value);

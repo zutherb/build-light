@@ -24,7 +24,7 @@ public class ColorSwitcher {
     }
 
     @Scheduled(fixedDelay = 1000)
-    public void changeTrafficLightLed() {
+    public void changeTrafficLightLed() throws InterruptedException {
         for (BuildServerAdapter buildServerAdapter : buildServerAdapters) {
             if (buildServerAdapter.isResponsible()) {
                 BuildState currentBuildState = buildServerAdapter.getCurrentBuildState();
@@ -33,7 +33,7 @@ public class ColorSwitcher {
         }
     }
 
-    private void changeLedIfNessary(BuildState currentBuildState) {
+    private void changeLedIfNessary(BuildState currentBuildState) throws InterruptedException {
         if (!currentBuildState.equals(lastChangedBuildState)) {
             lastChangedBuildState = currentBuildState;
             light.switchOffAllLeds();
