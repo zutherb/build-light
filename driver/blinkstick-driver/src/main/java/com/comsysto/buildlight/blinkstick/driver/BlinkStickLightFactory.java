@@ -15,6 +15,6 @@ public final class BlinkStickLightFactory {
     }
 
     public static TrafficLight createNewInstance() {
-        return new BlinkStickTrafficLightImpl(BlinkStick.findFirst());
+        return new BlinkStickTrafficLightImpl(Blinktick.findFirst());
     }
 }

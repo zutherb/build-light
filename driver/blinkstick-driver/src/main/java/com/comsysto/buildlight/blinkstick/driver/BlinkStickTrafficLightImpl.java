@@ -2,27 +2,26 @@ package com.comsysto.buildlight.blinkstick.driver;
 
 import com.comsysto.buildlight.common.driver.AbstractTrafficLight;
 import com.comsysto.buildlight.common.driver.Color;
-import com.comsysto.buildlight.common.driver.TrafficLightException;
 
 /**
  * @author zutherb
  */
 public class BlinkStickTrafficLightImpl extends AbstractTrafficLight<String> {
 
-    private final BlinkStick blinkStick;
+    private final Blinktick blinktick;
 
-    public BlinkStickTrafficLightImpl(BlinkStick blinkStick) {
-        this.blinkStick = blinkStick;
+    public BlinkStickTrafficLightImpl(Blinktick blinktick) {
+        this.blinktick = blinktick;
     }
 
     @Override
     public void switchOn(Color color) {
-        blinkStick.setColor(map(color));
+        blinktick.setColor(map(color));
     }
 
     @Override
     public void switchOff(Color color) {
-        blinkStick.turnOff();
+        blinktick.turnOff();
     }
 
     @Override
