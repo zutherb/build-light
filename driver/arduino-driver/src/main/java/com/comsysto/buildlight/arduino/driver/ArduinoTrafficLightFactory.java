@@ -9,7 +9,7 @@ import static com.comsysto.buildlight.arduino.driver.SwitchOnLevel.fromString;
  */
 public final class ArduinoTrafficLightFactory {
 
-    public static final int RATE = 9600;
+    public static final int RATE = 57600;
 
     private ArduinoTrafficLightFactory() { /* NOOP */ }
 
