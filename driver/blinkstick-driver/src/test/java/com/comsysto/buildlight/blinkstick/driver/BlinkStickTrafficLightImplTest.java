@@ -18,7 +18,7 @@ public class BlinkStickTrafficLightImplTest {
 
 
     @Mock
-    private BlinkStick blinkStick;
+    private Blinktick blinktick;
 
     @InjectMocks
     private BlinkStickTrafficLightImpl light;
@@ -31,14 +31,14 @@ public class BlinkStickTrafficLightImplTest {
     @Test
     public void testSwitchOn() throws Exception {
         light.switchOnAllLeds();
-        verify(blinkStick, times(1)).setColor("red");
-        verify(blinkStick, times(1)).setColor("yellow");
-        verify(blinkStick, times(1)).setColor("green");
+        verify(blinktick, times(1)).setColor("red");
+        verify(blinktick, times(1)).setColor("yellow");
+        verify(blinktick, times(1)).setColor("green");
     }
 
     @Test
     public void testSwitchOff() throws Exception {
         light.switchOffAllLeds();
-        verify(blinkStick, times(3)).turnOff();
+        verify(blinktick, times(3)).turnOff();
     }
 }

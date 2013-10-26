@@ -1,8 +1,6 @@
 package com.comsysto.buildlight.arduino.driver;
 
 import com.comsysto.buildlight.common.driver.TrafficLight;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import static com.comsysto.buildlight.arduino.driver.SwitchOnLevel.fromString;
 
@@ -11,11 +9,9 @@ import static com.comsysto.buildlight.arduino.driver.SwitchOnLevel.fromString;
  */
 public final class ArduinoTrafficLightFactory {
 
-    public static final int RATE = 57600;
+    public static final int RATE = 9600;
 
     private ArduinoTrafficLightFactory() { /* NOOP */ }
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(ArduinoTrafficLightFactory.class);
 
     public static TrafficLight createNewInstance(String port, String levelName) {
         Arduino arduino = new Arduino(port, RATE);
