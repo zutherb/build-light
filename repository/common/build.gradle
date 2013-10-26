@@ -12,7 +12,6 @@ project(":repository:jenkins:api") {
     }
 
     dependencies {
-        compile project(":repository:common")
         compile project(":repository:jenkins:model")
     }
 }

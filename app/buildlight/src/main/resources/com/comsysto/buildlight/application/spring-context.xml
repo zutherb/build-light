@@ -26,7 +26,8 @@
     <util:properties id="defaultProperties">
         <prop key="buildlight.read.timeout">1000</prop>
         <prop key="buildlight.connection.timeout">1000</prop>
-        <prop key="traffic.light.factory">com.comsysto.buildlight.application.factorybean.ClewareDriverFactoryBean</prop>
+        <prop key="traffic.light.factory">com.comsysto.buildlight.application.factorybean.ClewareDriverFactoryBean
+        </prop>
     </util:properties>
 
     <bean id="trafficLight" class="${traffic.light.factory}"/>

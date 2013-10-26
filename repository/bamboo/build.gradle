@@ -12,6 +12,7 @@ project(":repository:bamboo:api") {
     }
 
     dependencies {
+        compile project(":repository:common")
         compile project(":repository:bamboo:model")
     }
 }

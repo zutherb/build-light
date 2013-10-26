@@ -36,9 +36,9 @@ dependencies {
     compile springDeps
 
     compile "org.springframework:spring-web:$springVersion"
+    compile "org.springframework:spring-web:$springVersion"
     compile "org.apache.httpcomponents:httpclient:$httpClientVersion"
-
-    compile files("${System.properties['java.home']}/lib/jfxrt.jar")
+    compile "org.reflections:reflections:0.9.8"
 
     testCompile testDeps
 }

@@ -13,3 +13,5 @@ appender("stdout", ConsoleAppender) {
 
 root(INFO, ["stdout"])
 
+logger("org.reflections", OFF, [], false)
+

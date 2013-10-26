@@ -1,7 +1,5 @@
-package com.comsysto.buildlight.application.gui;
+package com.comsysto.buildlight.application;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import org.apache.commons.lang.NotImplementedException;
 
 import java.io.File;
@@ -29,42 +27,42 @@ public class ConfigurationFile {
 
     private BuildServerType serverType;
 
-    private StringProperty jenkinsUrl = new SimpleStringProperty();
-    private StringProperty jenkinsBuildName = new SimpleStringProperty();
-    private StringProperty bambooUrl = new SimpleStringProperty();
-    private StringProperty bambooBuildKey = new SimpleStringProperty();
-    private StringProperty bambooUsername = new SimpleStringProperty();
-    private StringProperty bambooPassword = new SimpleStringProperty();
+    private String jenkinsUrl;
+    private String jenkinsBuildName;
+    private String bambooUrl;
+    private String bambooBuildKey;
+    private String bambooUsername;
+    private String bambooPassword;
 
     public BuildServerType getServerType() {
         return serverType;
     }
 
-    public StringProperty getJenkinsUrl() {
+    public String getJenkinsUrl() {
         return jenkinsUrl;
     }
 
-    public StringProperty getJenkinsBuildName() {
+    public String getJenkinsBuildName() {
         return jenkinsBuildName;
     }
 
-    public StringProperty jenkinsBuildNameProperty() {
+    public String jenkinsBuildNameProperty() {
         return jenkinsBuildName;
     }
 
-    public StringProperty getBambooUrl() {
+    public String getBambooUrl() {
         return bambooUrl;
     }
 
-    public StringProperty bambooBuildKey() {
+    public String bambooBuildKey() {
         return bambooBuildKey;
     }
 
-    public StringProperty bambooUsername() {
+    public String bambooUsername() {
         return bambooUsername;
     }
 
-    public StringProperty bambooPassword() {
+    public String bambooPassword() {
         return bambooPassword;
     }
 
@@ -74,15 +72,15 @@ public class ConfigurationFile {
         switch (serverType) {
             case Jenkins:
                 buffer.append("build.server=" + serverType.name() + "\n");
-                buffer.append("jenkins.server.url=" + jenkinsUrl.getValue() + "\n");
-                buffer.append("jenkins.build.name=" + jenkinsBuildName.getValue() + "\n");
+                buffer.append("jenkins.server.url=" + jenkinsUrl + "\n");
+                buffer.append("jenkins.build.name=" + jenkinsBuildName + "\n");
                 break;
             case Bamboo:
                 buffer.append("build.server=" + serverType.name() + "\n");
-                buffer.append("bamboo.server.url=" + bambooUrl.getValue() + "\n");
-                buffer.append("bamboo.build.key=" + bambooBuildKey.getValue() + "\n");
-                buffer.append("bamboo.username=" + bambooUsername.getValue() + "\n");
-                buffer.append("bamboo.password=" + bambooPassword.getValue() + "\n");
+                buffer.append("bamboo.server.url=" + bambooUrl + "\n");
+                buffer.append("bamboo.build.key=" + bambooBuildKey + "\n");
+                buffer.append("bamboo.username=" + bambooUsername + "\n");
+                buffer.append("bamboo.password=" + bambooPassword + "\n");
                 break;
             default:
                 throw new NotImplementedException("Known build server type");
@@ -100,32 +98,32 @@ public class ConfigurationFile {
         }
 
         public Builder jenkinsUrl(String jenkinsUrl) {
-            configurationFile.jenkinsUrl.setValue(jenkinsUrl);
+            configurationFile.jenkinsUrl = jenkinsUrl;
             return this;
         }
 
         public Builder jenkinsBuildName(String jenkinsBuildName) {
-            configurationFile.jenkinsBuildName.setValue(jenkinsBuildName);
+            configurationFile.jenkinsBuildName = jenkinsBuildName;
             return this;
         }
 
         public Builder bambooUrl(String bambooUrl) {
-            configurationFile.bambooUrl.setValue(bambooUrl);
+            configurationFile.bambooUrl = bambooUrl;
             return this;
         }
 
         public Builder bambooBuildKey(String bambooBuildKey) {
-            configurationFile.bambooBuildKey.setValue(bambooBuildKey);
+            configurationFile.bambooBuildKey = bambooBuildKey;
             return this;
         }
 
         public Builder bambooUsername(String bambooUsername) {
-            configurationFile.bambooUsername.setValue(bambooUsername);
+            configurationFile.bambooUsername = bambooUsername;
             return this;
         }
 
         public Builder bambooPassword(String bambooPassword) {
-            configurationFile.bambooPassword.setValue(bambooPassword);
+            configurationFile.bambooPassword = bambooPassword;
             return this;
         }
 

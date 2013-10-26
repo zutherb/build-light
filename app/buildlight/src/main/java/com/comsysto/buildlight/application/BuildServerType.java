@@ -1,4 +1,4 @@
-package com.comsysto.buildlight.application.gui;
+package com.comsysto.buildlight.application;
 
 /**
  * @author zutherb

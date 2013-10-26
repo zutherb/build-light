@@ -9,8 +9,9 @@ import org.slf4j.LoggerFactory;
 public class TrafficLightMock implements TrafficLight {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TrafficLightMock.class);
+    private static TrafficLight instance;
 
-    public TrafficLightMock() {
+    private TrafficLightMock() {
         LOGGER.info("Traffic Light Mock was created");
     }
 
@@ -37,5 +38,12 @@ public class TrafficLightMock implements TrafficLight {
     @Override
     public void close() {
         LOGGER.info("Close traffic light");
+    }
+
+    public static TrafficLight getInstance() {
+        if (instance == null) {
+            instance = new TrafficLightMock();
+        }
+        return instance;
     }
 }

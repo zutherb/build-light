@@ -1,14 +1,13 @@
-package com.comsysto.buildlight.application.factorybean;
+package com.comsysto.buildlight.application.driver;
 
 import com.comsysto.buildlight.arduino.driver.ArduinoTrafficLightFactory;
 import com.comsysto.buildlight.common.driver.TrafficLight;
-import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.annotation.Value;
 
 /**
  * @author zutherb
  */
-public class ArduinoDriverFactoryBean implements FactoryBean<TrafficLight> {
+public class ArduinoDriverFactoryBean extends AbstractTrafficLightFactoryBean {
 
     @Value("${traffic.light.arduino.port}")
     private String trafficLightPort;
@@ -19,15 +18,5 @@ public class ArduinoDriverFactoryBean implements FactoryBean<TrafficLight> {
     @Override
     public TrafficLight getObject() throws Exception {
         return ArduinoTrafficLightFactory.createNewInstance(trafficLightPort, switchOnLevel);
-    }
-
-    @Override
-    public Class<?> getObjectType() {
-        return TrafficLight.class;
-    }
-
-    @Override
-    public boolean isSingleton() {
-        return true;
     }
 }

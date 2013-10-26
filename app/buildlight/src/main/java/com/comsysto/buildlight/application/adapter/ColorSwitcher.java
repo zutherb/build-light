@@ -1,11 +1,11 @@
 package com.comsysto.buildlight.application.adapter;
 
 import com.comsysto.buildlight.common.driver.TrafficLight;
+import com.comsysto.buildlight.respository.common.BuildServerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 /**
  * @author zutherb
@@ -14,23 +14,21 @@ import java.util.List;
 public class ColorSwitcher {
 
     private TrafficLight light;
+    private BuildServerAdapter buildServerAdapter;
+
     private BuildState lastChangedBuildState;
-    private List<BuildServerAdapter> buildServerAdapters;
 
     @Autowired
-    public ColorSwitcher(TrafficLight light, List<BuildServerAdapter> buildServerAdapters) {
+    public ColorSwitcher(@Qualifier("trafficLight") TrafficLight light,
+                         BuildServerRepository repository) {
         this.light = light;
-        this.buildServerAdapters = buildServerAdapters;
+        this.buildServerAdapter = BuildServerAdapterFactory.create(repository);
     }
 
     @Scheduled(fixedDelay = 1000)
     public void changeTrafficLightLed() throws InterruptedException {
-        for (BuildServerAdapter buildServerAdapter : buildServerAdapters) {
-            if (buildServerAdapter.isResponsible()) {
-                BuildState currentBuildState = buildServerAdapter.getCurrentBuildState();
-                changeLedIfNessary(currentBuildState);
-            }
-        }
+        BuildState currentBuildState = buildServerAdapter.getCurrentBuildState();
+        changeLedIfNessary(currentBuildState);
     }
 
     private void changeLedIfNessary(BuildState currentBuildState) throws InterruptedException {

@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.Scanner;
 
-import static com.comsysto.buildlight.application.gui.ConfigurationFile.*;
+import static com.comsysto.buildlight.application.ConfigurationFile.*;
 
 
 /**

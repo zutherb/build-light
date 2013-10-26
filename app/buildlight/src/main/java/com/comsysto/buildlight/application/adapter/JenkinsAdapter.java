@@ -2,21 +2,16 @@ package com.comsysto.buildlight.application.adapter;
 
 import com.comsysto.buildlight.respository.jenkins.api.JenkinsRepository;
 import com.comsysto.buildlight.respository.jenkins.model.JenkinsBuildResponse;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 /**
  * @author zutherb
  */
-@Component
 public class JenkinsAdapter implements BuildServerAdapter {
 
-    @Autowired(required = false)
     private JenkinsRepository jenkinsRepository;
 
-    @Override
-    public boolean isResponsible() {
-        return jenkinsRepository != null;
+    public JenkinsAdapter(JenkinsRepository jenkinsRepository) {
+        this.jenkinsRepository = jenkinsRepository;
     }
 
     @Override
