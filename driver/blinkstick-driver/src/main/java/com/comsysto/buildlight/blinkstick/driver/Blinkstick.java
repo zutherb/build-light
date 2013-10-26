@@ -63,7 +63,7 @@ import java.util.Random;
 /**
  * @author Arvydas
  */
-public class Blinktick {
+public class BlinkStick {
 
     public final static String VERSION = "##library.prettyVersion##";
 
@@ -277,13 +277,13 @@ public class Blinktick {
      *
      * @return BlinkStick object or null if no BlinkSticks are connected
      */
-    public static Blinktick findFirst() {
+    public static BlinkStick findFirst() {
         Initialize();
 
         HIDDeviceInfo[] infos = findAllDescriptors();
 
         if (infos.length > 0) {
-            Blinktick result = new Blinktick();
+            BlinkStick result = new BlinkStick();
             try {
                 result.setDevice(infos[0].open());
                 return result;
@@ -299,14 +299,14 @@ public class Blinktick {
      * @param serial The serial number to search
      * @return BlinkStick object or null if device was not found
      */
-    public static Blinktick findBySerial(String serial) {
+    public static BlinkStick findBySerial(String serial) {
         Initialize();
 
         HIDDeviceInfo[] infos = findAllDescriptors();
 
         for (HIDDeviceInfo info : infos) {
             if (info.getSerial_number().equals(serial)) {
-                Blinktick result = new Blinktick();
+                BlinkStick result = new BlinkStick();
                 try {
                     result.setDevice(infos[0].open());
                     return result;
@@ -350,21 +350,21 @@ public class Blinktick {
      *
      * @return an array of BlinkStick objects
      */
-    public static Blinktick[] findAll() {
-        List<Blinktick> blinkstickList = new ArrayList<Blinktick>();
+    public static BlinkStick[] findAll() {
+        List<BlinkStick> blinkStickList = new ArrayList<BlinkStick>();
 
         HIDDeviceInfo[] infos = findAllDescriptors();
 
         for (HIDDeviceInfo info : infos) {
-            Blinktick blinkstick = new Blinktick();
+            BlinkStick blinkStick = new BlinkStick();
             try {
-                blinkstick.setDevice(info.open());
-                blinkstickList.add(blinkstick);
+                blinkStick.setDevice(info.open());
+                blinkStickList.add(blinkStick);
             } catch (Exception e) {
             }
         }
 
-        return blinkstickList.toArray(new Blinktick[blinkstickList.size()]);
+        return blinkStickList.toArray(new BlinkStick[blinkStickList.size()]);
     }
 
     /**
