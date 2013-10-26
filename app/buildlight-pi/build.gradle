@@ -26,12 +26,10 @@ sourceSets {
 
 configurations {
     all*.exclude group: "com.codeminders"
-    all*.exclude group: "org.rxtx"
 }
 
 dependencies {
     compile project(":app:buildlight")
-    compile 'gnu.io:rxtx:2.2pre2'
     compile files("lib/hidapi-pi-1.1.jar")
 }
 
