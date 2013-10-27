@@ -53,6 +53,42 @@ pi@raspberry ~/Downloads$ sudo ./buildlight
 
 [![Build Light](picture/Build-Light.jpg)](http://youtu.be/IfQtBqZTjnQ)
 
+Arduino Traffic Java Driver
+---------------------------
+
+Step 1: Shut off all Serial Action going on with the Pi.
+
+You have to edit two places.  The first ‘/boot/cmdline.txt’ - delete
+
+```bash
+console=ttyAMA0,115200 kgdboc=ttyAMA0,115200
+```
+
+Then bounce over to /etc/inittab and we have to comment out the last line by adding the # to the beginning.
+
+```bash
+#T0:23:respawn:/sbin/getty -L ttyAMA0 115200 vt100
+```
+
+Step 2: Install Oracle Java und RXTX JNI Library.
+
+```bash
+sudo apt-get install oracle-java7-jdk librxtx-java
+```
+
+Step 3: Create buildlight.properties in <buildlight-pi directory>/bin - folder.
+
+```bash
+➜  bin  cat buildlight.properties
+build.server=Jenkins
+jenkins.server.url=http://localhost:8080/build-server
+jenkins.build.name=Build-Light-Test-Build
+buildlight.driver.factorybean=com.comsysto.buildlight.application.factory.ArduinoDriverFactoryBean
+#buildlight.arduino.port=/dev/ttyACM0 [Default]
+#buildlight.arduino.switch.on.level=HIGH [Default - Choose LOW ,e.g. when relays switch on low pegal]
+
+```
+
 Cleware Traffic Java Driver
 ---------------------------
 
