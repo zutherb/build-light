@@ -1,4 +1,4 @@
-package com.comsysto.buildlight.arduino.driver;
+package com.comsysto.buildlight.arduino.driver.core;
 
 import gnu.io.*;
 
@@ -90,12 +90,7 @@ public class Serial implements SerialPortEventListener {
                     }
                 }
             }
-        } catch (PortInUseException e) {
-            e.printStackTrace();
-            port = null;
-            input = null;
-            output = null;
-        } catch (IOException e) {
+        } catch (PortInUseException | IOException e) {
             e.printStackTrace();
             port = null;
             input = null;
@@ -107,7 +102,6 @@ public class Serial implements SerialPortEventListener {
         }
 
         try {
-            //serialEventMethod=proxy.getClass().getMethod("serialEvent", new Class[]{com.comsysto.buildlight.arduino.driver.Serial.class});
             serialEventMethod = proxy.getClass().getMethod("serialEvent", new Class[]{Serial.class});
         } catch (SecurityException e) {
             e.printStackTrace();
@@ -138,10 +132,6 @@ public class Serial implements SerialPortEventListener {
             e.printStackTrace();
         }
         port = null;
-    }
-
-    public void setDTR(boolean state) {
-        port.setDTR(state);
     }
 
     @Override
@@ -184,18 +174,8 @@ public class Serial implements SerialPortEventListener {
         bufferSize = count;
     }
 
-    public void bufferUntil(int what) {
-        bufferUntil = true;
-        bufferUntilByte = what;
-    }
-
     public int available() {
         return bufferLast - bufferIndex;
-    }
-
-    public void clear() {
-        bufferLast = 0;
-        bufferIndex = 0;
     }
 
     public int read() {
@@ -209,136 +189,6 @@ public class Serial implements SerialPortEventListener {
             }
             return outgoing;
         }
-    }
-
-    public int last() {
-        if (bufferIndex == bufferLast)
-            return -1;
-        synchronized (buffer) {
-            int outgoing = buffer[bufferLast - 1];
-            bufferIndex = 0;
-            bufferLast = 0;
-            return outgoing;
-        }
-    }
-
-    public char readChar() {
-        if (bufferIndex == bufferLast)
-            return (char) -1;
-        return (char) read();
-    }
-
-    public char lastChar() {
-        if (bufferIndex == bufferLast)
-            return (char) -1;
-        return (char) last();
-    }
-
-    public byte[] readBytes() {
-        if (bufferIndex == bufferLast)
-            return null;
-        synchronized (buffer) {
-            int length = bufferLast - bufferIndex;
-            byte outgoing[] = new byte[length];
-            System.arraycopy(buffer, bufferIndex, outgoing, 0, length);
-
-            bufferIndex = 0;
-            bufferLast = 0;
-            return outgoing;
-        }
-    }
-
-    public int readBytes(byte outgoing[]) {
-        if (bufferIndex == bufferLast)
-            return 0;
-        synchronized (buffer) {
-            int length = bufferLast - bufferIndex;
-            if (length > outgoing.length)
-                length = outgoing.length;
-            System.arraycopy(buffer, bufferIndex, outgoing, 0, length);
-
-            bufferIndex += length;
-            if (bufferIndex == bufferLast) {
-                bufferIndex = 0;
-                bufferLast = 0;
-            }
-            return length;
-        }
-    }
-
-    public byte[] readBytesUntil(int interesting) {
-        if (bufferIndex == bufferLast)
-            return null;
-        byte what = (byte) interesting;
-
-        synchronized (buffer) {
-            int found = -1;
-            for (int i = bufferIndex; i < bufferLast; i++) {
-                if (buffer[i] == what) {
-                    found = i;
-                    break;
-                }
-            }
-            if (found == -1)
-                return null;
-
-            int length = found - bufferIndex + 1;
-            byte outgoing[] = new byte[length];
-            System.arraycopy(buffer, bufferIndex, outgoing, 0, length);
-
-            bufferIndex += length;
-            if (bufferIndex == bufferLast) {
-                bufferIndex = 0;
-                bufferLast = 0;
-            }
-            return outgoing;
-        }
-    }
-
-    public int readBytesUntil(int interesting, byte outgoing[]) {
-        if (bufferIndex == bufferLast)
-            return 0;
-        byte what = (byte) interesting;
-
-        synchronized (buffer) {
-            int found = -1;
-            for (int i = bufferIndex; i < bufferLast; i++) {
-                if (buffer[i] == what) {
-                    found = i;
-                    break;
-                }
-            }
-            if (found == -1)
-                return 0;
-            int length = found - bufferIndex + 1;
-            if (length > outgoing.length) {
-                System.err.println("readBytesUntil() byte buffer is" +
-                        " too small for the " + length +
-                        " bytes up to and including char " + interesting);
-                return -1;
-            }
-            System.arraycopy(buffer, bufferIndex, outgoing, 0, length);
-
-            bufferIndex += length;
-            if (bufferIndex == bufferLast) {
-                bufferIndex = 0;
-                bufferLast = 0;
-            }
-            return length;
-        }
-    }
-
-    public String readString() {
-        if (bufferIndex == bufferLast)
-            return null;
-        return new String(readBytes());
-    }
-
-    public String readStringUntil(int interesting) {
-        byte b[] = readBytesUntil(interesting);
-        if (b == null)
-            return null;
-        return new String(b);
     }
 
     public void write(int what) {
@@ -364,7 +214,7 @@ public class Serial implements SerialPortEventListener {
     }
 
     public static String[] list() {
-        List<String> list = new ArrayList<String>();
+        List<String> list = new ArrayList<>();
         Enumeration<?> portList = CommPortIdentifier.getPortIdentifiers();
         while (portList.hasMoreElements()) {
             CommPortIdentifier portId = (CommPortIdentifier) portList.nextElement();

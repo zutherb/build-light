@@ -1,7 +1,7 @@
 package com.comsysto.buildlight.application.driver;
 
-import com.comsysto.buildlight.common.driver.TrafficLight;
-import com.comsysto.buildlight.common.driver.TrafficLightMock;
+import com.comsysto.buildlight.common.driver.core.TrafficLight;
+import com.comsysto.buildlight.common.driver.trafficlight.TrafficLightMock;
 
 /**
  * @author zutherb

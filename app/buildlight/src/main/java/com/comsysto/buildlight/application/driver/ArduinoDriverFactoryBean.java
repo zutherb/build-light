@@ -1,7 +1,7 @@
 package com.comsysto.buildlight.application.driver;
 
-import com.comsysto.buildlight.arduino.driver.ArduinoTrafficLightFactory;
-import com.comsysto.buildlight.common.driver.TrafficLight;
+import com.comsysto.buildlight.arduino.driver.trafficlight.ArduinoTrafficLightFactory;
+import com.comsysto.buildlight.common.driver.core.TrafficLight;
 import org.springframework.beans.factory.annotation.Value;
 
 /**

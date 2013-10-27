@@ -1,5 +1,7 @@
-package com.comsysto.buildlight.common.driver;
+package com.comsysto.buildlight.common.driver.trafficlight;
 
+import com.comsysto.buildlight.common.driver.core.Color;
+import com.comsysto.buildlight.common.driver.core.TrafficLight;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

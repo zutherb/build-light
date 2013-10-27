@@ -6,7 +6,6 @@ group = 'com.comsysto.buildlight'
 
 repositories {
     mavenCentral()
-    mavenRepo name: "rxtx", url: "https://raw.github.com/grafjo/rxtx/master/releases/"
 }
 
 sourceSets {

@@ -1,4 +1,6 @@
-package com.comsysto.buildlight.arduino.driver;
+package com.comsysto.buildlight.arduino.driver.trafficlight;
+
+import com.comsysto.buildlight.arduino.driver.core.Arduino;
 
 import static java.lang.String.format;
 

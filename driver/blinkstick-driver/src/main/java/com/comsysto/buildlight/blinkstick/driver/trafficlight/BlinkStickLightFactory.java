@@ -1,7 +1,8 @@
-package com.comsysto.buildlight.blinkstick.driver;
+package com.comsysto.buildlight.blinkstick.driver.trafficlight;
 
 import com.codeminders.hidapi.ClassPathLibraryLoader;
-import com.comsysto.buildlight.common.driver.TrafficLight;
+import com.comsysto.buildlight.blinkstick.driver.core.BlinkStick;
+import com.comsysto.buildlight.common.driver.core.TrafficLight;
 
 /**
  * @author zutherb

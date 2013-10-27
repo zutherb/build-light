@@ -1,7 +1,7 @@
-package com.comsysto.buildlight.blinkstick.driver;
+package com.comsysto.buildlight.blinkstick.driver.trafficlight;
 
-import com.comsysto.buildlight.common.driver.Color;
-import com.comsysto.buildlight.common.driver.TrafficLight;
+import com.comsysto.buildlight.common.driver.core.Color;
+import com.comsysto.buildlight.common.driver.core.TrafficLight;
 
 /**
  * @author zutherb

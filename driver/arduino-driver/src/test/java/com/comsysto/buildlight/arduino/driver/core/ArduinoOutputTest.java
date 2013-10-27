@@ -1,4 +1,4 @@
-package com.comsysto.buildlight.arduino.driver;
+package com.comsysto.buildlight.arduino.driver.core;
 
 import javax.swing.*;
 import java.awt.*;
@@ -50,7 +50,7 @@ public class ArduinoOutputTest extends JFrame {
     }
 
     private void initArduino() {
-        arduino = new Arduino(Arduino.list()[8], 57600);
+        arduino = new Arduino(Arduino.list()[5], 57600);
 
         for (int i = 0; i < 13; i++)
             arduino.pinMode(i, Arduino.OUTPUT);

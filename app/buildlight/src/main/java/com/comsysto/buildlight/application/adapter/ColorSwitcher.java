@@ -1,6 +1,6 @@
 package com.comsysto.buildlight.application.adapter;
 
-import com.comsysto.buildlight.common.driver.TrafficLight;
+import com.comsysto.buildlight.common.driver.core.TrafficLight;
 import com.comsysto.buildlight.respository.common.BuildServerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

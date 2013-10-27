@@ -1,6 +1,6 @@
-package com.comsysto.buildlight.arduino.driver;
+package com.comsysto.buildlight.arduino.driver.trafficlight;
 
-import com.comsysto.buildlight.common.driver.TrafficLight;
+import com.comsysto.buildlight.common.driver.core.TrafficLight;
 
 /**
  * @author zutherb

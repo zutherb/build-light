@@ -1,4 +1,4 @@
-package com.comsysto.buildlight.common.driver;
+package com.comsysto.buildlight.common.driver.core;
 
 /**
  * @author zutherb

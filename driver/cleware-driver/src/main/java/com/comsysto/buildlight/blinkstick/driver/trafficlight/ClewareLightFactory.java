@@ -1,10 +1,10 @@
-package com.comsysto.buildlight.blinkstick.driver;
+package com.comsysto.buildlight.blinkstick.driver.trafficlight;
 
 import com.codeminders.hidapi.ClassPathLibraryLoader;
 import com.codeminders.hidapi.HIDDevice;
 import com.codeminders.hidapi.HIDManager;
-import com.comsysto.buildlight.common.driver.TrafficLight;
-import com.comsysto.buildlight.common.driver.TrafficLightException;
+import com.comsysto.buildlight.common.driver.core.TrafficLight;
+import com.comsysto.buildlight.common.driver.core.TrafficLightException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -1,6 +1,6 @@
 package com.comsysto.buildlight.application.driver;
 
-import com.comsysto.buildlight.common.driver.TrafficLight;
+import com.comsysto.buildlight.common.driver.core.TrafficLight;
 import org.springframework.beans.factory.FactoryBean;
 
 /**

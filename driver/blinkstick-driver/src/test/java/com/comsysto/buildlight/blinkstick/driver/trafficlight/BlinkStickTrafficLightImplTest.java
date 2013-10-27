@@ -1,5 +1,7 @@
-package com.comsysto.buildlight.blinkstick.driver;
+package com.comsysto.buildlight.blinkstick.driver.trafficlight;
 
+import com.comsysto.buildlight.blinkstick.driver.core.BlinkStick;
+import com.comsysto.buildlight.blinkstick.driver.trafficlight.BlinkStickTrafficLightImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;

@@ -1,6 +1,6 @@
 package com.comsysto.buildlight.application;
 
-import com.comsysto.buildlight.arduino.driver.Arduino;
+import com.comsysto.buildlight.arduino.driver.core.Arduino;
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

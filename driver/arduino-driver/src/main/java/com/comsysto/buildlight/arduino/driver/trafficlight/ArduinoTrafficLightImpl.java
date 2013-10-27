@@ -1,15 +1,15 @@
-package com.comsysto.buildlight.arduino.driver;
+package com.comsysto.buildlight.arduino.driver.trafficlight;
 
-import com.comsysto.buildlight.common.driver.AbstractTrafficLight;
-import com.comsysto.buildlight.common.driver.Color;
+import com.comsysto.buildlight.arduino.driver.core.Arduino;
+import com.comsysto.buildlight.common.driver.core.AbstractTrafficLight;
+import com.comsysto.buildlight.common.driver.core.Color;
 import com.google.common.collect.ImmutableMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Map;
 
-import static com.comsysto.buildlight.arduino.driver.Arduino.*;
-import static com.comsysto.buildlight.arduino.driver.SwitchOnLevel.neg;
+import static com.comsysto.buildlight.arduino.driver.core.Arduino.*;
 
 /**
  * @author zutherb
@@ -50,7 +50,7 @@ public class ArduinoTrafficLightImpl extends AbstractTrafficLight<Integer> {
 
     @Override
     public void switchOff(Color color) {
-        arduino.digitalWrite(map(color), neg(switchOnLevel).getLevelValue());
+        arduino.digitalWrite(map(color), SwitchOnLevel.neg(switchOnLevel).getLevelValue());
 
     }
 

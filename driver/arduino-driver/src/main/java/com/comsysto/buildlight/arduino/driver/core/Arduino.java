@@ -1,4 +1,4 @@
-package com.comsysto.buildlight.arduino.driver;
+package com.comsysto.buildlight.arduino.driver.core;
 
 public class Arduino {
 

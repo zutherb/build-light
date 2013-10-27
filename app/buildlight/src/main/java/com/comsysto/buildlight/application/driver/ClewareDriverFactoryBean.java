@@ -1,7 +1,7 @@
 package com.comsysto.buildlight.application.driver;
 
-import com.comsysto.buildlight.blinkstick.driver.ClewareLightFactory;
-import com.comsysto.buildlight.common.driver.TrafficLight;
+import com.comsysto.buildlight.blinkstick.driver.trafficlight.ClewareLightFactory;
+import com.comsysto.buildlight.common.driver.core.TrafficLight;
 
 /**
  * @author zutherb

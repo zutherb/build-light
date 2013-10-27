@@ -36,7 +36,7 @@
  * @version ##library.prettyVersion## (##library.version##)
  */
 
-package com.comsysto.buildlight.blinkstick.driver;
+package com.comsysto.buildlight.blinkstick.driver.core;
 
 import com.codeminders.hidapi.HIDDevice;
 import com.codeminders.hidapi.HIDDeviceInfo;

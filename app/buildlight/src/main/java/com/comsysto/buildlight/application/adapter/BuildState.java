@@ -1,7 +1,7 @@
 package com.comsysto.buildlight.application.adapter;
 
 
-import com.comsysto.buildlight.common.driver.Color;
+import com.comsysto.buildlight.common.driver.core.Color;
 
 /**
  * @author zutherb
