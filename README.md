@@ -47,9 +47,31 @@ pi@raspberry ~/Downloads$ sudo ./buildlight
 
 #### Jenkins ####
 
+Create buildlight.properties in <buildlight directory>/bin - folder.
+
+```bash
+➜  bin  cat buildlight.properties
+build.server=Jenkins
+jenkins.server.url=http://localhost:8080/build-server
+jenkins.build.name=Build-Light-Test-Build
+buildlight.driver.factorybean=com.comsysto.buildlight.application.driver.ClewareDriverFactoryBean
+```
+
 [![Build Light](picture/Build-Light.jpg)](http://youtu.be/ArT32kL_j9g)
 
 #### Bamboo ####
+
+Create buildlight.properties in <buildlight directory>/bin - folder.
+
+```bash
+➜  bin  cat buildlight.properties
+build.server=Bamboo
+bamboo.server.url=http://localhost:8080/build-server
+bamboo.build.key=BUILDLIGHT_JOB
+bamboo.username=zutherb
+bamboo.password=t0ps3cr3t
+buildlight.driver.factorybean=com.comsysto.buildlight.application.driver.BlinkStickDriverFactoryBean
+```
 
 [![Build Light](picture/Build-Light.jpg)](http://youtu.be/IfQtBqZTjnQ)
 

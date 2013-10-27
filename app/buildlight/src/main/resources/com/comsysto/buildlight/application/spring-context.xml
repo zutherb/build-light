@@ -26,7 +26,7 @@
         <prop key="buildlight.read.timeout">1000</prop>
         <prop key="buildlight.connection.timeout">1000</prop>
         <prop key="buildlight.driver.factorybean">
-            com.comsysto.buildlight.application.factorybean.ConsoleTrafficLightFactoryBean
+            com.comsysto.buildlight.application.driver.ConsoleTrafficLightFactoryBean
         </prop>
         <prop key="buildlight.arduino.port">/dev/ttyACM0</prop>
         <prop key="buildlight.arduino.baudrate">57600</prop>
