@@ -105,7 +105,7 @@ Step 3: Create buildlight.properties in <buildlight-pi directory>/bin - folder.
 build.server=Jenkins
 jenkins.server.url=http://localhost:8080/build-server
 jenkins.build.name=Build-Light-Test-Build
-buildlight.driver.factorybean=com.comsysto.buildlight.application.factory.ArduinoDriverFactoryBean
+buildlight.driver.factorybean=com.comsysto.buildlight.application.driver.ArduinoDriverFactoryBean
 #buildlight.arduino.port=/dev/ttyACM0 [Default]
 #buildlight.arduino.switch.on.level=HIGH [Default - Choose LOW ,e.g. when relays switch on low pegal]
 
