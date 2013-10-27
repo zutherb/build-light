@@ -12,12 +12,12 @@ public final class ArduinoTrafficLightFactory {
 
     private ArduinoTrafficLightFactory() { /* NOOP */ }
 
-    public static TrafficLight createNewInstance(String port, String levelName) {
+    public static TrafficLight create(String port, String levelName) {
         Arduino arduino = new Arduino(port, DEFAULT_BAUD_RATE);
         return new ArduinoTrafficLightImpl(arduino, SwitchOnLevel.fromString(levelName));
     }
 
-    public static TrafficLight createNewInstance(String port, int baudRate, String levelName) {
+    public static TrafficLight create(String port, int baudRate, String levelName) {
         Arduino arduino = new Arduino(port, baudRate);
         return new ArduinoTrafficLightImpl(arduino, SwitchOnLevel.fromString(levelName));
     }

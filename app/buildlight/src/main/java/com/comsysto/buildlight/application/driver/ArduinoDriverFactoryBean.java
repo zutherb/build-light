@@ -9,14 +9,17 @@ import org.springframework.beans.factory.annotation.Value;
  */
 public class ArduinoDriverFactoryBean extends AbstractTrafficLightFactoryBean {
 
-    @Value("${traffic.light.arduino.port}")
+    @Value("${buildlight.arduino.port}")
     private String trafficLightPort;
 
-    @Value("${traffic.light.switch.on.level}")
+    @Value("${buildlight.arduino.baudrate}")
+    private int baudRate;
+
+    @Value("${buildlight.arduino.switch.on.level}")
     private String switchOnLevel;
 
     @Override
     public TrafficLight getObject() throws Exception {
-        return ArduinoTrafficLightFactory.createNewInstance(trafficLightPort, switchOnLevel);
+        return ArduinoTrafficLightFactory.create(trafficLightPort, baudRate, switchOnLevel);
     }
 }

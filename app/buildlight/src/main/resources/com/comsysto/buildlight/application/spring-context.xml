@@ -20,17 +20,20 @@
 
     <context:property-placeholder system-properties-mode="OVERRIDE"
                                   location="file:${buildlight.property.file}"
-                                  properties-ref="defaultProperties"
-                                  order="1"/>
+                                  properties-ref="defaultProperties"/>
 
     <util:properties id="defaultProperties">
         <prop key="buildlight.read.timeout">1000</prop>
         <prop key="buildlight.connection.timeout">1000</prop>
-        <prop key="traffic.light.factory">com.comsysto.buildlight.application.factorybean.ClewareDriverFactoryBean
+        <prop key="buildlight.driver.factorybean">
+            com.comsysto.buildlight.application.factorybean.ConsoleTrafficLightFactoryBean
         </prop>
+        <prop key="buildlight.arduino.port">/dev/ttyACM0</prop>
+        <prop key="buildlight.arduino.baudrate">57600</prop>
+        <prop key="buildlight.arduino.switch.on.level">HIGH</prop>
     </util:properties>
 
-    <bean id="trafficLight" class="${traffic.light.factory}"/>
+    <bean id="trafficLight" class="${buildlight.driver.factorybean}"/>
 
     <bean class="org.springframework.web.client.RestTemplate">
         <constructor-arg>

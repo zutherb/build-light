@@ -25,11 +25,13 @@ sourceSets {
 
 configurations {
     all*.exclude group: "com.codeminders"
+    all*.exclude group: "org.rxtx"
 }
 
 dependencies {
     compile project(":app:buildlight")
     compile files("lib/hidapi-pi-1.1.jar")
+    compile files("lib/RXTXcomm-2.2pre2.jar")
 }
 
 jar {
@@ -46,5 +48,12 @@ jar {
 run {
     if (project.hasProperty('args')) {
         args project.args.split('\\s+')
+    }
+}
+
+startScripts {
+    doLast {
+        unixScript.text = unixScript.text.replace('DEFAULT_JVM_OPTS=""', 'DEFAULT_JVM_OPTS="-Dfile.encoding=utf-8 -Djava.library.path=/usr/lib/jni/"')
+        windowsScript.text = windowsScript.text.replace('DEFAULT_JVM_OPTS=', 'DEFAULT_JVM_OPTS="-Dfile.encoding=utf-8 -Djava.library.path=/usr/lib/jni/"')
     }
 }
