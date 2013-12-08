@@ -81,10 +81,10 @@ public class BambooSimulator {
         if (isEmpty(currentLifeCycle)) {
             int buildLifeCycleId = randomData.nextInt(0, 30);
             if (buildLifeCycleId < 20) {
-                currentLifeCycle = new ArrayList<LifeCycleState>(LifeCycleState.getSuccessfulBambooLifeCycle());
+                currentLifeCycle = new ArrayList<>(LifeCycleState.getSuccessfulBambooLifeCycle());
             }
             if (buildLifeCycleId >= 20) {
-                currentLifeCycle = new ArrayList<LifeCycleState>(LifeCycleState.getFailedBambooLifeCycle());
+                currentLifeCycle = new ArrayList<>(LifeCycleState.getFailedBambooLifeCycle());
             }
         }
     }

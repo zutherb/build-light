@@ -326,7 +326,7 @@ public class BlinkStick {
     private static HIDDeviceInfo[] findAllDescriptors() {
         Initialize();
 
-        List<HIDDeviceInfo> blinkstickList = new ArrayList<HIDDeviceInfo>();
+        List<HIDDeviceInfo> blinkstickList = new ArrayList<>();
 
         try {
             HIDManager hidManager = HIDManager.getInstance();
@@ -351,7 +351,7 @@ public class BlinkStick {
      * @return an array of BlinkStick objects
      */
     public static BlinkStick[] findAll() {
-        List<BlinkStick> blinkStickList = new ArrayList<BlinkStick>();
+        List<BlinkStick> blinkStickList = new ArrayList<>();
 
         HIDDeviceInfo[] infos = findAllDescriptors();
 

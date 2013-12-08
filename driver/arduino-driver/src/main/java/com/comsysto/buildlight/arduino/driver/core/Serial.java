@@ -95,17 +95,13 @@ public class Serial implements SerialPortEventListener {
             port = null;
             input = null;
             output = null;
-        } catch (UnsupportedCommOperationException e) {
-            e.printStackTrace();
-        } catch (TooManyListenersException e) {
+        } catch (UnsupportedCommOperationException | TooManyListenersException e) {
             e.printStackTrace();
         }
 
         try {
             serialEventMethod = proxy.getClass().getMethod("serialEvent", new Class[]{Serial.class});
-        } catch (SecurityException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
+        } catch (SecurityException | NoSuchMethodException e) {
             e.printStackTrace();
         }
     }

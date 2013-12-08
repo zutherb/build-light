@@ -4,14 +4,14 @@ apply plugin: 'idea'
 
 test.onlyIf { !Boolean.getBoolean('skip.tests') }
 
-tasks.withType(Compile) {
+tasks.withType(JavaCompile) {
     options.compilerArgs << "-Xlint:unchecked -Xlint:deprecation"
 }
 
 group = 'com.comsysto.buildlight'
 
-sourceCompatibility = 1.6
-targetCompatibility = 1.6
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
 
 compileJava.options.encoding = 'UTF-8'
 compileTestJava.options.encoding = 'UTF-8'
@@ -32,6 +32,7 @@ ext {
     springVersion = "3.2.3.RELEASE"
     jacksonVersion = "1.9.13"
     httpClientVersion = "4.2.5"
+    javaHome = System.properties['java.home']
 }
 
 configurations {
@@ -48,7 +49,9 @@ subprojects {
 
     repositories {
         mavenCentral()
-        mavenRepo(url: 'http://maven.springsource.org/release')
+        maven{
+            url 'http://maven.springsource.org/release'
+        }
     }
 
     ext {
@@ -61,6 +64,11 @@ subprojects {
                 "commons-io:commons-io:2.4",
                 "org.apache.commons:commons-math:2.2",
                 "org.apache.commons:commons-exec:1.1"
+        ]
+
+        javaFxDeps = [
+            files("$javaHome/lib/jfxrt.jar"),
+            files("$javaHome/../lib/ant-javafx.jar")
         ]
 
         springDeps = [
@@ -99,5 +107,5 @@ subprojects {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '1.7'
+    gradleVersion = '1.9'
 }

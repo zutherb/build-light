@@ -1,6 +1,23 @@
 apply plugin: 'application'
+apply plugin: 'macAppBundle'
+
+
 
 mainClassName = "com.comsysto.buildlight.application.Runner"
+
+macAppBundle {
+    mainClassName = mainClassName
+    icon = "${buildDir}/resources/main/icons/TrafficLight.icns"
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.github.zutherb.gradle:gradle-macappbundle:0.1'
+    }
+}
 
 group = 'com.comsysto.buildlight'
 
@@ -34,8 +51,8 @@ dependencies {
 
     compile commonDeps
     compile springDeps
+    compile javaFxDeps
 
-    compile "org.springframework:spring-web:$springVersion"
     compile "org.springframework:spring-web:$springVersion"
     compile "org.apache.httpcomponents:httpclient:$httpClientVersion"
     compile "org.reflections:reflections:0.9.8"

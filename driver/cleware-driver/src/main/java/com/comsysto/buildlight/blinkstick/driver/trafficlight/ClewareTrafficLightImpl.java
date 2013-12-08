@@ -25,9 +25,9 @@ public class ClewareTrafficLightImpl extends AbstractTrafficLight<Byte> {
     private static final byte ONE = (byte) 0x1;
 
     private static Map<Color, Byte> LED_MAPPING = ImmutableMap.<Color, Byte>builder()
-            .put(Color.RED, new Byte((byte) 0x10))
-            .put(Color.YELLOW, new Byte((byte) 0x11))
-            .put(Color.GREEN, new Byte((byte) 0x12))
+            .put(Color.RED, (byte) 0x10)
+            .put(Color.YELLOW, (byte) 0x11)
+            .put(Color.GREEN, (byte) 0x12)
             .build();
 
     private final HIDManager hidManager;

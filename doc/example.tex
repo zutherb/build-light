@@ -1,0 +1,116 @@
+%
+% uml in latex example
+% pdflatex -enable-write18 -shell-escape example.tex
+%
+
+\documentclass[10pt]{article}
+
+%
+% provides the UML function
+%
+\input{lib/suml}
+
+%
+%
+%
+\usepackage{lib/usecases}
+
+%
+% uses your own styling
+%
+%\input{layout}
+
+\begin{document}
+\suml{uml test}{figures/test.pdf}{
+	[test] -> [text]
+}
+
+
+
+%% Use Cases Template File
+%% Created by Tom Desair (http://www.tomdesair.com)
+%% Downloadable at: http://www.tomdesair.com/downloads/use-case-latex-template.zip
+%% Date Modified: 03/04/2012
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+
+%Sometimes it is a good idea to put domain objects in \texttt{}
+%The template and the descriptions are based on the book Applying UML and Patterns: 
+%An Introduction to Object-Oriented Analysis and Design and Iterative Development
+%(3rd Edition) by Craig Larman.
+\begin{usecase}
+
+\addtitle{Use Case 1}{Template test} 
+
+%Scope: the system under design
+\addfield{Scope:}{System-wide}
+
+%Level: "user-goal" or "subfunction"
+\addfield{Level:}{User-goal}
+
+%Primary Actor: Calls on the system to deliver its services.
+\addfield{Primary Actor:}{End-User}
+
+%Stakeholders and Interests: Who cares about this use case and what do they want?
+\additemizedfield{Stakeholders and Interests:}{
+	\item Stakeholder 1 name: his interests
+	\item Stakeholder 2 name: his interests
+}
+
+%Preconditions: What must be true on start and worth telling the reader?
+\addfield{Preconditions:}{}
+%when multiple
+%\additemizedfield{Preconditions:}{} 
+
+%Postconditions: What must be true on successful completion and worth telling the reader
+\addfield{Postconditions:}{}
+%when multiple
+%\additemizedfield{Preconditions:}{}
+
+%Main Success Scenario: A typical, unconditional happy path scenario of success.
+\addscenario{Main Success Scenario:}{
+	\item The first action
+	\item The second action
+}
+
+%Extensions: Alternate scenarios of success or failure.
+\addscenario{Extensions:}{
+	\item[2.a] Invalid login data:
+		\begin{enumerate}
+		\item[1.] System shows failure message
+		\item[2.] User returns to step 1
+		\end{enumerate}
+	\item[5.a] Invalid subsriber data:
+		\begin{enumerate}
+		\item[1.] System shows failure message
+		\item[2.] User returns to step 2 and corrects the errors
+		\end{enumerate}
+}
+
+%Special Requirements: Related non-functional requirements.
+\additemizedfield{Special Requirements:}{
+	\item first applicable non-functional requirement
+	\item second applicable non-functional requirement
+}
+
+%Technology and Data Variations List: Varying I/O methods and data formats.
+\addscenario{Technology and Data Variations List:}{
+	\item[1a.] Alternative first action with other technology
+}
+
+%Frequency of Occurrence: Influences investigation, testing and timing of implementation.
+\addfield{Frequency of Occurrence:}{}
+
+%Miscellaneous: Such as open issues/questions
+%\addfield{Open Issues:}{}
+
+\end{usecase}
+
+
+\end{document}

@@ -40,10 +40,10 @@ public class JenkinsSimulator {
         if (isEmpty(currentLifeCycle)) {
             int buildLifeCycleId = randomData.nextInt(0, 30);
             if (buildLifeCycleId < 20) {
-                currentLifeCycle = new ArrayList<Color>(asList(Color.red, Color.red_anime, Color.blue));
+                currentLifeCycle = new ArrayList<>(asList(Color.red, Color.red_anime, Color.blue));
             }
             if (buildLifeCycleId >= 20) {
-                currentLifeCycle = new ArrayList<Color>(asList(Color.blue, Color.blue_anime, Color.blue));
+                currentLifeCycle = new ArrayList<>(asList(Color.blue, Color.blue_anime, Color.blue));
             }
         }
     }

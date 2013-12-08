@@ -6,5 +6,5 @@ package com.comsysto.buildlight.respository.bamboo.model;
 public enum State {
     Successful,
     Failed,
-    Unkown;
+    Unkown
 }

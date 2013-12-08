@@ -32,7 +32,7 @@ public class Results extends Metrics {
 
         public Builder addResult(Result result) {
             if (isEmpty(results.results)) {
-                results.results = new ArrayList<Result>();
+                results.results = new ArrayList<>();
             }
             results.results.add(0, result);
             return this;

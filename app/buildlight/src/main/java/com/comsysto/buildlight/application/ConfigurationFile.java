@@ -68,19 +68,20 @@ public class ConfigurationFile {
 
     @Override
     public String toString() {
-        StringBuffer buffer = new StringBuffer();
+        StringBuilder buffer = new StringBuilder();
         switch (serverType) {
             case Jenkins:
-                buffer.append("build.server=" + serverType.name() + "\n");
-                buffer.append("jenkins.server.url=" + jenkinsUrl + "\n");
-                buffer.append("jenkins.build.name=" + jenkinsBuildName + "\n");
+                buffer.append("build.server=").append(serverType.name()).append("\n")
+                      .append("jenkins.server.url=").append(jenkinsUrl).append("\n")
+                      .append("jenkins.build.name=").append(jenkinsBuildName).append("\n");
                 break;
             case Bamboo:
-                buffer.append("build.server=" + serverType.name() + "\n");
-                buffer.append("bamboo.server.url=" + bambooUrl + "\n");
-                buffer.append("bamboo.build.key=" + bambooBuildKey + "\n");
-                buffer.append("bamboo.username=" + bambooUsername + "\n");
-                buffer.append("bamboo.password=" + bambooPassword + "\n");
+                buffer.append("build.server=")
+                      .append(serverType.name()).append("\n")
+                      .append("bamboo.server.url=").append(bambooUrl).append("\n")
+                      .append("bamboo.build.key=").append(bambooBuildKey).append("\n")
+                      .append("bamboo.username=").append(bambooUsername).append("\n")
+                      .append("bamboo.password=").append(bambooPassword).append("\n");
                 break;
             default:
                 throw new NotImplementedException("Known build server type");

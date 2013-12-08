@@ -4,7 +4,6 @@ import com.comsysto.buildlight.respository.common.BuildServerRepository;
 import org.reflections.Reflections;
 
 import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.util.Set;
 
 /**
@@ -20,11 +19,7 @@ public class BuildServerAdapterFactory {
             try {
                 Constructor<?> constructor = clazz.getConstructor(repository.getClass().getInterfaces()[0]);
                 return (BuildServerAdapter) constructor.newInstance(repository);
-            } catch (InvocationTargetException |
-                    InstantiationException |
-                    IllegalAccessException |
-                    IllegalArgumentException |
-                    NoSuchMethodException e) { /* NOOP */ }
+            } catch (Exception e) { /* NOOP */ }
         }
         throw new IllegalStateException("No Buildserver Adapter found:");
     }

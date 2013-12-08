@@ -1,0 +1,21 @@
+\usepackage{graphicx}
+
+%
+% suml creates uml graphics similar to yuml.me
+%
+% usage:
+% 
+%
+% requirements:
+% https://github.com/aivarsk/scruffy
+%
+% install dependencies on ubuntu with:
+% sudo apt-get install plotutils librsvg2-bin graphviz
+%
+\newcommand{\suml}[3]{
+\begin{figure}
+    \immediate\write18{suml "#3" | dot -Tpdf > #2}
+    \includegraphics{#2}
+    \caption{#1}
+\end{figure}
+}

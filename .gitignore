@@ -4,9 +4,16 @@
 *.iml
 *.ipr
 *.iws
+.idea/
+
+*.glo
+*.aux
+
+doc/*.pdf
 
 build/
 out/
 .gradle/
+classes/
 
 buildlight.properties
