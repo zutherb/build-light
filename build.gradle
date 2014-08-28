@@ -29,7 +29,7 @@ ext {
     junitVersion = "4.11"
     mockitoVersion = "1.9.5"
     jettyVersion = "8.1.12.v20130726"
-    springVersion = "3.2.3.RELEASE"
+    springVersion = "3.2.9.RELEASE"
     jacksonVersion = "1.9.13"
     httpClientVersion = "4.2.5"
     javaHome = System.properties['java.home']

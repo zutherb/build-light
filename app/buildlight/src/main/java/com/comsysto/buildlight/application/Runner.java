@@ -82,10 +82,10 @@ public final class Runner {
         LOGGER.error("Bamboo example:\n");
         LOGGER.error(BAMBOO_DEFAULT_CONFIGURATION);
         LOGGER.error("Driver Factory Beans:\n");
-        LOGGER.error("buildlight.driver.factorybean=com.comsysto.buildlight.application.factory.ArduinoDriverFactoryBean\n");
-        LOGGER.error("buildlight.driver.factorybean=com.comsysto.buildlight.application.factory.BlinkStickDriverFactoryBean\n");
-        LOGGER.error("buildlight.driver.factorybean=com.comsysto.buildlight.application.factory.ClewareDriverFactoryBean\n");
-        LOGGER.error("buildlight.driver.factorybean=com.comsysto.buildlight.application.factory.ConsoleTrafficLightFactoryBean [Default]\n");
+        LOGGER.error("buildlight.driver.factorybean=com.comsysto.buildlight.application.driver.ArduinoDriverFactoryBean\n");
+        LOGGER.error("buildlight.driver.factorybean=com.comsysto.buildlight.application.driver.BlinkStickDriverFactoryBean\n");
+        LOGGER.error("buildlight.driver.factorybean=com.comsysto.buildlight.application.driver.ClewareDriverFactoryBean\n");
+        LOGGER.error("buildlight.driver.factorybean=com.comsysto.buildlight.application.driver.ConsoleTrafficLightFactoryBean [Default]\n");
         LOGGER.error("");
         LOGGER.error("Available Serial Port:\n");
         String[] portList = Arduino.list();
