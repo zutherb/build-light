@@ -7,5 +7,5 @@ import com.comsysto.buildlight.respository.jenkins.model.JenkinsBuildResponse;
  * @author zutherb
  */
 public interface JenkinsRepository extends BuildServerRepository {
-    JenkinsBuildResponse getBuildResponse();
+    java.util.List<JenkinsBuildResponse> getBuildResponse();
 }

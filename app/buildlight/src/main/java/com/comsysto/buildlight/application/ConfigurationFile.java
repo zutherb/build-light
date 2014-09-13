@@ -34,38 +34,6 @@ public class ConfigurationFile {
     private String bambooUsername;
     private String bambooPassword;
 
-    public BuildServerType getServerType() {
-        return serverType;
-    }
-
-    public String getJenkinsUrl() {
-        return jenkinsUrl;
-    }
-
-    public String getJenkinsBuildName() {
-        return jenkinsBuildName;
-    }
-
-    public String jenkinsBuildNameProperty() {
-        return jenkinsBuildName;
-    }
-
-    public String getBambooUrl() {
-        return bambooUrl;
-    }
-
-    public String bambooBuildKey() {
-        return bambooBuildKey;
-    }
-
-    public String bambooUsername() {
-        return bambooUsername;
-    }
-
-    public String bambooPassword() {
-        return bambooPassword;
-    }
-
     @Override
     public String toString() {
         StringBuilder buffer = new StringBuilder();
@@ -73,7 +41,7 @@ public class ConfigurationFile {
             case Jenkins:
                 buffer.append("build.server=").append(serverType.name()).append("\n")
                       .append("jenkins.server.url=").append(jenkinsUrl).append("\n")
-                      .append("jenkins.build.name=").append(jenkinsBuildName).append("\n");
+                      .append("jenkins.build.names=").append(jenkinsBuildName).append("\n");
                 break;
             case Bamboo:
                 buffer.append("build.server=")

@@ -1,9 +1,13 @@
-package com.comsysto.buildlight.application.adapter;
+package com.comsysto.buildlight.application.job;
 
+import com.comsysto.buildlight.application.adapter.BuildServerAdapter;
+import com.comsysto.buildlight.application.adapter.BuildServerAdapterFactory;
+import com.comsysto.buildlight.application.adapter.BuildState;
 import com.comsysto.buildlight.common.driver.core.TrafficLight;
 import com.comsysto.buildlight.respository.common.BuildServerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 

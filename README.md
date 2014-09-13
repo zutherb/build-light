@@ -142,16 +142,3 @@ public class TrafficLightFactoryTest {
 }
 ```
 
-### Installation of the commandline tool ###
-
-* [Windows Download](http://h1994633.stratoserver.net:9090/job/Build-Light/lastSuccessfulBuild/artifact/driver/cleware/build/distributions/cleware-0.1-DEV.zip)
-* [Linux/Mac Download](http://h1994633.stratoserver.net:9090/job/Build-Light/lastSuccessfulBuild/artifact/driver/cleware/build/distributions/cleware-0.1-DEV.tar)
-* [RaspberryPI Download](http://h1994633.stratoserver.net:9090/job/Build-Light/lastSuccessfulBuild/artifact/driver/cleware-pi/build/distributions/cleware-pi-0.1-DEV.tar)
-
-```bash
-berndzuther@Bernds-MacBook-Pro ~/Downloads$ tar xvf cleware-0.1-DEV.zip
-berndzuther@Bernds-MacBook-Pro ~/Downloads$ cd cleware-0.1-DEV/bin
-berndzuther@Bernds-MacBook-Pro ~/Downloads$ ./cleware --gui
-```
-![Cleware Java GUI](picture/driver-gui-screen-windows.png)
-

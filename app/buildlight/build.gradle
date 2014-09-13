@@ -3,10 +3,12 @@ apply plugin: 'macAppBundle'
 
 
 
-mainClassName = "com.comsysto.buildlight.application.Runner"
+def runnerClassName = "com.comsysto.buildlight.application.Runner"
+
+mainClassName = runnerClassName
 
 macAppBundle {
-    mainClassName = mainClassName
+    mainClassName = "${runnerClassName}"
     icon = "${buildDir}/resources/main/icons/TrafficLight.icns"
 }
 
@@ -64,9 +66,9 @@ jar {
     manifest {
         attributes(
                 "Implementation-Title": "Build Light Application",
-                "Implementation-Version": version,
+                "Implementation-Version": "${version}",
                 "Author": "Bernd Zuther <bernd.zuther@comsysto.com>",
-                "Main-Class": mainClassName
+                "Main-Class": "${runnerClassName}"
         )
     }
 }

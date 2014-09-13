@@ -9,6 +9,10 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriTemplate;
 
 import java.net.URI;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * @author zutherb
@@ -17,23 +21,28 @@ import java.net.URI;
 public class JenkinsRepositoryImpl implements JenkinsRepository {
     private final String JENKINS_URL = "{serverUrl}/job/{name}/api/json";
 
-    @Value("${jenkins.server.url}")
     private String serverUrl;
-    @Value("${jenkins.build.name}")
-    private String name;
-
+    private List<String> names;
 
     private RestTemplate restTemplate;
 
     @Autowired
-    public JenkinsRepositoryImpl(RestTemplate restTemplate) {
+    public JenkinsRepositoryImpl(RestTemplate restTemplate,
+                                 @Value("${jenkins.server.url}") String serverUrl,
+                                 @Value("${jenkins.build.names}") String name) {
         this.restTemplate = restTemplate;
+        this.serverUrl = serverUrl;
+        this.names = Collections.unmodifiableList(Arrays.asList(name.split(",")));
     }
 
     @Override
-    public JenkinsBuildResponse getBuildResponse() {
-        UriTemplate buildServerUriTemplate = new UriTemplate(JENKINS_URL);
-        URI buildServerUri = buildServerUriTemplate.expand(serverUrl, name);
-        return restTemplate.getForObject(buildServerUri, JenkinsBuildResponse.class);
+    public List<JenkinsBuildResponse> getBuildResponse() {
+        List<JenkinsBuildResponse> results = new ArrayList<>();
+        for(String name : names){
+            UriTemplate buildServerUriTemplate = new UriTemplate(JENKINS_URL);
+            URI buildServerUri = buildServerUriTemplate.expand(serverUrl, name);
+            results.add(restTemplate.getForObject(buildServerUri, JenkinsBuildResponse.class));
+        }
+        return results;
     }
 }
