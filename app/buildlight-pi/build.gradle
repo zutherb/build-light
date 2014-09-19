@@ -1,8 +1,8 @@
 apply plugin: 'application'
 
-mainClassName = "com.comsysto.buildlight.application.Runner"
+mainClassName = "com.github.zutherb.buildlight.application.Runner"
 
-group = 'com.comsysto.buildlight'
+group = 'com.github.zutherb.buildlight'
 
 repositories {
     mavenCentral()

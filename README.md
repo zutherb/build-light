@@ -54,7 +54,7 @@ Create buildlight.properties in <buildlight directory>/bin - folder.
 build.server=Jenkins
 jenkins.server.url=http://localhost:8080/build-server
 jenkins.build.name=Build-Light-Test-Build
-buildlight.driver.factorybean=com.comsysto.buildlight.application.driver.ClewareDriverFactoryBean
+buildlight.driver.factorybean=com.github.zutherb.buildlight.application.driver.ClewareDriverFactoryBean
 ```
 
 [![Build Light](picture/Build-Light.jpg)](http://youtu.be/ArT32kL_j9g)
@@ -70,7 +70,7 @@ bamboo.server.url=http://localhost:8080/build-server
 bamboo.build.key=BUILDLIGHT_JOB
 bamboo.username=zutherb
 bamboo.password=t0ps3cr3t
-buildlight.driver.factorybean=com.comsysto.buildlight.application.driver.BlinkStickDriverFactoryBean
+buildlight.driver.factorybean=com.github.zutherb.buildlight.application.driver.BlinkStickDriverFactoryBean
 ```
 
 [![Build Light](picture/Build-Light.jpg)](http://youtu.be/IfQtBqZTjnQ)
@@ -105,7 +105,7 @@ Step 3: Create buildlight.properties in <buildlight-pi directory>/bin - folder.
 build.server=Jenkins
 jenkins.server.url=http://localhost:8080/build-server
 jenkins.build.name=Build-Light-Test-Build
-buildlight.driver.factorybean=com.comsysto.buildlight.application.driver.ArduinoDriverFactoryBean
+buildlight.driver.factorybean=com.github.zutherb.buildlight.application.driver.ArduinoDriverFactoryBean
 #buildlight.arduino.port=/dev/ttyACM0 [Default]
 #buildlight.arduino.switch.on.level=HIGH [Default - Choose LOW ,e.g. when relays switch on low pegal]
 
@@ -121,14 +121,14 @@ Cleware Traffic Java Driver
 #### Maven ####
 ```java
 <dependency>
-  <groupId>com.comsysto.buildlight</groupId>
+  <groupId>com.github.zutherb.buildlight</groupId>
   <artifactId>cleware-driver</artifactId>
   <version>1.0</version>
 </dependency>
 ```
 #### Gradle ####
 ```groovy
-compile "com.comsysto.buildlight:cleware-driver:1.0"
+compile "com.github.zutherb.buildlight.:cleware-driver:1.0"
 ```
 #### Java ####
 ```java

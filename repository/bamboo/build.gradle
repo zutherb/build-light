@@ -1,4 +1,4 @@
-group = 'com.comsysto.buildlight.repository'
+group = 'com.github.zutherb.buildlight.repository'
 
 project(":repository:bamboo:api") {
     archivesBaseName = 'bamboo-api'

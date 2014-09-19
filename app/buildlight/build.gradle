@@ -1,9 +1,9 @@
+apply plugin: 'groovy'
 apply plugin: 'application'
 apply plugin: 'macAppBundle'
+apply plugin: 'spring-boot'
 
-
-
-def runnerClassName = "com.comsysto.buildlight.application.Runner"
+def runnerClassName = "com.github.zutherb.buildlight.application.Runner"
 
 mainClassName = runnerClassName
 
@@ -18,15 +18,17 @@ buildscript {
     }
     dependencies {
         classpath 'com.github.zutherb.gradle:gradle-macappbundle:0.1'
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:1.1.3.RELEASE"
     }
 }
 
-group = 'com.comsysto.buildlight'
+group = 'com.github.zutherb.buildlight.'
 
 sourceSets {
     main {
         resources {
             srcDir 'src/main/java'
+            srcDir 'src/main/groovy'
             srcDir 'src/main/resources'
         }
     }
@@ -67,7 +69,7 @@ jar {
         attributes(
                 "Implementation-Title": "Build Light Application",
                 "Implementation-Version": "${version}",
-                "Author": "Bernd Zuther <bernd.zuther@comsysto.com>",
+                "Author": "Bernd Zuther <bernd.zuther@codecentric.de>",
                 "Main-Class": "${runnerClassName}"
         )
     }

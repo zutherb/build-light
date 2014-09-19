@@ -1,4 +1,4 @@
-group = 'com.comsysto.buildlight'
+group = 'com.github.zutherb.buildlight.'
 
 sourceSets {
     main {
