@@ -29,7 +29,7 @@ jar {
         attributes(
                 "Implementation-Title": "Build Light - Cleware Driver",
                 "Implementation-Version": version,
-                "Author": "Bernd Zuther <bernd.zuther@comsysto.com>",
+                "Author": "Bernd Zuther <bernd.zuther@codecentric.de>",
         )
     }
 }

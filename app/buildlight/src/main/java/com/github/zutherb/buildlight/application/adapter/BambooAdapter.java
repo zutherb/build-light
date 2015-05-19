@@ -5,6 +5,7 @@ import com.github.zutherb.buildlight.respository.bamboo.model.BambooPlanResponse
 import com.github.zutherb.buildlight.respository.bamboo.model.BambooResultResponse;
 import com.github.zutherb.buildlight.respository.bamboo.model.Result;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -19,19 +20,19 @@ public class BambooAdapter implements BuildServerAdapter {
     }
 
     @Override
-    public BuildState getCurrentBuildState() {
+    public List<BuildState> getCurrentBuildState() {
         BambooPlanResponse planResponse = bambooRepository.getPlanResponse();
         if (planResponse.isBuilding()) {
-            return BuildState.Building;
+            return Arrays.asList(BuildState.Building);
         }
         BambooResultResponse bambooResultResponse = bambooRepository.getResultResponse();
         List<Result> results = bambooResultResponse.getResults().getResults();
         Result result = results.get(0);
         switch (result.getState()) {
             case Successful:
-                return BuildState.Successful;
+                return Arrays.asList(BuildState.Successful);
             default:
-                return BuildState.Failed;
+                return Arrays.asList(BuildState.Failed);
         }
     }
 }

@@ -15,8 +15,8 @@
     <task:annotation-driven scheduler="taskScheduler"/>
     <task:scheduler id="taskScheduler" pool-size="1"/>
 
-    <import resource="classpath:/com.github.zutherb.buildlight.respository.bamboo/spring-context.xml"/>
-    <import resource="classpath:/om.github.zutherb.buildlight.respository.jenkins/spring-context.xml"/>
+    <import resource="classpath:/com/github/zutherb/buildlight/respository/jenkins/spring-context.xml"/>
+    <import resource="classpath:/com/github/zutherb/buildlight/respository/bamboo/spring-context.xml"/>
 
     <context:property-placeholder system-properties-mode="OVERRIDE"
                                   location="file:${buildlight.property.file}"

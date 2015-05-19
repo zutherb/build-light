@@ -70,7 +70,7 @@ bamboo.server.url=http://localhost:8080/build-server
 bamboo.build.key=BUILDLIGHT_JOB
 bamboo.username=zutherb
 bamboo.password=t0ps3cr3t
-buildlight.driver.factorybean=com.github.zutherb.buildlight.application.driver.BlinkStickDriverFactoryBean
+buildlight.driver.factorybean=com.github.zutherb.buildlight.driver.BlinkStickDriverFactoryBean
 ```
 
 [![Build Light](picture/Build-Light.jpg)](http://youtu.be/IfQtBqZTjnQ)
@@ -128,7 +128,7 @@ Cleware Traffic Java Driver
 ```
 #### Gradle ####
 ```groovy
-compile "com.github.zutherb.buildlight.:cleware-driver:1.0"
+compile "com.github.zutherb.buildlight:cleware-driver:1.0"
 ```
 #### Java ####
 ```java

@@ -39,7 +39,7 @@ jar {
         attributes(
                 "Implementation-Title": "Build Light Application for Raspberry PI",
                 "Implementation-Version": version,
-                "Author": "Bernd Zuther <bernd.zuther@comsysto.com>",
+                "Author": "Bernd Zuther <bernd.zuther@codecentric.de>",
                 "Main-Class": mainClassName
         )
     }

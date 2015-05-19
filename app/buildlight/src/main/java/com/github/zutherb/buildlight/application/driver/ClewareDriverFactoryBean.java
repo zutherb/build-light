@@ -1,6 +1,6 @@
 package com.github.zutherb.buildlight.application.driver;
 
-import com.github.zutherb.buildlight.blinkstick.driver.trafficlight.ClewareLightFactory;
+import com.github.zutherb.buildlight.cleware.driver.trafficlight.ClewareLightFactory;
 import com.github.zutherb.buildlight.common.driver.core.TrafficLight;
 
 /**

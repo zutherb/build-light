@@ -21,7 +21,7 @@ jar {
         attributes(
                 "Implementation-Title": "Build Light - Common Driver",
                 "Implementation-Version": version,
-                "Author": "Bernd Zuther <bernd.zuther@comsysto.com>",
+                "Author": "Bernd Zuther <bernd.zuther@codecentric.de>",
         )
     }
 }

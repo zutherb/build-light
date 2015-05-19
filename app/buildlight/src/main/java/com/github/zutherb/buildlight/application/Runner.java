@@ -25,7 +25,7 @@ public final class Runner {
 
     public static void main(String[] args) throws IOException {
         LOGGER.info("Build Light - Build Watch Application, Maintained by B. Zuther.\n" +
-                "Send bug reports using https://github.com/comsysto/build-light/issues\n");
+                "Send bug reports using https://github.com/zutherb/build-light/issues\n");
         if (CONFIGURATION_FILE.exists()) {
             lunchApplication();
         } else {
@@ -40,7 +40,7 @@ public final class Runner {
         System.setProperty("spring.profiles.active", builderServer.toLowerCase());
         System.setProperty("buildlight.property.file", CONFIGURATION_FILE.getAbsolutePath());
 
-        stayAliveTillKeyboardInteractionIsProcessed(new ClassPathXmlApplicationContext("classpath:/com.github.zutherb.buildlight.application/spring-context.xml"));
+        stayAliveTillKeyboardInteractionIsProcessed(new ClassPathXmlApplicationContext("classpath:/com/github/zutherb/buildlight/application/spring-context.xml"));
     }
 
     private static String getBuildServerName(Properties properties) {

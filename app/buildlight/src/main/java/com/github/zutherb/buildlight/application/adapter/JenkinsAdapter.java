@@ -1,9 +1,10 @@
 package com.github.zutherb.buildlight.application.adapter;
 
 import com.github.zutherb.buildlight.respository.jenkins.api.JenkinsRepository;
-import com.github.zutherb.buildlight.respository.jenkins.model.Build;
 import com.github.zutherb.buildlight.respository.jenkins.model.JenkinsBuildResponse;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -18,22 +19,23 @@ public class JenkinsAdapter implements BuildServerAdapter {
     }
 
     @Override
-    public BuildState getCurrentBuildState() {
+    public List<BuildState> getCurrentBuildState() {
         List<JenkinsBuildResponse> buildResponses = jenkinsRepository.getBuildResponse();
         return getCurrentBuildState(buildResponses);
     }
 
-    private BuildState getCurrentBuildState(List<JenkinsBuildResponse> buildResponses) {
-        BuildState result = BuildState.Successful;
-        for(JenkinsBuildResponse response : buildResponses){
-            if (BuildState.Building.equals(getCurrentBuildState(response)) && response.getDisplayName().contains("ui-test")){
-                result = BuildState.Building;
+    private List<BuildState> getCurrentBuildState(List<JenkinsBuildResponse> buildResponses) {
+        List<BuildState> results = new ArrayList<>(Arrays.asList(BuildState.Successful));
+        for (JenkinsBuildResponse response : buildResponses) {
+            if (BuildState.Failed.equals(getCurrentBuildState(response)) && response.getDisplayName().contains("ui-test")) {
+                results.add(BuildState.Building);
             }
-            if (BuildState.Failed.equals(getCurrentBuildState(response))){
-                result = BuildState.Failed;
+            if (BuildState.Failed.equals(getCurrentBuildState(response)) && !response.getDisplayName().contains("ui-test")) {
+                results.remove(BuildState.Successful);
+                results.add(BuildState.Failed);
             }
         }
-        return result;
+        return results;
     }
 
     private BuildState getCurrentBuildState(JenkinsBuildResponse buildResponse) {
