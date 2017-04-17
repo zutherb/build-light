@@ -22,16 +22,16 @@ file("gradle.properties").withInputStream { props.load(it) }
 props.each({ project.ext[it.key] = it.value })
 
 ext {
-    slf4jVersion = "1.7.5"
+    slf4jVersion = "1.7.25"
     commonsLangVersion = "2.6"
-    logbackVersion = "1.0.13"
-    groovyVersion = "2.1.6"
-    junitVersion = "4.11"
-    mockitoVersion = "1.9.5"
-    jettyVersion = "8.1.12.v20130726"
-    springVersion = "3.2.9.RELEASE"
+    logbackVersion = "1.2.3"
+    groovyVersion = "2.4.10"
+    junitVersion = "4.12"
+    mockitoVersion = "1.10.19"
+    jettyVersion = "9.4.3.v20170317"
+    springVersion = "4.3.7.RELEASE"
     jacksonVersion = "1.9.13"
-    httpClientVersion = "4.2.5"
+    httpClientVersion = "4.5.3"
     javaHome = System.properties['java.home']
 }
 

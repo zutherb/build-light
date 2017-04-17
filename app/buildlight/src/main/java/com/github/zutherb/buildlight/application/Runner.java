@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Properties;
 import java.util.Scanner;
 
@@ -88,7 +89,7 @@ public final class Runner {
         LOGGER.error("buildlight.driver.factorybean=com.github.zutherb.buildlight.application.driver.ConsoleTrafficLightFactoryBean [Default]\n");
         LOGGER.error("");
         LOGGER.error("Available Serial Port:\n");
-        String[] portList = Arduino.list();
+        List<String> portList = Arduino.list();
         for (String port : portList) {
             LOGGER.error(port);
         }

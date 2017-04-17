@@ -69,7 +69,7 @@ jar {
         attributes(
                 "Implementation-Title": "Build Light Application",
                 "Implementation-Version": "${version}",
-                "Author": "Bernd Zuther <bernd.zuther@codecentric.de>",
+                "Author": "Bernd Zuther <bernd.zuther@me.com>",
                 "Main-Class": "${runnerClassName}"
         )
     }

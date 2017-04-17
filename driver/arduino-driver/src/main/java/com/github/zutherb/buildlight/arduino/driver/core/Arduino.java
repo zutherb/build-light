@@ -1,5 +1,7 @@
 package com.github.zutherb.buildlight.arduino.driver.core;
 
+import java.util.*;
+
 public class Arduino {
 
     public static final int DIGITAL_PIN0 = 0;
@@ -145,8 +147,12 @@ public class Arduino {
         this.serial.dispose();
     }
 
-    public static String[] list() {
-        return Serial.list();
+    public static List<String> list() {
+        try {
+            return Arrays.asList(Serial.list());
+        } catch (Exception e) {
+            return Collections.emptyList();
+        }
     }
 
 
